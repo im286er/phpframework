@@ -13,5 +13,16 @@ class Kernel
 {
 	public static function start()
 	{
+		//自动加载类库
+		spl_autoload_register('Kernel::autoload');
+	}
+
+	/*
+	  * 该方法实现了自动加载类库的功能，在使用类似new操作时候，将自动调用此方法
+	  * 返回值： 加载类库成功返回true ， 加载类库失败返回 false
+	  * 说明  ： 在debug模式下，程序会报错，并且停止运行， 非debug模式，程序仅仅写日志，并且跳转到公用的错误提示页面
+	*/
+	public static function autoload()
+	{
 	}
 }

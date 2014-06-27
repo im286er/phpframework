@@ -74,6 +74,5 @@ else
 {
 	define('MAGIC_QUOTES_GPC',false);
 }
-
 require SYS_KERNEL.'Kernel'.CLS_EXT;
 Kernel::start();
