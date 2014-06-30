@@ -21,6 +21,9 @@ $GLOBALS['_bTime'] = microtime(true);
 define('MEMORY_LIMIT_ON', function_exists('memory_get_usage'));
 if (MEMORY_LIMIT_ON) $GLOBALS['_sMem'] = memory_get_usage();
 
+//文件加载个数，初始值为3
+$GLOBALS['_reqFile'] = 3;
+
 // 版本信息
 const RPF_VERSION       =   '0.0.1';
 
@@ -49,6 +52,7 @@ defined('SYS_VENDOR')   or define('SYS_VENDOR', SYS_LIB.'vendor/');         //�
 defined('COMMON_PATH')  or define('COMMON_PATH',    APP_PATH.'common/');    // 应用公共目录
 defined('APP_CONF')     or define('APP_CONF',       COMMON_PATH.'conf/');   // 应用配置目录
 defined('APP_LANG')     or define('APP_LANG',       COMMON_PATH.'lang/');   // 应用语言目录
+defined('APP_FUNC')     or define('APP_FUNC',       COMMON_PATH.'func/');   // 应用函数目录
 defined('HTML_PATH')    or define('HTML_PATH',      APP_PATH.'html/');      // 应用静态目录
 defined('RUNTIME_PATH') or define('RUNTIME_PATH',   APP_PATH.'runtime/');   // 系统运行时目录
 defined('LOG_PATH')     or define('LOG_PATH',       RUNTIME_PATH.'logs/');  // 应用日志目录
@@ -57,10 +61,14 @@ defined('DATA_PATH')    or define('DATA_PATH',      RUNTIME_PATH.'data/');  // �
 defined('CACHE_PATH')   or define('CACHE_PATH',     RUNTIME_PATH.'cache/'); // 应用模板缓存目录
 defined('CONF_EXT')     or define('CONF_EXT',       '.conf.php');           // 配置文件后缀
 defined('CLS_EXT')      or define('CLS_EXT',        '.class.php');          // 类库的扩展名
+defined('CLS_M_EXT')    or define('CLS_M_EXT',      '.model.class.php');    // model类库的扩展名
+defined('CLS_C_EXT')    or define('CLS_C_EXT',     '.controller.class.php');// controller类库的扩展名
+defined('CLS_A_EXT')    or define('CLS_A_EXT',      '.action.class.php');   // controller类库的扩展名
+defined('FUNC_EXT')     or define('FUNC_EXT',      '.func.php');            // 函数定义文件的扩展名
 defined('APP_M')        or define('APP_M',          APP_PATH.'model/');     // 应用model目录
 defined('APP_V')        or define('APP_V',          APP_PATH.'template/');  // 应用template目录
 defined('APP_C')        or define('APP_C',          APP_PATH.'controller/');// 应用model目录
-defined('APP_A')        or define('APP_A',          APP_C.'action/');       // 应用action目录
+defined('APP_A')        or define('APP_A',          APP_PATH.'action/');    // 应用action目录
 defined('APP_P')        or define('APP_P',          APP_PATH.'public/');    // 应用公共文件如js/css/image等存放目录
 defined('APP_F')        or define('APP_F',          APP_PATH.'uploads/');   // 应用上传文件存放目录，可以根据需要创建images/files等文件夹
 
@@ -74,5 +82,8 @@ else
 {
 	define('MAGIC_QUOTES_GPC',false);
 }
+
+//加载公共函数及核心启动类，启动框架执行
+require SYS_FUNC.'core'.FUNC_EXT;
 require SYS_KERNEL.'Kernel'.CLS_EXT;
 Kernel::start();
