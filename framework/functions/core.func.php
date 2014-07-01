@@ -57,3 +57,13 @@ function import($file)
 	$GLOBALS['_reqFile']++;
 	return require_once($file);
 }
+
+/*
+   * 功能: 判断是否所单词，含字母/数字/下划线
+   * 参数: $str 需要测试的字符串 类型: string
+   * 返回: 成功返回1，失败返回0
+*/
+function isword($str)
+{
+	return preg_match('/^(\w|\-)+$/', $str);
+}

@@ -63,7 +63,7 @@ defined('CONF_EXT')     or define('CONF_EXT',       '.conf.php');           // �
 defined('CLS_EXT')      or define('CLS_EXT',        '.class.php');          // 类库的扩展名
 defined('CLS_M_EXT')    or define('CLS_M_EXT',      '.model.class.php');    // model类库的扩展名
 defined('CLS_C_EXT')    or define('CLS_C_EXT',     '.controller.class.php');// controller类库的扩展名
-defined('CLS_A_EXT')    or define('CLS_A_EXT',      '.action.class.php');   // controller类库的扩展名
+defined('CLS_A_EXT')    or define('CLS_A_EXT',      '.action.class.php');   // action类库的扩展名
 defined('FUNC_EXT')     or define('FUNC_EXT',      '.func.php');            // 函数定义文件的扩展名
 defined('APP_M')        or define('APP_M',          APP_PATH.'model/');     // 应用model目录
 defined('APP_V')        or define('APP_V',          APP_PATH.'template/');  // 应用template目录

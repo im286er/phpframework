@@ -15,15 +15,24 @@ class Kernel
 {
 	//配置信息
 	static $_conf = array();
+	//语言包信息
+	static $_lang = array();
+	//初始化MVCA模式的值
+	static $_controller = null;
+	static $_action = null;
 
 	public static function start()
 	{
-		//加载配置信息
+		//加载配置信息，用户自定义的配置会覆盖系统的配置
 		self::loadConf();
-		//自动加载类库
-		spl_autoload_register('Kernel::autoload');
+		//加载语言包
+		self::loadLang();
 		//自动加载用户自定义的函数库
 		self::loadfunc();
+		//自动的解析URL分发
+		self::parseurl();
+		//自动加载类库
+		spl_autoload_register('Kernel::autoload');
 	}
 
 	/*
@@ -50,6 +59,195 @@ class Kernel
 	*/
 	private static function parseurl()
 	{
+		switch (self::$_conf['URL_MODEL'])
+		{
+			case URL_COMMON:              //普通URL模式
+				self::url_common();
+				break;
+			case URL_PATHINFO:            //PATHINFO模式
+				self::url_pathinfo();
+				break;
+			case URL_REWRITE:             //REWRITE模式
+				self::url_rewrite();
+				break;
+			default:                      //默认使用兼容模式URL_COMPAT
+				self::url_compat();
+		}
+	}
+
+	/*
+	  * 功能  ： 解析URL为rewrite模式
+	  * 参数  ： void
+	  * 返回  ： void
+	  * 说明  ： 由于未找到合适的判断rewrite模块是否支持函数，所以仅仅对使用apache的服务器做了rewrite检测，使用nginx/iis等服务器的请自己测试
+	*/
+	private static function url_rewrite()
+	{
+		//apache_get_modules
+		if ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'] && (function_exists('apache_get_modules') && !in_array('mod_rewrite', apache_get_modules())))
+		  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
+
+		self::$_controller = 'Index';
+		self::$_action = 'index';
+
+		if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'])
+		{
+			$tmpArr = array_values(array_filter(explode('/', trim($_SERVER['REQUEST_URI']))));
+			if (count($tmpArr) < 2)
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
+
+			self::$_controller = ucfirst(trim($tmpArr[0]));
+			self::$_action = trim($tmpArr[1]);
+			unset($tmpArr[0], $tmpArr[1]);
+			if (!empty($tmpArr) && count($tmpArr) > 0)
+			{
+				$tmpArr = array_values($tmpArr);
+				foreach ($tmpArr as $k => $v)
+				{
+					if ($k % 2 == 0)
+					{
+						//判断key的部分
+						if (!isword($v))
+						  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.$v);
+						if (!isset($_GET[$v]))
+						{
+							if (isset($tmpArr[$k + 1]))
+								$_GET[$v] = $tmpArr[$k + 1];
+							else
+								$_GET[$v] = null;
+
+							if (!isset($_REQUEST[$v]))
+								$_REQUEST[$v] = $_GET[$v];
+						}
+					}
+				}
+			}
+			unset($tmpArr);
+		}
+	}
+
+	/*
+	  * 功能  ： 解析URL为兼容模式
+	  * 参数  ： void
+	  * 返回  ： void
+	*/
+	private static function url_compat()
+	{
+		if ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'] && !isset($_GET['s']))
+		  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
+
+		self::$_controller = 'Index';
+		self::$_action = 'index';
+
+		if (isset($_GET['s']))
+		{
+			$tmpArr = array_values(array_filter(explode('/', trim($_GET['s']))));
+			if (count($tmpArr) < 2)
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
+
+			self::$_controller = ucfirst(trim($tmpArr[0]));
+			self::$_action = trim($tmpArr[1]);
+			unset($tmpArr[0], $tmpArr[1]);
+			if (!empty($tmpArr) && count($tmpArr) > 0)
+			{
+				$tmpArr = array_values($tmpArr);
+				foreach ($tmpArr as $k => $v)
+				{
+					if ($k % 2 == 0)
+					{
+						//判断key的部分
+						if (!isword($v))
+						  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.$v);
+						if (!isset($_GET[$v]))
+						{
+							if (isset($tmpArr[$k + 1]))
+								$_GET[$v] = $tmpArr[$k + 1];
+							else
+								$_GET[$v] = null;
+
+							if (!isset($_REQUEST[$v]))
+								$_REQUEST[$v] = $_GET[$v];
+						}
+					}
+				}
+			}
+			unset($tmpArr, $_GET['s']);
+		}
+	}
+
+	/*
+	  * 功能  ： 解析URL为普通模式
+	  * 参数  ： void
+	  * 返回  ： void
+	*/
+	private static function url_common()
+	{
+		if ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'] && (!isset($_GET['act']) || !isset($_GET['con'])))
+		  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
+		self::$_controller = 'Index';
+		self::$_action = 'index';
+
+		if (isset($_GET['con']))
+		{
+			self::$_controller = trim($_GET['con']);
+			if (!isword(self::$_controller))
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.self::$_controller);
+		}
+
+		if (isset($_GET['act']))
+		{
+			self::$_action = trim($_GET['act']);
+			if (!isword(self::$_action))
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.self::$_action);
+		}
+	}
+
+	/*
+	  * 功能  ： 解析URL为pathinfo模式，如果服务器不支持pathinfo模式，停止执行程序
+	  * 参数  ： void
+	  * 返回  ： void
+	*/
+	private static function url_pathinfo()
+	{
+		if ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'] && !isset($_SERVER['PATH_INFO']))
+		  die(self::$_lang['_SYS_LANG_NOT_SUPPORT_PATHINFO']);
+
+		self::$_controller = 'Index';
+		self::$_action = 'index';
+		if (isset($_SERVER['PATH_INFO']))
+		{
+			$tmpArr = array_values(array_filter(explode('/', trim($_SERVER['PATH_INFO']))));
+			if (count($tmpArr) < 2)
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
+
+			self::$_controller = ucfirst(trim($tmpArr[0]));
+			self::$_action = trim($tmpArr[1]);
+			unset($tmpArr[0], $tmpArr[1]);
+			if (!empty($tmpArr) && count($tmpArr) > 0)
+			{
+				$tmpArr = array_values($tmpArr);
+				foreach ($tmpArr as $k => $v)
+				{
+					if ($k % 2 == 0)
+					{
+						//判断key的部分
+						if (!isword($v))
+						  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.$v);
+						if (!isset($_GET[$v]))
+						{
+							if (isset($tmpArr[$k + 1]))
+								$_GET[$v] = $tmpArr[$k + 1];
+							else
+								$_GET[$v] = null;
+
+							if (!isset($_REQUEST[$v]))
+								$_REQUEST[$v] = $_GET[$v];
+						}
+					}
+				}
+			}
+			unset($tmpArr);
+		}
 	}
 
 	/*
@@ -76,6 +274,36 @@ class Kernel
 					if (strstr($file, CONF_EXT) != CONF_EXT)
 					  continue;
 					self::$_conf = array_merge(self::$_conf, import($file));
+				}
+			}
+			unset($dirArr);
+		}
+	}
+
+	/*
+	  * 功能  ： 自动加载语言包
+	  * 参数  ： void
+	  * 返回  ： void
+	*/
+	private static function loadLang()
+	{
+		if (is_array(self::$_lang) && !empty(self::$_lang))
+		  return;
+
+		static $confPath = array(
+					SYS_LANG,    // 系统的默认语言包目录
+					APP_LANG,    // 应用程序的默认语言包目录
+		);
+		foreach ($confPath as $cp)
+		{
+			$dirArr = read_dir($cp);
+			if (is_array($dirArr) && !empty($dirArr))
+			{
+				foreach ($dirArr as $file)
+				{
+					if (strstr($file, self::$_conf['LANG'].CONF_EXT) != self::$_conf['LANG'].CONF_EXT)
+					  continue;
+					self::$_lang = array_merge(self::$_lang, import($file));
 				}
 			}
 			unset($dirArr);
