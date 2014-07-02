@@ -18,7 +18,7 @@ defined('RPF_PATH') or exit();
 */
 function read_dir($dir)
 {
-	static $dirArr = array();
+	$dirArr = array();
 
 	$dir = trim($dir);
 
@@ -38,7 +38,7 @@ function read_dir($dir)
 			if (is_file($dir.$file))
 			  $dirArr[] = $dir.$file;
 			else
-			  return read_dir($dir.$file.'/');
+			   read_dir($dir.$file.'/');
 		}
 		closedir($dh);
 	}
@@ -66,4 +66,43 @@ function import($file)
 function isword($str)
 {
 	return preg_match('/^(\w|\-)+$/', $str);
+}
+
+/*
+   * 功能: 递归创建目录
+   * 参数: $dir 需要递归创建的目录 类型: string / array
+   * 返回: 成功返回true，失败返回false
+*/
+function mkdirs($dir)
+{
+	if (empty($dir))
+	  return false;
+
+	if (is_array($dir))
+	{
+		foreach ($dir as $d)
+			mkdir2($d);
+	}
+	elseif (is_string($dir))
+	{
+		$dir = str_replace("\\", '/', $dir);
+		mkdir2($dir);
+	}
+	return false;
+}
+
+function mkdir2($dir)
+{
+	if (!is_dir($dir))
+	{
+		if (!mkdir2(dirname($dir)))
+		{
+			return false;
+		}
+		if (!mkdir($dir, 0777))
+		{
+			return false;
+		}
+	}
+	return true;
 }

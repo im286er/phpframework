@@ -16,4 +16,5 @@ return array(
 			'_SYS_LANG_NOT_SUPPORT_PATHINFO' => '当前web服务器不支持此种URL模式',
 			'_SYS_LANG_URL_PARAMETER_ERROR' => 'URL参数错误，需要控制器controller和操作action',
 			'_SYS_LANG_URL_PARAMETER_VALUE_INVALID' => 'URL参数值存在非法字符',
+			'_SYS_LANG_CLASS_NOT_FIND' => '类文件找不到，加载类文件出错',
 );

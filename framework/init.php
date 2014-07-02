@@ -35,9 +35,9 @@ const URL_COMPAT        =   3;  // 兼容模式
 
 // 系统常量定义
 defined('RPF_PATH')     or define('RPF_PATH',   __DIR__.'/');
-defined('APP_PATH')     or define('APP_PATH',   dirname($_SERVER['SCRIPT_FILENAME']).'/');
-defined('DEBUG')        or define('DEBUG',      false);
 defined('APP_NAME')     or define('APP_NAME',   'Application');
+defined('APP_PATH')     or define('APP_PATH',   dirname($_SERVER['SCRIPT_FILENAME']).'/'.APP_NAME.'/');
+defined('DEBUG')        or define('DEBUG',      false);
 
 //系统目录定义          
 defined('SYS_CONF')     or define('SYS_CONF', RPF_PATH.'conf/');            //系统配置信息
@@ -67,7 +67,7 @@ defined('CLS_A_EXT')    or define('CLS_A_EXT',      '.action.class.php');   // a
 defined('FUNC_EXT')     or define('FUNC_EXT',      '.func.php');            // 函数定义文件的扩展名
 defined('APP_M')        or define('APP_M',          APP_PATH.'model/');     // 应用model目录
 defined('APP_V')        or define('APP_V',          APP_PATH.'template/');  // 应用template目录
-defined('APP_C')        or define('APP_C',          APP_PATH.'controller/');// 应用model目录
+defined('APP_C')        or define('APP_C',          APP_PATH.'controller/');// 应用controller目录
 defined('APP_A')        or define('APP_A',          APP_PATH.'action/');    // 应用action目录
 defined('APP_P')        or define('APP_P',          APP_PATH.'public/');    // 应用公共文件如js/css/image等存放目录
 defined('APP_F')        or define('APP_F',          APP_PATH.'uploads/');   // 应用上传文件存放目录，可以根据需要创建images/files等文件夹

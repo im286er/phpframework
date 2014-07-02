@@ -25,21 +25,56 @@ class Kernel
 	{
 		//加载配置信息，用户自定义的配置会覆盖系统的配置
 		self::loadConf();
+
 		//加载语言包
 		self::loadLang();
+
 		//自动加载用户自定义的函数库
 		self::loadfunc();
+
 		//自动的解析URL分发
 		self::parseurl();
+
 		//自动加载类库
 		spl_autoload_register('Kernel::autoload');
+
+		//目录检测和自动生成,为了效率此函数仅仅执行一次
+		self::mkdirs();
+	}
+
+	/*
+	  * 功能  ： 实现目录检测和自动创建目录
+	  * 参数  ： void
+	  * 返回  ： void
+	*/
+	private static function mkdirs()
+	{
+		$lockfile = TEMP_PATH.'build_dir.lock';
+		if (is_file($lockfile))
+		  return;
+		$dirArr = array(
+					APP_CONF,
+					APP_LANG,
+					APP_FUNC,
+					HTML_PATH,
+					TEMP_PATH,
+					DATA_PATH,
+					CACHE_PATH,
+					APP_M,
+					APP_V,
+					APP_C,
+					APP_A,
+					APP_P,
+		);
+		mkdirs($dirArr);
+		touch($lockfile);
 	}
 
 	/*
 	  * 功能  ： 该方法实现了自动加载类库的功能，在使用类似new操作时候，将自动调用此方法
 	  * 参数  ： $cls  类库class名称
 	  * 返回  ： 加载类库成功返回import函数的返回值 ， 加载类库失败程序停止执行
-	  * 说明  ： 在debug模式下，类库加载失败，程序会报错，并且停止运行， 非debug模式，程序仅仅写日志，并且跳转到公用的错误提示页面
+	  * 说明  ： 在debug模式下，类库加载失败，程序会报错，并且停止运行， 非debug模式，程序仅仅提示错误，但不显示详细错误内容
 	*/
 	public static function autoload($cls)
 	{
@@ -49,6 +84,10 @@ class Kernel
 
 		if (!self::loadUserClass($cls))
 		{
+			if (DEBUG)
+			  die(self::$_lang['_SYS_LANG_CLASS_NOT_FIND'].' : '.$cls);
+			else
+			  die(self::$_lang['_SYS_LANG_CLASS_NOT_FIND']);
 		}
 	}
 
@@ -318,8 +357,36 @@ class Kernel
 	*/
 	private static function loadUserClass($cls)
 	{
-		static $extArr = array(
-		);
+		//判断是否model
+		if (strpos($cls, self::$_conf['M_NAME']) !== false)
+		{
+			$file = APP_M.str_replace(self::$_conf['M_NAME'], '', $cls).CLS_M_EXT;
+			if (!is_file($file))
+			  return false;
+			import($file);
+			return true;
+		}
+
+		//判断是否controller
+		if (strpos($cls, self::$_conf['C_NAME']) !== false)
+		{
+			$file = APP_C.str_replace(self::$_conf['C_NAME'], '', $cls).CLS_C_EXT;
+			if (!is_file($file))
+			  return false;
+			import($file);
+			return true;
+		}
+
+		//判断是否action
+		if (strpos($cls, self::$_conf['A_NAME']) !== false)
+		{
+			$file = APP_A.self::$_controller.'/'.str_replace(self::$_conf['A_NAME'], '', $cls).CLS_A_EXT;
+			if (!is_file($file))
+			  return false;
+			import($file);
+			return true;
+		}
+		return false;
 	}
 
 	/*

@@ -16,4 +16,5 @@ return array(
 			'_SYS_LANG_NOT_SUPPORT_PATHINFO' => 'The current web server does not support this  url mode',
 			'_SYS_LANG_URL_PARAMETER_ERROR' => 'URL parameter error, need controller and action',
 			'_SYS_LANG_URL_PARAMETER_VALUE_INVALID' => 'URL parameter value invalid',
+			'_SYS_LANG_CLASS_NOT_FIND' => 'The class file is not found,loading class  file error',
 );
