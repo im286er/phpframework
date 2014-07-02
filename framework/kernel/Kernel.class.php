@@ -40,6 +40,39 @@ class Kernel
 
 		//目录检测和自动生成,为了效率此函数仅仅执行一次
 		self::mkdirs();
+
+		$con_name = self::$_controller.self::$_conf['C_NAME'];
+		$act_name = self::$_controller.self::$_action.self::$_conf['A_NAME'];
+
+		if (!class_exists($con_name))
+		{
+			if (DEBUG)
+			  die(self::$_lang['_SYS_LANG_CLASS_NOT_FIND'].' : '.$con_name);
+			else
+			  die(self::$_lang['_SYS_LANG_CLASS_NOT_FIND']);
+		}
+
+		if (!class_exists($act_name))
+		{
+			if (DEBUG)
+			  die(self::$_lang['_SYS_LANG_CLASS_NOT_FIND'].' : '.$act_name);
+			else
+			  die(self::$_lang['_SYS_LANG_CLASS_NOT_FIND']);
+		}
+
+		if (!method_exists($act_name, self::$_action))
+		{
+			if (DEBUG)
+			  die(self::$_lang['_SYS_LANG_METHOD_NOT_FIND'].' : '.$act_name.' ---> '.self::$_action);
+			else
+			  die(self::$_lang['_SYS_LANG_METHOD_NOT_FIND']);
+		}
+		$con_obj = new $con_name();
+		$act_obj = new $act_name();
+
+		$con_boj->init();
+		$act_boj->init();
+		$act_obj->run();
 	}
 
 	/*
