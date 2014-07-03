@@ -34,6 +34,7 @@ const URL_REWRITE       =   2;  //REWRITE模式
 const URL_COMPAT        =   3;  // 兼容模式
 
 // 系统常量定义
+defined('SAFE_MODEL'    or define('SAFE_MODEL', true);
 defined('RPF_PATH')     or define('RPF_PATH',   __DIR__.'/');
 defined('APP_NAME')     or define('APP_NAME',   'Application');
 defined('APP_PATH')     or define('APP_PATH',   dirname($_SERVER['SCRIPT_FILENAME']).'/'.APP_NAME.'/');
