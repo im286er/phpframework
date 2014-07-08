@@ -23,6 +23,8 @@ if (MEMORY_LIMIT_ON) $GLOBALS['_sMem'] = memory_get_usage();
 
 //文件加载个数，初始值为3
 $GLOBALS['_reqFile'] = 3;
+//执行的SQL数目
+$GLOBALS['_sqlCount'] = 0;
 
 // 版本信息
 const RPF_VERSION       =   '0.0.1';
@@ -34,11 +36,12 @@ const URL_REWRITE       =   2;  //REWRITE模式
 const URL_COMPAT        =   3;  // 兼容模式
 
 // 系统常量定义
-defined('SAFE_MODEL'    or define('SAFE_MODEL', true);
+defined('SAFE_MODEL')   or define('SAFE_MODEL', true);
 defined('RPF_PATH')     or define('RPF_PATH',   __DIR__.'/');
 defined('APP_NAME')     or define('APP_NAME',   'Application');
 defined('APP_PATH')     or define('APP_PATH',   dirname($_SERVER['SCRIPT_FILENAME']).'/'.APP_NAME.'/');
 defined('DEBUG')        or define('DEBUG',      false);
+defined('C_DEMO')       or define('C_DEMO',     true);
 
 //系统目录定义          
 defined('SYS_CONF')     or define('SYS_CONF', RPF_PATH.'conf/');            //系统配置信息

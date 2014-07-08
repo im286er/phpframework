@@ -316,6 +316,39 @@ function read_dir($dir)
 }
 
 /*
+   * 功能: 脚本退出时候执行
+   * 参数: void
+   * 返回: void
+   * 说明: 对于基于jquery的ajax请求不输出调试信息
+*/
+function shutdown()
+{
+	debuginfo();
+}
+
+/*
+   * 功能: 输出调试信息
+   * 参数: void
+   * 返回: void
+*/
+function debuginfo()
+{
+	if (!DEBUG)
+	  return;
+	if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')
+	  return;
+
+	$html = '
+			<pre>
+						 use Time:'.(echo_memory_usage(memory_get_usage() - $GLOBALS['_sMem'])).'
+						 use Memory:'.(microtime(true) - $GLOBALS['_bTime']).'
+						 required files counts:'.$GLOBALS['_reqFile'].'
+						 execute SQL counts:'.$GLOBALS['_sqlCount'].'
+			</pre> ';
+	echo $html;
+}
+
+/*
    * 功能: 包含文件，实现同require，只是做了包含文件个数统计
    * 参数: $file 需要包含的文件 类型: string
    * 返回: 成功返回同require，失败返回false

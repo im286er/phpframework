@@ -17,4 +17,5 @@ return array(
 			'_SYS_LANG_URL_PARAMETER_ERROR' => 'URL parameter error, need controller and action',
 			'_SYS_LANG_URL_PARAMETER_VALUE_INVALID' => 'URL parameter value invalid',
 			'_SYS_LANG_CLASS_NOT_FIND' => 'The class file is not found,loading class  file error',
+			'_SYS_LANG_TEMPLATE_NOT_FIND' => 'The template file is not found,loading template  file error',
 );
