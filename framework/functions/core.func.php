@@ -340,8 +340,8 @@ function debuginfo()
 
 	$html = '
 			<pre>
-						 use Time:'.(echo_memory_usage(memory_get_usage() - $GLOBALS['_sMem'])).'
-						 use Memory:'.(microtime(true) - $GLOBALS['_bTime']).'
+						 use Memory:'.(echo_memory_usage(memory_get_usage() - $GLOBALS['_sMem'])).'
+						 use Time:'.(microtime(true) - $GLOBALS['_bTime']).'
 						 required files counts:'.$GLOBALS['_reqFile'].'
 						 execute SQL counts:'.$GLOBALS['_sqlCount'].'
 			</pre> ';
