@@ -28,6 +28,9 @@ class Mysql
 		return self::$_instance;
 	}
 
+	/*
+	 * 功能: 获取最后一次插入的自增值
+	*/
 	public function getLastId()
 	{
 		if (is_null($this->pdo))
@@ -48,6 +51,55 @@ class Mysql
 		}
 	}
 
+	/*
+	 * 功能: 执行SELECT获取单条的一维数组的记录
+    */
+	public function fetchOne($sql, $data = array())
+	{
+		return $this->query($sql, $data, true, false);
+	}
+
+	/*
+	 * 功能: 执行SELECT获取所有记录的二维数组
+    */
+	public function fetchAll($sql, $data = array())
+	{
+		return $this->query($sql, $data, false, false);
+	}
+
+	/*
+	 * 功能: 执行SELECT获取单条的一维数组的记录 含缓存功能
+    */
+	public function fetchOneCache($sql, $data = array(), $cache_type = null, $timeout = null)
+	{
+		return $this->query($sql, $data, true, $cache_type, $timeout);
+	}
+
+	/*
+	 * 功能: 执行SELECT获取所有记录的二维数组 含缓存功能
+    */
+	public function fetchAllCache($sql, $data = array(), $cache_type = null, $timeout = null)
+	{
+		return $this->query($sql, $data, false, $cache_type, $timeout);
+	}
+
+	/*
+	 * 功能: 执行除了SELECT以外的SQL操作,底层实现调用对应的query方法，只是简便方法参数
+    */
+	public function execute($sql, $data = array())
+	{
+		return $this->query($sql, $data, true, false);
+	}
+
+	/*
+	 * 功能: 可以执行任何的SQL，包括SELECT/INSERT/CREATE等等，但是参数比较多
+	 * 参数说明
+	 * $sql          要执行的SQL
+	 * $data         要赋值到SQL里面做参数绑定的数组，只支持一维数组
+	 * $one          是否只取单条记录，true为单条记录（一维数组），false为全部记录（二维数组），对于INSERT/UPDATE操作此参数无效
+	 * $cache_type   缓存类型，m所内存缓存，f所文件缓存，false为不进行缓存，默认内存memcache缓存模式
+	 * $timeout      缓存有效时间，默认2小时，必须$cache_type不为false时候有效
+	*/
 	public function query($sql, $data = array(), $one = false, $cache_type = null, $timeout = null)
 	{
 		if (is_null($cache_type))
