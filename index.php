@@ -9,6 +9,5 @@ define('APP_NAME', 'Application'); //此设置非必须，除非有多个入口
 // 定义应用目录, 默认应用程序目录为当前入口文件所在目录
 define('APP_PATH',       dirname($_SERVER['SCRIPT_FILENAME']).'/'.APP_NAME.'/'); // 此设置非必须
 
-
 //引入框架初始化文件，大功告成了，其他事情都不用做了
 require('./framework/init.php');

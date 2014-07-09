@@ -346,6 +346,7 @@ function debuginfo()
 						 use Time:'.(microtime(true) - $GLOBALS['_bTime']).'
 						 required files counts:'.$GLOBALS['_reqFile'].'
 						 execute SQL counts:'.$GLOBALS['_sqlCount'].'
+						 made by Rain, Rain php framework version: '.RPF_VERSION.'
 			</pre> ';
 	echo $html;
 }
