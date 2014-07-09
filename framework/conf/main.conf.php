@@ -19,4 +19,26 @@ return array(
 			'V_NAME' => '.html',             // 默认的view template的文件扩展名
 			'C_NAME' => 'Controller',        // 默认的controller class的名称后缀
 			'A_NAME' => 'Action',            // 默认的action class的名称后缀
+
+			//数据库的配置信息开始
+			'DB_DSN' => 'mysql:host=127.0.0.1;dbname=test;charset=utf8',            // 数据库PDO方式DSN配置
+			'DB_UN' => 'root',           //数据库链接用户名
+			'DB_PW' => '123456',         //数据库链接密码
+			'DB_PRE' => 'tb_',           //数据库表前缀
+			//end
+
+			'MEM_HOST' => '127.0.0.1',   //memcache的配置主机IP
+			'MEM_PORT' => '11211',       //memcache的配置端口
+			'MEM_TIMEOUT' => '1',        //memcache的配置超时时间
+
+			//对于未开启memcache扩展的，虽然设置DB_CACHE_TYPE为m，但是程序仍然选择file cache
+			//如果DB_CACHE_TYPE的值为false，则不采用缓存机制
+			'DB_CACHE_TYPE' => 'm',       //数据库查询的缓存类型，默认m代表memcache，f代表文件缓存
+			//对于后台的任何数据库操作不用缓存机制,都是实时生效
+			'DB_CACHE_EXPIRE' => '7200',  //数据库查询的缓存时间，默认缓存7200秒即2小时
+
+			'ADMIN_APP_NAME' => 'admin',  //后台管理模块的APP_NAME
+
+
+
 );

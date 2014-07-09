@@ -551,6 +551,7 @@ EOT;
 			if (is_dir($sd))
 			{
 				$dirArr = read_dir($sd);
+
 				if (is_array($dirArr) && !empty($dirArr))
 				{
 					foreach ($dirArr as $file)

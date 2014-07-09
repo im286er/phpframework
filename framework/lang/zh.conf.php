@@ -18,4 +18,8 @@ return array(
 			'_SYS_LANG_URL_PARAMETER_VALUE_INVALID' => 'URL参数值存在非法字符',
 			'_SYS_LANG_CLASS_NOT_FIND' => '类文件找不到，加载类文件出错',
 			'_SYS_LANG_TEMPLATE_NOT_FIND' => '模板文件找不到，加载模板文件出错',
+			'_SYS_LANG_EXT_NOT_FIND' => '扩展没有找到',
+			'_SYS_LANG_NEW_PDO_ERROR' => 'new pdo 错误, 无法创建pdo对象,请检查pdo配置信息',
+			'_SYS_LANG_EXECUTE_SQL_ERROR' => '执行SQL报错',
+			'_SYS_LANG_MEM_CONNECT_ERROR' => '链接到memcache报错',
 );

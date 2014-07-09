@@ -286,9 +286,11 @@ function check_data($data, $type = 'post')
    * 参数: $dir 目录路径 类型: string
    * 返回: 成功返回目录一维数组，失败返回false
 */
-function read_dir($dir)
+function read_dir($dir, $clean = true)
 {
-	$dirArr = array();
+	static $dirArr = array();
+	if ($clean)
+		$dirArr = array();
 
 	$dir = trim($dir);
 
@@ -308,7 +310,7 @@ function read_dir($dir)
 			if (is_file($dir.$file))
 			  $dirArr[] = $dir.$file;
 			else
-			   read_dir($dir.$file.'/');
+			   read_dir($dir.$file.'/', false);
 		}
 		closedir($dh);
 	}
