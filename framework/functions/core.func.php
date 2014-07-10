@@ -55,6 +55,39 @@ function getc($name)
 	return htmlspecialchars($_COOKIE[$name]);
 }
 
+/*
+ * 功能: 发送邮件的函数
+ * 参数说明如下
+ * $to 接受邮件的email地址
+ * $subject 邮件的标题
+ * $body    邮件的内容
+ */
+function sendmail($to, $subject = '', $body = '')
+{
+    $mail             = new PHPMailer();
+    $mail->CharSet = EMAIL_CHARSET;
+    $mail->IsSMTP();
+    $mail->SMTPDebug  = EMAIL_DEBUG;
+    $mail->SMTPAuth   = EMAIL_SMTP;                  // 启用 SMTP 验证功能
+	if (EMAIL_SSL)
+		$mail->SMTPSecure = "ssl";                 // 安全协议，可以注释掉
+    $mail->Host       = EMAIL_HOST;      // SMTP 服务器
+    $mail->Port       = EMAIL_PORT;                   // SMTP服务器的端口号
+    $mail->Username   = EMAIL_USER;  // SMTP服务器用户名，PS：我乱打的
+    $mail->Password   = EMAIL_PWD;            // SMTP服务器密码
+    $mail->SetFrom(EMAIL_USER, EMAIL_NAME);
+    $mail->Subject    = $subject;
+    $mail->MsgHTML($body);
+    $mail->AddAddress($to, '');
+    if (!$mail->Send())
+	{
+		if (EMAIL_DEBUG)
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+		return false;
+    }
+	return true;
+}
+
 //this function use for deleting cookie from client
 //if delete cookie success return true else return false
 function delc($name)

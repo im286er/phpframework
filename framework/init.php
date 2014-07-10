@@ -53,6 +53,26 @@ defined('SYS_LIB')      or define('SYS_LIB', RPF_PATH.'lib/');              //�
 defined('SYS_CORE')     or define('SYS_CORE', SYS_LIB.'core/');             //核心类库代码,框架自己定义的类库代码
 defined('SYS_VENDOR')   or define('SYS_VENDOR', SYS_LIB.'vendor/');         //框架引入的第三方类库代码
 
+//邮件发送相关配置常量的定义 配置为常量原因在于相对与配置项效率更高
+//以下配置，请务必在您的入口文件进行自定义配置，如果您需要进行邮件发送功能的话
+defined('EMAIL_CHARSET')or define('EMAIL_CHARSET', 'utf-8');
+defined('EMAIL_DEBUG')  or define('EMAIL_DEBUG', 1); //1:errors and messages, 2:messages only, 0:no debug
+//是否启用SMTP认证
+defined('EMAIL_SMTP')   or define('EMAIL_SMTP', true);
+//是否启用安全协议证书
+defined('EMAIL_SSL')    or define('EMAIL_SSL', false);
+//提供SMTP服务的服务器地址
+defined('EMAIL_HOST')   or define('EMAIL_HOST', 'smtp.qq.com');
+//smtp服务器端口
+defined('EMAIL_PORT')   or define('EMAIL_PORT', 25);
+//smtp服务器登录用户名
+defined('EMAIL_USER')   or define('EMAIL_USER', 'xxxxx@qq.com');
+//smtp服务器登录密码
+defined('EMAIL_PWD')    or define('EMAIL_PWD', 'xxxxx');
+//显示的发送者名称
+defined('EMAIL_NAME')   or define('EMAIL_NAME', 'admin');
+//end
+
 //项目相关的配置信息定义
 defined('COMMON_PATH')  or define('COMMON_PATH',    APP_PATH.'common/');    // 应用公共目录
 defined('APP_CONF')     or define('APP_CONF',       COMMON_PATH.'conf/');   // 应用配置目录
