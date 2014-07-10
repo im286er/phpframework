@@ -15,6 +15,7 @@ class Mysql
 {
 	private $conf = null;
 	private $pdo = null;
+	private $trans = false;
 	private $statement = null;
 	private $lastInsID = null;
 	private static $_instance;
@@ -29,8 +30,52 @@ class Mysql
 	}
 
 	/*
+	 * 功能: 启动事务处理模式
+	 * 返回: 成功返回true，失败返回false
+	 */
+	public function startTrans()
+	{
+		if ($this->trans)
+		  return;
+		if (is_null($this->pdo))
+			$this->connect();
+		$this->trans = $this->pdo->beginTransaction();
+		return $this->trans;
+	}
+
+	/*
+	 * 功能: 提交事务
+	 * 返回: 成功返回true，失败返回false
+	 */
+	public function commit()
+	{
+		if (!$this->trans)
+		  return false;
+		if (is_null($this->pdo))
+			$this->connect();
+		$ret = $this->pdo->commit();
+		$this->trans = false;
+		return $ret;
+	}
+
+	/*
+	 * 功能: 事务回滚
+	 * 返回: 成功返回true，失败返回false
+	 */
+	public function rollback()
+	{
+		if (!$this->trans)
+		  return false;
+		if (is_null($this->pdo))
+			$this->connect();
+		$ret = $this->pdo->rollBack();
+		$this->trans = false;
+		return $ret;
+	}
+
+	/*
 	 * 功能: 获取最后一次插入的自增值
-	*/
+	 */
 	public function getLastId()
 	{
 		if (is_null($this->pdo))
@@ -46,7 +91,8 @@ class Mysql
 			$this->pdo = new PDO($this->conf['dsn'], $this->conf['un'], $this->conf['pw'], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_EMULATE_PREPARES => false));
 		} catch (PDOException $e) {
 			if (DEBUG)
-				throw new Exception($e->getMessage()); 
+				echo $e->getMessage(); 
+			echo '<p>Please try the command line: <b>setsebool httpd_can_network_connect 1</b>'."</p>";
 			die(Kernel::$_lang['_SYS_LANG_NEW_PDO_ERROR']);
 		}
 	}
@@ -134,6 +180,9 @@ class Mysql
 		}
 		if (!$this->statement->execute())
 		{
+			if ($this->trans)
+			  $this->rollback();
+
 			if (DEBUG)
 			{
 				echo '<pre>';

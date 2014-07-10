@@ -21,10 +21,10 @@ return array(
 			'A_NAME' => 'Action',            // 默认的action class的名称后缀
 
 			//数据库的配置信息开始
-			'DB_DSN' => 'mysql:host=127.0.0.1;dbname=test;charset=utf8',            // 数据库PDO方式DSN配置
-			'DB_UN' => 'root',           //数据库链接用户名
-			'DB_PW' => '123456',         //数据库链接密码
-			'DB_PRE' => 'tb_',           //数据库表前缀
+			'DB_DSN' => 'mysql:host=127.0.0.1;dbname=test;charset=utf8',            //数据库PDO方式DSN配置
+			'DB_UN' => 'root',                                                      //数据库链接用户名
+			'DB_PW' => 'rain717',                                                   //数据库链接密码
+			'DB_PRE' => 'tb_',                                                      //数据库表前缀
 			//end
 
 			'MEM_HOST' => '127.0.0.1',   //memcache的配置主机IP
@@ -38,7 +38,4 @@ return array(
 			'DB_CACHE_EXPIRE' => '7200',  //数据库查询的缓存时间，默认缓存7200秒即2小时
 
 			'ADMIN_APP_NAME' => 'admin',  //后台管理模块的APP_NAME
-
-
-
 );
