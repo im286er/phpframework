@@ -38,4 +38,6 @@ return array(
 			'DB_CACHE_EXPIRE' => '7200',  //数据库查询的缓存时间，默认缓存7200秒即2小时
 
 			'ADMIN_APP_NAME' => 'admin',  //后台管理模块的APP_NAME
+
+			'SESSION_SAVE_TYPE' => 'm',  //m值表示保存在memcache，f值表示session是文件保存方式
 );

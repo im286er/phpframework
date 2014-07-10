@@ -32,6 +32,9 @@ class Kernel
 		//自动加载用户自定义的函数库
 		self::loadfunc();
 
+		//初始化session
+		self::session();
+
 		//自动的解析URL分发
 		self::parseurl();
 
@@ -72,6 +75,22 @@ class Kernel
 		$con_obj->init();
 		$act_obj->init();
 		$act_obj->run();
+	}
+
+	/*
+	  * 功能  ： 初始化session
+	  * 参数  ： void
+	  * 返回  ： void
+	*/
+	private static function session()
+	{
+		//init session save type
+		if (extension_loaded('memcache') && self::$_conf['SESSION_SAVE_TYPE'] == 'm')
+		{
+			ini_set('session.save_handler', 'memcache');
+			ini_set('session.save_path', 'tcp://'.self::$_conf['MEM_HOST'].':'.self::$_conf['MEM_PORT']);
+		}
+		session_start();
 	}
 
 	/*
