@@ -42,6 +42,7 @@ defined('APP_NAME')     or define('APP_NAME',   'Application');
 defined('APP_PATH')     or define('APP_PATH',   dirname($_SERVER['SCRIPT_FILENAME']).'/'.APP_NAME.'/');
 defined('DEBUG')        or define('DEBUG',      false);
 defined('C_DEMO')       or define('C_DEMO',     true);
+defined('FONTS_PATH')   or define('FONTS_PATH', RPF_PATH.'fonts/');
 
 //系统目录定义          
 defined('SYS_CONF')     or define('SYS_CONF', RPF_PATH.'conf/');            //系统配置信息
