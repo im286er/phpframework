@@ -16,6 +16,8 @@ class Action
 {
 	//存储action设置的模板变量
 	private $valArr = array();
+	//是否开启对于form表单的token校验
+	protected $open_token = true;
 
 	//action 初始化调用
 	protected function init()
@@ -69,6 +71,25 @@ class Action
 	{
 	}
 
+	protected function checktoken()
+	{
+		if (count($_POST) && $this->open_token && isset($_SESSION[TOKEN_NAME]) && isset($_SESSION[$_SESSION[TOKEN_NAME]]))
+		{
+			if (!isset($_REQUEST[TOKEN_NAME]))
+				return false;
+			$val2 = trim($_REQUEST[TOKEN_NAME]);
+			if ($val2 != $_SESSION[$_SESSION[TOKEN_NAME]])
+			{
+				unset($_SESSION[$_SESSION[TOKEN_NAME]]);
+				unset($_SESSION[TOKEN_NAME]);
+				return false;
+			}
+			unset($_SESSION[$_SESSION[TOKEN_NAME]]);
+			unset($_SESSION[TOKEN_NAME]);
+		}
+		return true;
+	}
+
 	protected function set($key, $val)
 	{
 		$this->valArr[$key] = $val;
@@ -94,6 +115,13 @@ class Action
 			  die(self::$_lang['_SYS_LANG_TEMPLATE_NOT_FIND']);
 		}
 		$GLOBALS['_reqFile']++;
-		require_once($file);
+		if (OPEN_TOKEN && $this->open_token)
+		{
+			ob_start("callback");
+			require_once($file);
+			ob_end_flush();
+		}
+		else
+			require_once($file);
 	}
 }

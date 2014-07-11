@@ -440,6 +440,55 @@ function mkdirs($dir)
 	return false;
 }
 
+//自动写入token到form表单
+function callback($content)
+{
+	$content = str_replace("\r", '', $content);
+	$content = str_replace("\n", '', $content);
+	$token_key = substr(SITE_URL, 0, -1).$_SERVER['REQUEST_URI'];
+	foreach ($_REQUEST as $k => $v)
+	{
+		if ($k == TOKEN_NAME)
+			continue;
+		$token_key .= $k;
+	}
+	$token_key = md5($token_key);
+
+	if (!isset($_SESSION[$token_key]) || !isset($_SESSION[TOKEN_NAME]) || !isset($_SESSION[$_SESSION[TOKEN_NAME]]))
+	{
+		$val = md5(microtime().rand());
+		if (!isset($_SESSION[TOKEN_NAME]) || !isset($_REQUEST[TOKEN_NAME]))
+		{
+			$_SESSION[TOKEN_NAME] = $token_key;
+		}
+		$_SESSION[$token_key] = $val;
+	}
+	$content = preg_replace('/<form(.*?)>(.*?)<\/form>/i', '<form$1><input type="hidden" value="'.$_SESSION[$_SESSION[TOKEN_NAME]].'" 		name="'.TOKEN_NAME.'"/>$2</form>', $content);
+	chdir(dirname($_SERVER['SCRIPT_FILENAME']));
+	if (!DEBUG)
+	  $content = compress_html($content);
+	return $content;
+}
+
+//html代码压缩功能
+function compress_html($string) {
+    $string = str_replace("\r\n", '', $string);
+    $string = str_replace("\n", '', $string);
+    $string = str_replace("\r", '', $string);
+    $string = str_replace("\t", '', $string);
+	$pattern = array (
+                    "/[\s]+/",
+                    "/<!--[\\w\\W\r\\n]*?-->/",
+                    "'/\*[^*]*\*/'"
+                    );
+    $replace = array (
+                    " ",
+                    "",
+                    ""
+                    );
+    return preg_replace($pattern, $replace, $string);
+}
+
 function mkdir2($dir)
 {
 	if (!is_dir($dir))

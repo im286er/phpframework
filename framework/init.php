@@ -53,6 +53,11 @@ defined('SYS_LIB')      or define('SYS_LIB', RPF_PATH.'lib/');              //�
 defined('SYS_CORE')     or define('SYS_CORE', SYS_LIB.'core/');             //核心类库代码,框架自己定义的类库代码
 defined('SYS_VENDOR')   or define('SYS_VENDOR', SYS_LIB.'vendor/');         //框架引入的第三方类库代码
 
+//token相关配置
+defined('OPEN_TOKEN')   or define('OPEN_TOKEN', true);                      //是否开启token，默认true
+defined('TOKEN_NAME')   or define('TOKEN_NAME', 'token_name');              //token名称，即hidden的input的name值
+//end
+
 //邮件发送相关配置常量的定义 配置为常量原因在于相对与配置项效率更高
 //以下配置，请务必在您的入口文件进行自定义配置，如果您需要进行邮件发送功能的话
 defined('EMAIL_CHARSET')or define('EMAIL_CHARSET', 'utf-8');
