@@ -48,7 +48,7 @@ class Kernel
 		self::mkdirs();
 
 		//是否创建demo例子程序
-		self::demo();
+		Demo::cdemo();
 
 		$con_name = self::$_controller.self::$_conf['C_NAME'];
 		$act_name = self::$_controller.'_'.self::$_action.self::$_conf['A_NAME'];
@@ -91,93 +91,6 @@ class Kernel
 			ini_set('session.save_path', 'tcp://'.self::$_conf['MEM_HOST'].':'.self::$_conf['MEM_PORT']);
 		}
 		session_start();
-	}
-
-	/*
-	  * 功能  ： 生成Demo例子程序
-	  * 参数  ： void
-	  * 返回  ： void
-	*/
-	private static function demo()
-	{
-		if (!C_DEMO)
-		  return;
-		$con_file = APP_C.self::$_controller.CLS_C_EXT;
-		$con_name = self::$_controller.self::$_conf['C_NAME'];
-
-		$act_file = APP_A.self::$_controller.'/'.ucfirst(self::$_controller.'_'.self::$_action).CLS_A_EXT;
-		$act_name = self::$_controller.'_'.self::$_action.self::$_conf['A_NAME'];
-
-		$page_file = APP_V.self::$_controller.'/'.strtolower(self::$_action).self::$_conf['V_NAME'];
-		$dirArr = array(
-					dirname($act_file),
-					dirname($page_file),
-		);
-		mkdirs($dirArr);
-		$con_content = <<<EOT
-<?php
-/**
- *  自动生成的代码
- *  author: None
- **/
-class $con_name extends Controller
-{
-	//执行相关的初始化操作
-	public function init()
-	{
-		echo "controller init ok<br/>";
-	}
-	//其他方法可以任意定义。但是框架只调用controller类里面的init
-}
-EOT;
-		$act_content = <<<EOT
-<?php
-/**
- *  自动生成的代码
- *  author: None
- **/
-class $act_name extends Action
-{
-	//执行相关的初始化操作
-	public function init()
-	{
-		echo "action init ok<br/>";
-	}
-
-	//真正需要进行逻辑处理的运行代码类似其他框架的controller的action方法
-	public function run()
-	{
-		\$val = '来自action里面的赋值';
-		\$this->set('val', \$val);
-		echo "action run ok<br/>";
-		\$this->display();
-	}
-
-	//其他方法可以任意定义。但是框架只调用acion类里面的init和run
-}
-EOT;
-	$page_content = <<<EOT
-<html>
-	<head>
-		<title>模板自动生成代码</title>
-	</head>
-	<body>
-		<h2><?php echo \$val; ?></h2>
-	</body>
-</html>
-EOT;
-
-
-		if (!is_file($con_file))
-			file_put_contents($con_file, $con_content);
-
-		if (!is_file($act_file))
-			file_put_contents($act_file, $act_content);
-
-		if (!is_file($page_file))
-			file_put_contents($page_file, $page_content);
-
-		unset($act_file, $act_content, $con_file, $con_content, $page_file, $page_content);
 	}
 
 	/*
