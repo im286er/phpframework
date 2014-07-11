@@ -108,6 +108,15 @@ else
 	define('MAGIC_QUOTES_GPC',false);
 }
 
+if (!defined('SITE_URL'))
+{
+	$host = trim($_SERVER['HTTP_HOST']);
+	if (count(explode('.', $host)) > 2)
+		define('SITE_URL', 'http://'.$host.'/');
+	else
+		define('SITE_URL', 'http://www.'.$host.'/');
+}
+
 //加载公共函数及核心启动类，启动框架执行
 require SYS_FUNC.'core'.FUNC_EXT;
 require SYS_KERNEL.'Kernel'.CLS_EXT;

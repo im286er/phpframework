@@ -293,6 +293,16 @@ function get_link($str, $chinese = true)
 	}
 }
 
+//检查验证码
+function check_code($name)
+{
+	if (!isset($_SESSION['code']))
+		return false;
+	$s_code = $_SESSION['code'];
+	unset($_SESSION['code']);
+	return (strtolower(trim($_REQUEST[$name])) == $s_code);
+}
+
 function check_data($data, $type = 'post')
 {
 	if ('post' == $type)

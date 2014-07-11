@@ -18,22 +18,63 @@ class Action
 	private $valArr = array();
 
 	//action 初始化调用
-	public function init()
+	protected function init()
 	{
 	}
 
+	protected function success($msg = '操作成功', $code = 200, $navTabId = '', $rel = '', $callbackType = '', $forwardUrl = '', $confirmMsg = '')
+	{
+		$data = array(
+			'statusCode' => $code,
+			'message' => $msg,
+			'navTabId' => $navTabId,
+			'rel' => $rel,
+			'callbackType' => $callbackType,
+			'forwardUrl' => $forwardUrl,
+			'confirmMsg' => $confirmMsg,
+		);
+		exit(json_encode($data));
+	}
+
+	protected function error($msg = '操作失败', $code = 300, $navTabId = '', $rel = '', $callbackType = '', $forwardUrl = '', $confirmMsg = '')
+	{
+		$data = array(
+			'statusCode' => $code,
+			'message' => $msg,
+			'navTabId' => $navTabId,
+			'rel' => $rel,
+			'callbackType' => $callbackType,
+			'forwardUrl' => $forwardUrl,
+			'confirmMsg' => $confirmMsg,
+		);
+		exit(json_encode($data));
+	}
+
+	protected function timeout($msg = '操作超时', $code = 301, $navTabId = '', $rel = '', $callbackType = '', $forwardUrl = '', $confirmMsg = '')
+	{
+		$data = array(
+			'statusCode' => $code,
+			'message' => $msg,
+			'navTabId' => $navTabId,
+			'rel' => $rel,
+			'callbackType' => $callbackType,
+			'forwardUrl' => $forwardUrl,
+			'confirmMsg' => $confirmMsg,
+		);
+		exit(json_encode($data));
+	}
 
 	//action 真正执行的方法，所有子类必须重写这个方法
-	public function run()
+	protected function run()
 	{
 	}
 
-	public function set($key, $val)
+	protected function set($key, $val)
 	{
 		$this->valArr[$key] = $val;
 	}
 
-	public function display($tpl = null)
+	protected function display($tpl = null)
 	{
 		if (is_null($tpl))
 		  $tpl = Kernel::$_action;

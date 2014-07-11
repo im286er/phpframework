@@ -15,7 +15,7 @@ defined('RPF_PATH') or exit();
 class Controller
 {
 	//controller 初始化调用
-	public function init()
+	protected function init()
 	{
 	}
 }
