@@ -22,4 +22,5 @@ return array(
 			'_SYS_LANG_NEW_PDO_ERROR' => 'new pdo 错误, 无法创建pdo对象,请检查pdo配置信息',
 			'_SYS_LANG_EXECUTE_SQL_ERROR' => '执行SQL报错',
 			'_SYS_LANG_MEM_CONNECT_ERROR' => '链接到memcache报错',
+			'_SYS_LANG_FILE_NOT_FIND' => '对不起，文件没有找到',
 );

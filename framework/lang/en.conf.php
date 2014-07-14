@@ -22,4 +22,5 @@ return array(
 			'_SYS_LANG_NEW_PDO_ERROR' => 'New PDO error, cannot create the PDO object, check the PDO configuration information',
 			'_SYS_LANG_EXECUTE_SQL_ERROR' => 'Execute sql error',
 			'_SYS_LANG_MEM_CONNECT_ERROR' => 'connet to memcache error',
+			'_SYS_LANG_FILE_NOT_FIND' => 'sorry,File not find',
 );

@@ -119,7 +119,12 @@ if (!defined('SITE_URL'))
 	if (count(explode('.', $host)) > 2)
 		define('SITE_URL', 'http://'.$host.'/');
 	else
-		define('SITE_URL', 'http://www.'.$host.'/');
+	{
+		if ($host != 'localhost')
+			define('SITE_URL', 'http://www.'.$host.'/');
+		else
+			define('SITE_URL', 'http://'.$host.'/');
+	}
 }
 
 //加载公共函数及核心启动类，启动框架执行

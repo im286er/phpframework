@@ -470,6 +470,80 @@ function callback($content)
 	return $content;
 }
 
+//if success return url else return false
+/*
+ * 功能: 自动根据URL路由模式，生成URL地址
+ * 参数说明
+ * $act 控制器和操作方法 例如 User/add
+ * $param 传递参数的key=>value的键值对，可为空
+ * $file  入口文件，不含.php扩展名，默认当前入口文件
+ * $domain 网址，默认当前host网址
+ */
+function U($act, $param = null, $file = null, $domain = null)
+{
+	if (empty($domain))
+		$domain = SITE_URL;
+	if (stripos($domain, 'http') === false)
+		$domain = 'http://'.$domain;
+	if (substr($domain, -1) != '/')
+		$domain .= '/';
+
+	if (empty($file))
+	{
+		$file = str_replace('/', '', $_SERVER['SCRIPT_NAME']);
+		$file = str_ireplace('.php', '', $_SERVER['SCRIPT_NAME']);
+	}
+
+	switch (Kernel::$_conf['URL_MODEL'])
+	{
+		case URL_COMMON:              //普通URL模式
+			$actArr = explode('/', $act);
+			$ret = $domain.$file.'.php?app='.$file.'&con='.ucfirst($actArr[0]).'&act='.strtolower($actArr[1]);
+			if (is_array($param) && !empty($param))
+			{
+				$ret .= '&';
+				foreach ($param as $k => $v)
+					$ret .= urlencode($k).'='.urlencode($v).'&';
+				$ret = substr($ret, 0, -1);
+			}
+			break;
+		case URL_PATHINFO:            //PATHINFO模式
+			$actArr = explode('/', $act);
+			$ret = $domain.$file.'.php/'.$file.'/'.ucfirst($actArr[0]).'/'.strtolower($actArr[1]);
+			if (is_array($param) && !empty($param))
+			{
+				$ret .= '/';
+				foreach ($param as $k => $v)
+					$ret .= urlencode($k).'/'.urlencode($v).'/';
+				$ret = substr($ret, 0, -1);
+			}
+			break;
+		case URL_REWRITE:             //REWRITE模式
+			$actArr = explode('/', $act);
+			$ret = $domain.$file.'/'.ucfirst($actArr[0]).'/'.strtolower($actArr[1]);
+			if (is_array($param) && !empty($param))
+			{
+				$ret .= '/';
+				foreach ($param as $k => $v)
+					$ret .= urlencode($k).'/'.urlencode($v).'/';
+				$ret = substr($ret, 0, -1);
+			}
+			break;
+		default:                      //默认使用兼容模式URL_COMPAT
+			$actArr = explode('/', $act);
+			$ret = $domain.$file.'.php?s='.$file.'/'.ucfirst($actArr[0]).'/'.strtolower($actArr[1]);
+			if (is_array($param) && !empty($param))
+			{
+				$ret .= '/';
+				foreach ($param as $k => $v)
+					$ret .= urlencode($k).'/'.urlencode($v).'/';
+				$ret = substr($ret, 0, -1);
+			}
+	}
+
+	return $ret;
+}
+
 //html代码压缩功能
 function compress_html($string) {
     $string = str_replace("\r\n", '', $string);

@@ -13,6 +13,13 @@ defined('RPF_PATH') or exit();
 
 //系统默认的配置文件，如果需要覆盖，请在对应的应用程序的配置目录APP_CONF下进行改写，请勿修改此文件
 return array(
+			//URL模式可选值:URL_COMMON/URL_PATHINFO/URL_REWRITE/URL_COMPAT
+			/* Demo
+			 * URL_COMPAT   like this: http://localhost/index.php?s=index/Index/index/un/rain/pw/123456
+			 * URL_COMMON   like this: http://localhost/index.php?app=index&con=Index&act=index&un=rain&pw=123456
+			 * URL_PATHINFO like this: http://localhost/index.php/index/Index/index/un/rain/pw/123456
+			 * URL_REWRITE  like this: http://localhost/index/Index/index/un/rain/pw/123456
+			 */
 			'URL_MODEL' => URL_COMPAT,       // URL模式，默认使用兼容模式
 			'LANG' => 'zh',                  // 默认的语言包选择中文
 			'M_NAME' => 'Model',             // 默认的model class的名称后缀

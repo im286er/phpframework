@@ -20,6 +20,7 @@ class Kernel
 	//初始化MVCA模式的值
 	static $_controller = null;
 	static $_action = null;
+	static $_app = null;
 
 	public static function start()
 	{
@@ -48,7 +49,12 @@ class Kernel
 		self::mkdirs();
 
 		//是否创建demo例子程序
-		Demo::cdemo();
+		$lockfile = TEMP_PATH.'build_demo.lock';
+		if (C_DEMO && !is_file($lockfile))
+		{
+			Demo::cdemo();
+			touch($lockfile);
+		}
 
 		$con_name = self::$_controller.self::$_conf['C_NAME'];
 		$act_name = self::$_controller.'_'.self::$_action.self::$_conf['A_NAME'];
@@ -179,16 +185,32 @@ class Kernel
 
 		self::$_controller = 'Index';
 		self::$_action = 'index';
+		self::$_app = 'index';
 
 		if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'])
 		{
-			$tmpArr = array_values(array_filter(explode('/', trim($_SERVER['REQUEST_URI']))));
-			if (count($tmpArr) < 2)
+			$tmpArr = array_values(array_filter(explode('/', str_replace('=', '/', str_replace('&', '/', trim($_SERVER['REQUEST_URI']))))));
+			if (count($tmpArr) < 3)
 			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
 
-			self::$_controller = ucfirst(trim($tmpArr[0]));
-			self::$_action = trim($tmpArr[1]);
-			unset($tmpArr[0], $tmpArr[1]);
+			self::$_app = trim($tmpArr[0]);
+			self::$_controller = ucfirst(trim($tmpArr[1]));
+			self::$_action = trim($tmpArr[2]);
+			unset($tmpArr[0], $tmpArr[1], $tmpArr[2]);
+
+			if (!isword(self::$_app))
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.self::$_app);
+
+			//判断入口文件是否存在
+			if (!is_file(str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php'))
+			{
+				if (DEBUG)
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND'].': '.str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php');
+				else
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND']);
+			}
+			//end
+
 			if (!empty($tmpArr) && count($tmpArr) > 0)
 			{
 				$tmpArr = array_values($tmpArr);
@@ -228,16 +250,32 @@ class Kernel
 
 		self::$_controller = 'Index';
 		self::$_action = 'index';
+		self::$_app = 'index';
 
 		if (isset($_GET['s']))
 		{
 			$tmpArr = array_values(array_filter(explode('/', trim($_GET['s']))));
-			if (count($tmpArr) < 2)
+			if (count($tmpArr) < 3)
 			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
 
-			self::$_controller = ucfirst(trim($tmpArr[0]));
-			self::$_action = trim($tmpArr[1]);
-			unset($tmpArr[0], $tmpArr[1]);
+			self::$_controller = ucfirst(trim($tmpArr[1]));
+			self::$_action = trim($tmpArr[2]);
+			self::$_app = trim($tmpArr[0]);
+			unset($tmpArr[0], $tmpArr[1], $tmpArr[2]);
+
+			if (!isword(self::$_app))
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.self::$_app);
+
+			//判断入口文件是否存在
+			if (!is_file(str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php'))
+			{
+				if (DEBUG)
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND'].': '.str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php');
+				else
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND']);
+			}
+			//end
+
 			if (!empty($tmpArr) && count($tmpArr) > 0)
 			{
 				$tmpArr = array_values($tmpArr);
@@ -272,16 +310,34 @@ class Kernel
 	*/
 	private static function url_common()
 	{
-		if ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'] && (!isset($_GET['act']) || !isset($_GET['con'])))
+		if ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'] && (!isset($_GET['act']) || !isset($_GET['app']) || !isset($_GET['con'])))
 		  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
 		self::$_controller = 'Index';
 		self::$_action = 'index';
+		self::$_app = 'index';
 
 		if (isset($_GET['con']))
 		{
 			self::$_controller = trim($_GET['con']);
 			if (!isword(self::$_controller))
 			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.self::$_controller);
+		}
+
+		if (isset($_GET['app']))
+		{
+			self::$_app = trim($_GET['app']);
+			if (!isword(self::$_app))
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.self::$_app);
+
+			//判断入口文件是否存在
+			if (!is_file(str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php'))
+			{
+				if (DEBUG)
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND'].': '.str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php');
+				else
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND']);
+			}
+			//end
 		}
 
 		if (isset($_GET['act']))
@@ -304,15 +360,32 @@ class Kernel
 
 		self::$_controller = 'Index';
 		self::$_action = 'index';
+		self::$_app = 'index';
+
 		if (isset($_SERVER['PATH_INFO']))
 		{
-			$tmpArr = array_values(array_filter(explode('/', trim($_SERVER['PATH_INFO']))));
-			if (count($tmpArr) < 2)
+			$tmpArr = array_values(array_filter(explode('/', str_replace('=', '/', str_replace('&', '/', trim($_SERVER['PATH_INFO']))))));
+			if (count($tmpArr) < 3)
 			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
 
-			self::$_controller = ucfirst(trim($tmpArr[0]));
-			self::$_action = trim($tmpArr[1]);
-			unset($tmpArr[0], $tmpArr[1]);
+			self::$_app = trim($tmpArr[0]);
+			self::$_controller = ucfirst(trim($tmpArr[1]));
+			self::$_action = trim($tmpArr[2]);
+			unset($tmpArr[0], $tmpArr[1], $tmpArr[2]);
+
+			if (!isword(self::$_app))
+			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_VALUE_INVALID'].': '.self::$_app);
+
+			//判断入口文件是否存在
+			if (!is_file(str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php'))
+			{
+				if (DEBUG)
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND'].': '.str_replace(APP_NAME.'/', '', APP_PATH).self::$_app.'.php');
+				else
+				  die(self::$_lang['_SYS_LANG_FILE_NOT_FIND']);
+			}
+			//end
+
 			if (!empty($tmpArr) && count($tmpArr) > 0)
 			{
 				$tmpArr = array_values($tmpArr);
