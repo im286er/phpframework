@@ -390,6 +390,7 @@ function debuginfo()
 						 required files counts:'.$GLOBALS['_reqFile'].'
 						 execute SQL counts:'.$GLOBALS['_sqlCount'].'
 						 made by Rain, Rain php framework version: '.RPF_VERSION.'
+						 web site: www.94cto.com/ www.itziy.com/ www.coder100.com
 			</pre> ';
 	echo $html;
 }

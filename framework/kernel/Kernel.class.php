@@ -109,6 +109,7 @@ class Kernel
 		$lockfile = TEMP_PATH.'build_dir.lock';
 		if (is_file($lockfile))
 		  return;
+
 		$dirArr = array(
 					APP_CONF,
 					APP_LANG,
@@ -124,6 +125,9 @@ class Kernel
 					APP_P,
 		);
 		mkdirs($dirArr);
+
+		//拷贝配置文件到应用程序的配置目录下
+		copy(SYS_CONF.'main'.CONF_EXT, APP_CONF.'main'.CONF_EXT);
 		touch($lockfile);
 	}
 
