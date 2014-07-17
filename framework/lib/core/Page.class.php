@@ -18,6 +18,7 @@ class Page {
     public $parameter  ;
     // 默认列表每页显示行数
     public $listRows = 20;
+	public $hurl = null;
     // 起始行数
     public $firstRow	;
     // 分页总页面数
@@ -76,25 +77,61 @@ class Page {
     public function show() {
         if(0 == $this->totalRows) return '';
         $p = $this->varPage;
+		if (empty($this->hurl))
+			$this->hurl = Kernel::$_controller.'/'.Kernel::$_action;
         $nowCoolPage      = ceil($this->nowPage/$this->rollPage);
-        $url  =  $_SERVER['REQUEST_URI'].(strpos($_SERVER['REQUEST_URI'],'?')?'':"?").$this->parameter;
-        $parse = parse_url($url);
-        if(isset($parse['query'])) {
-            parse_str($parse['query'],$params);
-            unset($params[$p]);
-            $url   =  $parse['path'].'?'.http_build_query($params);
-        }
+		$split = '&';
+		$split2 = '=';
+		if (Kernel::$_conf['URL_MODEL'] == 1 || Kernel::$_conf['URL_MODEL'] == 2)
+		{
+			//如果是rewrite模式或者是pathinfo模式
+			$split = '/';
+			$split2 = '/';
+			if (!empty($this->parameter))
+			{
+				$this->parameter = str_replace('=', '/', $this->parameter);
+				$this->parameter = str_replace('&', '/', $this->parameter);
+			}
+		}
+		if (!empty($this->parameter) && is_array($this->parameter))
+		{
+			$result  = '';
+			foreach ($this->parameter as $pk => $pv)
+				$result .= urldecode($pk).$split2.urldecode($pv).$split;
+			$result = substr($result, 0, -1);
+			$this->parameter = $result;
+		}
+		$pArr = array();
+		if (!empty($this->parameter) && $split == $split2)
+		{
+			$tArr = explode($split, $this->parameter);
+			foreach ($tArr as $tk => $tv)
+			{
+				if ($tk % 2  == 0)
+				  $pArr[urlencode($tv)] = urlencode($tArr[$tk + 1]);
+			}
+		}
+		if (!empty($this->parameter) && $split != $split2)
+		{
+			$tArr = explode($split, $this->parameter);
+			foreach ($tArr as $tv)
+			{
+				$t2Arr = explode($split2, $tv);
+				$pArr[urlencode($t2Arr[0])] = urlencode($t2Arr[1]);
+			}
+		}
+		$url = U($this->hurl, $pArr);
         //上下翻页字符串
         $upRow   = $this->nowPage-1;
         $downRow = $this->nowPage+1;
         if ($upRow>0){
-            $upPage="<a href='".$url."&".$p."=$upRow'>".$this->config['prev']."</a>";
+            $upPage="<a href='".$url.$split.$p."{$split2}$upRow'>".$this->config['prev']."</a>";
         }else{
             $upPage="";
         }
 
         if ($downRow <= $this->totalPages){
-            $downPage="<a href='".$url."&".$p."=$downRow'>".$this->config['next']."</a>";
+            $downPage="<a href='".$url."$split".$p."{$split2}$downRow'>".$this->config['next']."</a>";
         }else{
             $downPage="";
         }
@@ -104,8 +141,8 @@ class Page {
             $prePage = "";
         }else{
             $preRow =  $this->nowPage-$this->rollPage;
-            $prePage = "<a href='".$url."&".$p."=$preRow' >上".$this->rollPage."页</a>";
-            $theFirst = "<a href='".$url."&".$p."=1' >".$this->config['first']."</a>";
+            $prePage = "<a href='".$url."$split".$p."{$split2}$preRow' >上".$this->rollPage."页</a>";
+            $theFirst = "<a href='".$url."$split".$p."{$split2}1' >".$this->config['first']."</a>";
         }
         if($nowCoolPage == $this->coolPages){
             $nextPage = "";
@@ -113,8 +150,8 @@ class Page {
         }else{
             $nextRow = $this->nowPage+$this->rollPage;
             $theEndRow = $this->totalPages;
-            $nextPage = "<a href='".$url."&".$p."=$nextRow' >下".$this->rollPage."页</a>";
-            $theEnd = "<a href='".$url."&".$p."=$theEndRow' >".$this->config['last']."</a>";
+            $nextPage = "<a href='".$url."$split".$p."{$split2}$nextRow' >下".$this->rollPage."页</a>";
+            $theEnd = "<a href='".$url."$split".$p."{$split2}$theEndRow' >".$this->config['last']."</a>";
         }
         // 1 2 3 4 5
         $linkPage = "";
@@ -122,7 +159,7 @@ class Page {
             $page=($nowCoolPage-1)*$this->rollPage+$i;
             if($page!=$this->nowPage){
                 if($page<=$this->totalPages){
-                    $linkPage .= "&nbsp;<a href='".$url."&".$p."=$page'>&nbsp;".$page."&nbsp;</a>";
+                    $linkPage .= "&nbsp;<a href='".$url."$split".$p."{$split2}$page'>&nbsp;".$page."&nbsp;</a>";
                 }else{
                     break;
                 }

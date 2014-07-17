@@ -103,9 +103,9 @@ function getpath($path, $p = true)
 	{
 		if (!is_dir($path) && !is_file($path))
 			return false;
-		return str_replace(str_replace(APP_NAME, '', APP_PATH), SITE_URL, $path);
+		return str_replace(str_replace(APP_NAME.'/', '', APP_PATH), SITE_URL, $path);
 	}
-	return str_replace(SITE_URL, str_replace(APP_NAME, '', APP_PATH), $path);
+	return str_replace(SITE_URL, str_replace(APP_NAME.'/', '', APP_PATH), $path);
 }
 
 //this function use for remove directories or files
@@ -491,8 +491,8 @@ function U($act, $param = null, $file = null, $domain = null)
 
 	if (empty($file))
 	{
-		$file = str_replace('/', '', $_SERVER['SCRIPT_NAME']);
-		$file = str_ireplace('.php', '', $_SERVER['SCRIPT_NAME']);
+		$file = str_ireplace('/', '', $_SERVER['SCRIPT_NAME']);
+		$file = str_ireplace('.php', '',$file);
 	}
 
 	switch (Kernel::$_conf['URL_MODEL'])

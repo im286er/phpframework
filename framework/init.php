@@ -21,6 +21,9 @@ $GLOBALS['_bTime'] = microtime(true);
 define('MEMORY_LIMIT_ON', function_exists('memory_get_usage'));
 if (MEMORY_LIMIT_ON) $GLOBALS['_sMem'] = memory_get_usage();
 
+//设置默认的时区
+date_default_timezone_set('PRC');
+
 //文件加载个数，初始值为3
 $GLOBALS['_reqFile'] = 3;
 //执行的SQL数目
@@ -71,9 +74,9 @@ defined('EMAIL_HOST')   or define('EMAIL_HOST', 'smtp.qq.com');
 //smtp服务器端口
 defined('EMAIL_PORT')   or define('EMAIL_PORT', 25);
 //smtp服务器登录用户名
-defined('EMAIL_USER')   or define('EMAIL_USER', 'xxxxx@qq.com');
+defined('EMAIL_USER')   or define('EMAIL_USER', 'xxxx@qq.com');
 //smtp服务器登录密码
-defined('EMAIL_PWD')    or define('EMAIL_PWD', 'xxxxx');
+defined('EMAIL_PWD')    or define('EMAIL_PWD', 'xxxx');
 //显示的发送者名称
 defined('EMAIL_NAME')   or define('EMAIL_NAME', 'admin');
 //end
