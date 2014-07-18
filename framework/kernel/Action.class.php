@@ -110,9 +110,9 @@ class Action
 		if (!is_file($file))
 		{
 			if (DEBUG)
-			  die(self::$_lang['_SYS_LANG_TEMPLATE_NOT_FIND'].' : '.$file);
+			  die(Kernel::$_lang['_SYS_LANG_TEMPLATE_NOT_FIND'].' : '.$file);
 			else
-			  die(self::$_lang['_SYS_LANG_TEMPLATE_NOT_FIND']);
+			  die(Kernel::$_lang['_SYS_LANG_TEMPLATE_NOT_FIND']);
 		}
 		$GLOBALS['_reqFile']++;
 		if (OPEN_TOKEN && $this->open_token)
