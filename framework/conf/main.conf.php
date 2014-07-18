@@ -27,6 +27,12 @@ return array(
 			'C_NAME' => 'Controller',        // 默认的controller class的名称后缀
 			'A_NAME' => 'Action',            // 默认的action class的名称后缀
 
+			//session 相关的配置
+			'S_NAME' => null, //session名称
+			'S_ID'   => null, //session的ID
+			'S_EXPIRE' => 180, //session的有效期，单位：分钟，默认180分钟
+			//end
+
 			//数据库的配置信息开始
 			'DB_DSN' => 'mysql:host=127.0.0.1;dbname=test;charset=utf8',            //数据库PDO方式DSN配置
 			'DB_UN' => 'root',                                                      //数据库链接用户名

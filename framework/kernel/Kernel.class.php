@@ -24,11 +24,16 @@ class Kernel
 
 	public static function start()
 	{
+
+
 		//加载配置信息，用户自定义的配置会覆盖系统的配置
 		self::loadConf();
 
 		//加载语言包
 		self::loadLang();
+
+		//自动加载类库
+		spl_autoload_register('Kernel::autoload');
 
 		//自动加载用户自定义的函数库
 		self::loadfunc();
@@ -39,8 +44,6 @@ class Kernel
 		//自动的解析URL分发
 		self::parseurl();
 
-		//自动加载类库
-		spl_autoload_register('Kernel::autoload');
 
 		//脚本退出注册函数
 		register_shutdown_function('shutdown');
@@ -96,6 +99,9 @@ class Kernel
 			ini_set('session.save_handler', 'memcache');
 			ini_set('session.save_path', 'tcp://'.self::$_conf['MEM_HOST'].':'.self::$_conf['MEM_PORT']);
 		}
+		Session::sid(self::$_conf['S_ID']);
+		Session::name(self::$_conf['S_NAME']);
+		Session::expire(self::$_conf['S_EXPIRE']);
 		session_start();
 	}
 

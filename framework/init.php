@@ -30,7 +30,7 @@ $GLOBALS['_reqFile'] = 3;
 $GLOBALS['_sqlCount'] = 0;
 
 // 版本信息
-const RPF_VERSION       =   '0.0.1';
+const RPF_VERSION       =   '0.1.0';
 
 // URL 模式定义
 const URL_COMMON        =   0;  //普通模式
