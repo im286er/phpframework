@@ -22,6 +22,21 @@ class Kernel
 	static $_action = null;
 	static $_app = null;
 
+	public static function getAction()
+	{
+		return self::$_action;
+	}
+
+	public static function getController()
+	{
+		return self::$_controller;
+	}
+
+	public static function getApp()
+	{
+		return self::$_app;
+	}
+
 	public static function start()
 	{
 
