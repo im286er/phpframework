@@ -53,6 +53,21 @@
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="cdemo"><param name="Local" value="classDemo.html#a1f054c304228ce0b56da3195955ce6a6"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Ftp"><param name="Local" value="classFtp.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="__construct"><param name="Local" value="classFtp.html#a6e16a450ba38e9cf178b13ff3e091443"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="chgdir"><param name="Local" value="classFtp.html#aade650c29b7b10938c1dd32842cc43f2"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="chmod"><param name="Local" value="classFtp.html#a8b56d6b41df6e5adc6f68aaec73a8c3e"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="close"><param name="Local" value="classFtp.html#a763b8546df21e02e9ead949e4e701803"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="connect"><param name="Local" value="classFtp.html#acbe05ba238542a10c1b0623ecf7d2081"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="delete_dir"><param name="Local" value="classFtp.html#a228bb4211ff78dc6bf6233f528bfffb0"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="delete_file"><param name="Local" value="classFtp.html#a2887ad771ff19eaa0041f8e9db7dfbff"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="download"><param name="Local" value="classFtp.html#a4c03629438e7c033e09940f14feae8b4"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="filelist"><param name="Local" value="classFtp.html#a9f23eba3ee61a3986a872d4f3665afec"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="mkdir"><param name="Local" value="classFtp.html#ae876a655c13c8418289e5f6751a0b2f1"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="rename"><param name="Local" value="classFtp.html#a25301a57eceb2091105c29835687c461"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="upload"><param name="Local" value="classFtp.html#aae84f09cc3a13e23a78e68a91638717e"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Image"><param name="Local" value="classImage.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getCode"><param name="Local" value="classImage.html#ad665b63aa87b072bd796b20c30b0152e"><param name="ImageNumber" value="11"></OBJECT>
@@ -266,6 +281,7 @@
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="phpmailerException"><param name="Local" value="classphpmailerException.html"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Ftp"><param name="Local" value="classFtp.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Image"><param name="Local" value="classImage.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Kernel"><param name="Local" value="classKernel.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Lang"><param name="Local" value="classLang.html"><param name="ImageNumber" value="11"></OBJECT>

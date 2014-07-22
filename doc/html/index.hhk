@@ -57,8 +57,9 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPage.html#a3027e4e889b5efe3d3b07fb9db7d36f4"><param name="Name" value="$varPage"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a50e20d60ee564b2e0e09774b0f0c4ee4"><param name="Name" value="$Version"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a9ea7fd1e74ce459204bd25ab10aa4800"><param name="Name" value="$WordWrap"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="classPage.html#a9a6f8b5cb5f313558745090f2b5e7c95"><param name="Name" value="__construct"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a6e16a450ba38e9cf178b13ff3e091443"><param name="Name" value="__construct"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a6e16a450ba38e9cf178b13ff3e091443"><param name="Name" value="Ftp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classPage.html#a9a6f8b5cb5f313558745090f2b5e7c95"><param name="Name" value="Page"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a7db7d7c8a66de77de19b44e38319bb74"><param name="Name" value="PHPMailer"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#a943dd07e8b4b4f928b9aa71073939e0f"><param name="Name" value="SMTP"></OBJECT>
@@ -102,6 +103,8 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classDemo.html#a1f054c304228ce0b56da3195955ce6a6"><param name="Name" value="cdemo"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classAction.html#a393ee8679b3bdf2db1571882247e2686"><param name="Name" value="checktoken"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#aade650c29b7b10938c1dd32842cc43f2"><param name="Name" value="chgdir"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a8b56d6b41df6e5adc6f68aaec73a8c3e"><param name="Name" value="chmod"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSession.html#a4cad41d7bac681f046e92396d59f1603"><param name="Name" value="clean"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classCache.html#a88748cfd9005e9dd8179c6774ea1378b"><param name="Name" value="clear"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a0dddfa22e54f935641ed9a1ce9635f07"><param name="Name" value="ClearAddresses"></OBJECT>
@@ -111,6 +114,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a9304081ed2524139748d20c08076b2f5"><param name="Name" value="ClearCCs"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#ac97c4987eefae07373a8becf2fdb4c6e"><param name="Name" value="ClearCustomHeaders"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#aa2bbeddb9d5b19eb2202e715912b562f"><param name="Name" value="ClearReplyTos"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a763b8546df21e02e9ead949e4e701803"><param name="Name" value="close"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#a6a46029fbb02a0bdf9f4680d95589f26"><param name="Name" value="Close"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html#a8c060ac3ceff4c0bfd997ad98629d9e3"><param name="Name" value="commit"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classConfig.html"><param name="Name" value="Config"></OBJECT>
@@ -123,6 +127,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classCache.html#a81f7747d3dd8a544d3cc20177483bfd2"><param name="Name" value="connect"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classCache.html#a81f7747d3dd8a544d3cc20177483bfd2"><param name="Name" value="Cache"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#acbe05ba238542a10c1b0623ecf7d2081"><param name="Name" value="Ftp"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html#a0a87c674a132fb336b59117ad309b803"><param name="Name" value="Mysql"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#a8fba663a06f03ca0ffb142d5e4141235"><param name="Name" value="Connect"></OBJECT>
@@ -134,11 +139,14 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a878a0dc40ac9bc7f9a33aabd34728d1c"><param name="Name" value="CreateBody"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a027a59d7e2b70753f182247934bf90bb"><param name="Name" value="CreateHeader"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#a19b1e3858b6474cace472f85e5dd75e4"><param name="Name" value="Data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a228bb4211ff78dc6bf6233f528bfffb0"><param name="Name" value="delete_dir"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a2887ad771ff19eaa0041f8e9db7dfbff"><param name="Name" value="delete_file"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classDemo.html"><param name="Name" value="Demo"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classDemo.html#a1f054c304228ce0b56da3195955ce6a6"><param name="Name" value="cdemo"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classAction.html#ab80a2d32134ea0e91f516c74a0eae0f3"><param name="Name" value="display"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a4c03629438e7c033e09940f14feae8b4"><param name="Name" value="download"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a5c6862be627a60363fd470711c5ae0cc"><param name="Name" value="EncodeHeader"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#aad0e420b74b8d2909f1292332bf1bbb8"><param name="Name" value="EncodeQ"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a5659b179a899473bbbc891c68d60813f"><param name="Name" value="EncodeQP"></OBJECT>
@@ -158,10 +166,26 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html#a098f10417f2071dcb89b9afc9701089b"><param name="Name" value="fetchAllCache"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html#abb962f400e67947b5fa28543c2230726"><param name="Name" value="fetchOne"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html#a8db343074288f04ce9663e59b2a1459a"><param name="Name" value="fetchOneCache"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a9f23eba3ee61a3986a872d4f3665afec"><param name="Name" value="filelist"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classCache.html#aebd1c49aa2b47c34f8af6b688a6922d4"><param name="Name" value="free"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classCache.html#aebd1c49aa2b47c34f8af6b688a6922d4"><param name="Name" value="Cache"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html#afc7a03941758a18f6e84ed43e1338853"><param name="Name" value="Mysql"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html"><param name="Name" value="Ftp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a6e16a450ba38e9cf178b13ff3e091443"><param name="Name" value="__construct"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#aade650c29b7b10938c1dd32842cc43f2"><param name="Name" value="chgdir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a8b56d6b41df6e5adc6f68aaec73a8c3e"><param name="Name" value="chmod"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a763b8546df21e02e9ead949e4e701803"><param name="Name" value="close"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#acbe05ba238542a10c1b0623ecf7d2081"><param name="Name" value="connect"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a228bb4211ff78dc6bf6233f528bfffb0"><param name="Name" value="delete_dir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a2887ad771ff19eaa0041f8e9db7dfbff"><param name="Name" value="delete_file"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a4c03629438e7c033e09940f14feae8b4"><param name="Name" value="download"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a9f23eba3ee61a3986a872d4f3665afec"><param name="Name" value="filelist"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#ae876a655c13c8418289e5f6751a0b2f1"><param name="Name" value="mkdir"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a25301a57eceb2091105c29835687c461"><param name="Name" value="rename"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#aae84f09cc3a13e23a78e68a91638717e"><param name="Name" value="upload"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classCache.html#ad25f006b5b60f18f23b3009ed18ce35b"><param name="Name" value="get"></OBJECT>
   <UL>
@@ -228,6 +252,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#ab1377e8100ab85ecd152992dbcff1990"><param name="Name" value="Mail"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a0420328dd91b081096acd4a12a6d130f"><param name="Name" value="MailSend"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#ae876a655c13c8418289e5f6751a0b2f1"><param name="Name" value="mkdir"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classModel.html"><param name="Name" value="Model"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a747bfc31959d4454c6a6d7ce116d4e47"><param name="Name" value="MsgHTML"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html"><param name="Name" value="Mysql"></OBJECT>
@@ -368,6 +393,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classMysql.html#a618c566fc1d8681b2fc97a2bd2cfe2ad"><param name="Name" value="query"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#a8d7a8c08be60eee2fdb11ace4577eae4"><param name="Name" value="Quit"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#abad67dffc11da60d8be10bc1282d8107"><param name="Name" value="Recipient"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#a25301a57eceb2091105c29835687c461"><param name="Name" value="rename"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classSMTP.html#a32288c4664c4da18c2bde09c558527c3"><param name="Name" value="Reset"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classImage.html#ac38d5aea25594c346fe9b2b853e7b39e"><param name="Name" value="resize"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#ae3943e2e54c83720c42c5f0414466836"><param name="Name" value="RFCDate"></OBJECT>
@@ -453,8 +479,9 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classUpload.html"><param name="Name" value="Upload"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="classUpload.html#acc3501937980700dd62cd997d12cd94b"><param name="Name" value="__construct"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="classUpload.html#ae3c33e8a28fcb3ded1743dc67ef4d4fc"><param name="Name" value="upload"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFtp.html#aae84f09cc3a13e23a78e68a91638717e"><param name="Name" value="upload"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classUpload.html"><param name="Name" value="Upload"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classUpload.html#ae3c33e8a28fcb3ded1743dc67ef4d4fc"><param name="Name" value="upload"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a5771594e3b02d05c624aec0d3d2930b3"><param name="Name" value="UTF8CharBoundary"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="classPHPMailer.html#a67c7355dffd0b46878c2a0cea6dfcb80"><param name="Name" value="ValidateAddress"></OBJECT>

@@ -1,0 +1,285 @@
+\hypertarget{classFtp}{\section{Ftp类 参考}
+\label{classFtp}\index{Ftp@{Ftp}}
+}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFtp_a6e16a450ba38e9cf178b13ff3e091443}{\+\_\+\+\_\+construct} (\$config=array())
+\item 
+\hyperlink{classFtp_acbe05ba238542a10c1b0623ecf7d2081}{connect} (\$config=array())
+\item 
+\hyperlink{classFtp_aade650c29b7b10938c1dd32842cc43f2}{chgdir} (\$path= '', \$supress\+\_\+debug=F\+A\+L\+S\+E)
+\item 
+\hyperlink{classFtp_ae876a655c13c8418289e5f6751a0b2f1}{mkdir} (\$path= '', \$permissions=N\+U\+L\+L)
+\item 
+\hyperlink{classFtp_aae84f09cc3a13e23a78e68a91638717e}{upload} (\$localpath, \$remotepath, \$mode= 'auto', \$permissions=N\+U\+L\+L)
+\item 
+\hyperlink{classFtp_a4c03629438e7c033e09940f14feae8b4}{download} (\$remotepath, \$localpath, \$mode= 'auto')
+\item 
+\hyperlink{classFtp_a25301a57eceb2091105c29835687c461}{rename} (\$oldname, \$newname, \$move=F\+A\+L\+S\+E)
+\item 
+\hyperlink{classFtp_a2887ad771ff19eaa0041f8e9db7dfbff}{delete\+\_\+file} (\$file)
+\item 
+\hyperlink{classFtp_a228bb4211ff78dc6bf6233f528bfffb0}{delete\+\_\+dir} (\$path)
+\item 
+\hyperlink{classFtp_a8b56d6b41df6e5adc6f68aaec73a8c3e}{chmod} (\$path, \$perm)
+\item 
+\hyperlink{classFtp_a9f23eba3ee61a3986a872d4f3665afec}{filelist} (\$path= '.')
+\item 
+\hyperlink{classFtp_a763b8546df21e02e9ead949e4e701803}{close} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{详细描述}
+仿写\+Code\+Igniter的\+F\+T\+P类 F\+T\+P基本操作： 1) 登陆; connect 2) 当前目录文件列表; filelist 3) 目录改变; chgdir 4) 重命名/移动; rename 5) 创建文件夹; mkdir 6) 删除; delete\+\_\+dir/delete\+\_\+file 7) 上传; upload 8) 下载 download
+
+\begin{DoxyAuthor}{作者}
+quanshuidingdang 
+\end{DoxyAuthor}
+
+
+\subsection{构造及析构函数说明}
+\hypertarget{classFtp_a6e16a450ba38e9cf178b13ff3e091443}{\index{Ftp@{Ftp}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!Ftp@{Ftp}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$config = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a6e16a450ba38e9cf178b13ff3e091443}
+构造函数
+
+
+\begin{DoxyParams}{参数}
+{\em array} & 配置数组 \+: \$config = array('hostname'=$>$'','username'=$>$'','password'=$>$'','port'=$>$''...); \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{成员函数说明}
+\hypertarget{classFtp_aade650c29b7b10938c1dd32842cc43f2}{\index{Ftp@{Ftp}!chgdir@{chgdir}}
+\index{chgdir@{chgdir}!Ftp@{Ftp}}
+\subsubsection[{chgdir}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::chgdir (
+\begin{DoxyParamCaption}
+\item[{}]{\$path = {\ttfamily ''}, }
+\item[{}]{\$supress\+\_\+debug = {\ttfamily FALSE}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_aade650c29b7b10938c1dd32842cc43f2}
+目录改变
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 目录标识(ftp) \\
+\hline
+{\em boolean} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classFtp_a8b56d6b41df6e5adc6f68aaec73a8c3e}{\index{Ftp@{Ftp}!chmod@{chmod}}
+\index{chmod@{chmod}!Ftp@{Ftp}}
+\subsubsection[{chmod}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::chmod (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$perm}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a8b56d6b41df6e5adc6f68aaec73a8c3e}
+修改文件权限
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 目录标识(ftp) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+
+
+参考自 mkdir() , 以及 upload().
+
+\hypertarget{classFtp_a763b8546df21e02e9ead949e4e701803}{\index{Ftp@{Ftp}!close@{close}}
+\index{close@{close}!Ftp@{Ftp}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a763b8546df21e02e9ead949e4e701803}
+关闭\+F\+T\+P
+
+public \begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classFtp_acbe05ba238542a10c1b0623ecf7d2081}{\index{Ftp@{Ftp}!connect@{connect}}
+\index{connect@{connect}!Ftp@{Ftp}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::connect (
+\begin{DoxyParamCaption}
+\item[{}]{\$config = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_acbe05ba238542a10c1b0623ecf7d2081}
+F\+T\+P连接
+
+public 
+\begin{DoxyParams}{参数}
+{\em array} & 配置数组 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classFtp_a228bb4211ff78dc6bf6233f528bfffb0}{\index{Ftp@{Ftp}!delete\+\_\+dir@{delete\+\_\+dir}}
+\index{delete\+\_\+dir@{delete\+\_\+dir}!Ftp@{Ftp}}
+\subsubsection[{delete\+\_\+dir}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::delete\+\_\+dir (
+\begin{DoxyParamCaption}
+\item[{}]{\$path}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a228bb4211ff78dc6bf6233f528bfffb0}
+删除文件夹
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 目录标识(ftp) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classFtp_a2887ad771ff19eaa0041f8e9db7dfbff}{\index{Ftp@{Ftp}!delete\+\_\+file@{delete\+\_\+file}}
+\index{delete\+\_\+file@{delete\+\_\+file}!Ftp@{Ftp}}
+\subsubsection[{delete\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::delete\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{}]{\$file}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a2887ad771ff19eaa0041f8e9db7dfbff}
+删除文件
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 文件标识(ftp) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+
+
+参考自 delete\+\_\+dir().
+
+\hypertarget{classFtp_a4c03629438e7c033e09940f14feae8b4}{\index{Ftp@{Ftp}!download@{download}}
+\index{download@{download}!Ftp@{Ftp}}
+\subsubsection[{download}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::download (
+\begin{DoxyParamCaption}
+\item[{}]{\$remotepath, }
+\item[{}]{\$localpath, }
+\item[{}]{\$mode = {\ttfamily 'auto'}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a4c03629438e7c033e09940f14feae8b4}
+下载
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 远程目录标识(ftp) \\
+\hline
+{\em string} & 本地目录标识 \\
+\hline
+{\em string} & 下载模式 auto $\vert$$\vert$ ascii \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classFtp_a9f23eba3ee61a3986a872d4f3665afec}{\index{Ftp@{Ftp}!filelist@{filelist}}
+\index{filelist@{filelist}!Ftp@{Ftp}}
+\subsubsection[{filelist}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::filelist (
+\begin{DoxyParamCaption}
+\item[{}]{\$path = {\ttfamily '.'}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a9f23eba3ee61a3986a872d4f3665afec}
+获取目录文件列表
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 目录标识(ftp) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+array 
+\end{DoxyReturn}
+
+
+参考自 delete\+\_\+dir().
+
+\hypertarget{classFtp_ae876a655c13c8418289e5f6751a0b2f1}{\index{Ftp@{Ftp}!mkdir@{mkdir}}
+\index{mkdir@{mkdir}!Ftp@{Ftp}}
+\subsubsection[{mkdir}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::mkdir (
+\begin{DoxyParamCaption}
+\item[{}]{\$path = {\ttfamily ''}, }
+\item[{}]{\$permissions = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_ae876a655c13c8418289e5f6751a0b2f1}
+目录生成
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 目录标识(ftp) \\
+\hline
+{\em int} & 文件权限列表 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classFtp_a25301a57eceb2091105c29835687c461}{\index{Ftp@{Ftp}!rename@{rename}}
+\index{rename@{rename}!Ftp@{Ftp}}
+\subsubsection[{rename}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::rename (
+\begin{DoxyParamCaption}
+\item[{}]{\$oldname, }
+\item[{}]{\$newname, }
+\item[{}]{\$move = {\ttfamily FALSE}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_a25301a57eceb2091105c29835687c461}
+重命名/移动
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 远程目录标识(ftp) \\
+\hline
+{\em string} & 新目录标识 \\
+\hline
+{\em boolean} & 判断是重命名(\+F\+A\+L\+S\+E)还是移动(\+T\+R\+U\+E) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classFtp_aae84f09cc3a13e23a78e68a91638717e}{\index{Ftp@{Ftp}!upload@{upload}}
+\index{upload@{upload}!Ftp@{Ftp}}
+\subsubsection[{upload}]{\setlength{\rightskip}{0pt plus 5cm}Ftp\+::upload (
+\begin{DoxyParamCaption}
+\item[{}]{\$localpath, }
+\item[{}]{\$remotepath, }
+\item[{}]{\$mode = {\ttfamily 'auto'}, }
+\item[{}]{\$permissions = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}\label{classFtp_aae84f09cc3a13e23a78e68a91638717e}
+上传
+
+public 
+\begin{DoxyParams}{参数}
+{\em string} & 本地目录标识 \\
+\hline
+{\em string} & 远程目录标识(ftp) \\
+\hline
+{\em string} & 上传模式 auto $\vert$$\vert$ ascii \\
+\hline
+{\em int} & 上传后的文件权限列表 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+framework/lib/vendor/ftp/Ftp.\+class.\+php\end{DoxyCompactItemize}
