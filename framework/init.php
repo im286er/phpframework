@@ -38,6 +38,9 @@ const URL_PATHINFO      =   1;  //PATHINFO模式
 const URL_REWRITE       =   2;  //REWRITE模式
 const URL_COMPAT        =   3;  // 兼容模式
 
+//是否开启ORM，默认不开启
+defined('ORM')          or define('ORM', false);
+
 // 系统常量定义
 defined('SAFE_MODEL')   or define('SAFE_MODEL', true);
 defined('RPF_PATH')     or define('RPF_PATH',   __DIR__.'/');
@@ -133,4 +136,6 @@ if (!defined('SITE_URL'))
 //加载公共函数及核心启动类，启动框架执行
 require SYS_FUNC.'core'.FUNC_EXT;
 require SYS_KERNEL.'Kernel'.CLS_EXT;
+if (ORM)
+		import(SYS_VENDOR.'orm.php');
 Kernel::start();
