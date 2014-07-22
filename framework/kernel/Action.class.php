@@ -11,7 +11,9 @@
 
 defined('RPF_PATH') or exit();
 
-//所有的action都应该继承此类
+/**
+  * 所有的action都应该继承此类
+*/
 class Action
 {
 	//存储action设置的模板变量

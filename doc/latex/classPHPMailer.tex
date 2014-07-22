@@ -1,0 +1,1150 @@
+\hypertarget{classPHPMailer}{\section{P\+H\+P\+Mailer类 参考}
+\label{classPHPMailer}\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+}
+\subsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPHPMailer_a7db7d7c8a66de77de19b44e38319bb74}{\+\_\+\+\_\+construct} (\$exceptions=false)
+\item 
+\hyperlink{classPHPMailer_a85eec7e7cf0cfb07653fc8642b36f644}{Is\+H\+T\+M\+L} (\$ishtml=true)
+\item 
+\hyperlink{classPHPMailer_acba6e87e0af0baa5bda1026a4e99e236}{Is\+S\+M\+T\+P} ()
+\item 
+\hyperlink{classPHPMailer_a6c4e6445c6f12b87462cf9ab63239c1b}{Is\+Mail} ()
+\item 
+\hyperlink{classPHPMailer_a7cdd2b399559d7b36f0259c8f7924b07}{Is\+Sendmail} ()
+\item 
+\hyperlink{classPHPMailer_a7c2d3d01329eaa84d9da0b9490351030}{Is\+Qmail} ()
+\item 
+\hyperlink{classPHPMailer_a278520a47bb3d7387ff259464d94be21}{Add\+Address} (\$address, \$name= '')
+\item 
+\hyperlink{classPHPMailer_a3a68f4df5277a7332fc498b205045616}{Add\+C\+C} (\$address, \$name= '')
+\item 
+\hyperlink{classPHPMailer_a5d2d5f530005db5329912a5ffc9bffdd}{Add\+B\+C\+C} (\$address, \$name= '')
+\item 
+\hyperlink{classPHPMailer_aa19b774f8f3eacf0af5aca25f5509b24}{Add\+Reply\+To} (\$address, \$name= '')
+\item 
+\hyperlink{classPHPMailer_ac9cfb38512abb09ad381529a8bc0ca1a}{Set\+From} (\$address, \$name= '')
+\item 
+\hyperlink{classPHPMailer_a675cc2f9ff744a7819e62ebbd76a2ce1}{Send} ()
+\item 
+\hyperlink{classPHPMailer_a4d5a553ee27415465c48143a2b3fdcde}{Smtp\+Connect} ()
+\item 
+\hyperlink{classPHPMailer_a20b4519c300896aff5c22e3710aa19cb}{Smtp\+Close} ()
+\item 
+\hyperlink{classPHPMailer_a39ac3b2e56c56e0efdbc1e71f69a0d9f}{Set\+Language} (\$langcode= 'en', \$lang\+\_\+path= 'language/')
+\item 
+\hyperlink{classPHPMailer_a792a70cfc3f64b1af6bfdad22241b2df}{Get\+Translations} ()
+\item 
+\hyperlink{classPHPMailer_ac15a3cde96d7928f4a43cd81d0911afb}{Addr\+Append} (\$type, \$addr)
+\item 
+\hyperlink{classPHPMailer_a626beaf7b877bd8d1f0f8c6869962bd2}{Addr\+Format} (\$addr)
+\item 
+\hyperlink{classPHPMailer_acc83d51c756e780535b39680bfa0e368}{Wrap\+Text} (\$message, \$length, \$qp\+\_\+mode=false)
+\item 
+\hyperlink{classPHPMailer_a5771594e3b02d05c624aec0d3d2930b3}{U\+T\+F8\+Char\+Boundary} (\$encoded\+Text, \$max\+Length)
+\item 
+\hyperlink{classPHPMailer_adbf94155c6a72aae101c0f5e0cf42823}{Set\+Word\+Wrap} ()
+\item 
+\hyperlink{classPHPMailer_a027a59d7e2b70753f182247934bf90bb}{Create\+Header} ()
+\item 
+\hyperlink{classPHPMailer_af696b69cbfc7f6cd3c2ac7701bc0bff4}{Get\+Mail\+M\+I\+M\+E} ()
+\item 
+\hyperlink{classPHPMailer_a878a0dc40ac9bc7f9a33aabd34728d1c}{Create\+Body} ()
+\item 
+\hyperlink{classPHPMailer_a8256a4880e4fb0ce1498abfcc1231674}{Header\+Line} (\$name, \$value)
+\item 
+\hyperlink{classPHPMailer_a626aa19ef9fda9132ee4c60a91f4869d}{Text\+Line} (\$value)
+\item 
+\hyperlink{classPHPMailer_ab10ab08da06063473d6408def22819fa}{Add\+Attachment} (\$path, \$name= '', \$encoding= 'base64', \$type= 'application/octet-\/stream')
+\item 
+\hyperlink{classPHPMailer_ae2ccce9b9fd39e70318eb55ebf16b113}{Get\+Attachments} ()
+\item 
+\hyperlink{classPHPMailer_ae864ca54059804bf909a03f25b01887a}{Encode\+String} (\$str, \$encoding= 'base64')
+\item 
+\hyperlink{classPHPMailer_a5c6862be627a60363fd470711c5ae0cc}{Encode\+Header} (\$str, \$position= 'text')
+\item 
+\hyperlink{classPHPMailer_ab470a97d2cad671a3c8e05c673b1e0d8}{Has\+Multi\+Bytes} (\$str)
+\item 
+\hyperlink{classPHPMailer_a898ae09e6b08a3db116744b6d44923c5}{Base64\+Encode\+Wrap\+M\+B} (\$str)
+\item 
+\hyperlink{classPHPMailer_a60cee38180f8a56cf7049582c73bb4f2}{Encode\+Q\+Pphp} (\$input= '', \$line\+\_\+max=76, \$space\+\_\+conv=false)
+\item 
+\hyperlink{classPHPMailer_a5659b179a899473bbbc891c68d60813f}{Encode\+Q\+P} (\$string, \$line\+\_\+max=76, \$space\+\_\+conv=false)
+\item 
+\hyperlink{classPHPMailer_aad0e420b74b8d2909f1292332bf1bbb8}{Encode\+Q} (\$str, \$position= 'text')
+\item 
+\hyperlink{classPHPMailer_a92ef5134fdce5bd5fd24a723c508bf2b}{Add\+String\+Attachment} (\$string, \$filename, \$encoding= 'base64', \$type= 'application/octet-\/stream')
+\item 
+\hyperlink{classPHPMailer_ad65e08211e123fa3537e7af91d1e5fba}{Add\+Embedded\+Image} (\$path, \$cid, \$name= '', \$encoding= 'base64', \$type= 'application/octet-\/stream')
+\item 
+\hyperlink{classPHPMailer_a0167ed0843240553feb3cd4d5204f299}{Inline\+Image\+Exists} ()
+\item 
+\hyperlink{classPHPMailer_a0dddfa22e54f935641ed9a1ce9635f07}{Clear\+Addresses} ()
+\item 
+\hyperlink{classPHPMailer_a9304081ed2524139748d20c08076b2f5}{Clear\+C\+Cs} ()
+\item 
+\hyperlink{classPHPMailer_a94c5461b6fa875543fa1abbe41ac687b}{Clear\+B\+C\+Cs} ()
+\item 
+\hyperlink{classPHPMailer_aa2bbeddb9d5b19eb2202e715912b562f}{Clear\+Reply\+Tos} ()
+\item 
+\hyperlink{classPHPMailer_a5734ae30e8e523bdae2d8d92200ba34f}{Clear\+All\+Recipients} ()
+\item 
+\hyperlink{classPHPMailer_ad8f2cb3e17912028a5e39b4f23b2268c}{Clear\+Attachments} ()
+\item 
+\hyperlink{classPHPMailer_ac97c4987eefae07373a8becf2fdb4c6e}{Clear\+Custom\+Headers} ()
+\item 
+\hyperlink{classPHPMailer_a3ad69f21d5b0f390bd06e0696974b39c}{Is\+Error} ()
+\item 
+\hyperlink{classPHPMailer_a09a3f40782f26399efdec4f53f7f08f0}{Add\+Custom\+Header} (\$custom\+\_\+header)
+\item 
+\hyperlink{classPHPMailer_a747bfc31959d4454c6a6d7ce116d4e47}{Msg\+H\+T\+M\+L} (\$message, \$basedir= '')
+\item 
+\hyperlink{classPHPMailer_ad7dfabb6c5e91e298be2de2e78749a75}{set} (\$name, \$value= '')
+\item 
+\hyperlink{classPHPMailer_ac0c6f469479274f00a3715444b1a849a}{Secure\+Header} (\$str)
+\item 
+\hyperlink{classPHPMailer_a8ba196caee2ec44d60a34efbd2769719}{Sign} (\$cert\+\_\+filename, \$key\+\_\+filename, \$key\+\_\+pass)
+\end{DoxyCompactItemize}
+\subsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classPHPMailer_a67c7355dffd0b46878c2a0cea6dfcb80}{Validate\+Address} (\$address)
+\item 
+static \hyperlink{classPHPMailer_ae3943e2e54c83720c42c5f0414466836}{R\+F\+C\+Date} ()
+\item 
+static \hyperlink{classPHPMailer_a8d2fb441ebefa49645d44f5f5a5fb751}{\+\_\+mime\+\_\+types} (\$ext= '')
+\end{DoxyCompactItemize}
+\subsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPHPMailer_a4b25b31326864ecfd89865021595d14c}{{\bfseries \$\+Priority} = 3}\label{classPHPMailer_a4b25b31326864ecfd89865021595d14c}
+
+\item 
+\hypertarget{classPHPMailer_a89bc16ad4e86bf04d0a38779f239d08d}{{\bfseries \$\+Char\+Set} = 'iso-\/8859-\/1'}\label{classPHPMailer_a89bc16ad4e86bf04d0a38779f239d08d}
+
+\item 
+\hypertarget{classPHPMailer_a886fb2b5374dfdbdce9efdaff842c2a2}{{\bfseries \$\+Content\+Type} = 'text/plain'}\label{classPHPMailer_a886fb2b5374dfdbdce9efdaff842c2a2}
+
+\item 
+\hypertarget{classPHPMailer_adbefcf8fbeb0bad68e2f87f889a6937f}{{\bfseries \$\+Encoding} = '8bit'}\label{classPHPMailer_adbefcf8fbeb0bad68e2f87f889a6937f}
+
+\item 
+\hypertarget{classPHPMailer_a9e523ba9e3cfcaf1f54569a9e4a29c73}{{\bfseries \$\+Error\+Info} = ''}\label{classPHPMailer_a9e523ba9e3cfcaf1f54569a9e4a29c73}
+
+\item 
+\hypertarget{classPHPMailer_a487a2ed6abdc3474c5e6526d4bd37dd9}{{\bfseries \$\+From} = 'root@localhost'}\label{classPHPMailer_a487a2ed6abdc3474c5e6526d4bd37dd9}
+
+\item 
+\hypertarget{classPHPMailer_a331a07d4f29ee939024b69c07f83188d}{{\bfseries \$\+From\+Name} = 'Root User'}\label{classPHPMailer_a331a07d4f29ee939024b69c07f83188d}
+
+\item 
+\hypertarget{classPHPMailer_afeb96ec21062655663877de7bdcfe4b5}{{\bfseries \$\+Sender} = ''}\label{classPHPMailer_afeb96ec21062655663877de7bdcfe4b5}
+
+\item 
+\hypertarget{classPHPMailer_a720bc605963a617253bf0773b6ffafbf}{{\bfseries \$\+Subject} = ''}\label{classPHPMailer_a720bc605963a617253bf0773b6ffafbf}
+
+\item 
+\hypertarget{classPHPMailer_a55ee46413a3783fceaa4cc301dc362a4}{{\bfseries \$\+Body} = ''}\label{classPHPMailer_a55ee46413a3783fceaa4cc301dc362a4}
+
+\item 
+\hypertarget{classPHPMailer_af38d9cfaa22f3a246c3168184c3858aa}{{\bfseries \$\+Alt\+Body} = ''}\label{classPHPMailer_af38d9cfaa22f3a246c3168184c3858aa}
+
+\item 
+\hypertarget{classPHPMailer_a9ea7fd1e74ce459204bd25ab10aa4800}{{\bfseries \$\+Word\+Wrap} = 0}\label{classPHPMailer_a9ea7fd1e74ce459204bd25ab10aa4800}
+
+\item 
+\hypertarget{classPHPMailer_ab7b493935220dbd0643bfccbe9fa898f}{{\bfseries \$\+Mailer} = 'mail'}\label{classPHPMailer_ab7b493935220dbd0643bfccbe9fa898f}
+
+\item 
+\hypertarget{classPHPMailer_a389a13126ef669fbc0fa29e9182b2b88}{{\bfseries \$\+Sendmail} = '/usr/sbin/sendmail'}\label{classPHPMailer_a389a13126ef669fbc0fa29e9182b2b88}
+
+\item 
+\hypertarget{classPHPMailer_a25dc51236eaeba43c2661197b2fdecca}{{\bfseries \$\+Plugin\+Dir} = ''}\label{classPHPMailer_a25dc51236eaeba43c2661197b2fdecca}
+
+\item 
+\hypertarget{classPHPMailer_aef7e191f4c673b49c378fe9005333277}{{\bfseries \$\+Confirm\+Reading\+To} = ''}\label{classPHPMailer_aef7e191f4c673b49c378fe9005333277}
+
+\item 
+\hypertarget{classPHPMailer_a52a56734c1c555e576f3fcdd3f3214fa}{{\bfseries \$\+Hostname} = ''}\label{classPHPMailer_a52a56734c1c555e576f3fcdd3f3214fa}
+
+\item 
+\hypertarget{classPHPMailer_ae8903e0c049d9c21fe218a5610f8e66e}{{\bfseries \$\+Message\+I\+D} = ''}\label{classPHPMailer_ae8903e0c049d9c21fe218a5610f8e66e}
+
+\item 
+\hypertarget{classPHPMailer_a201d861b4e284bd9bc580e90922f1a2b}{{\bfseries \$\+Host} = 'localhost'}\label{classPHPMailer_a201d861b4e284bd9bc580e90922f1a2b}
+
+\item 
+\hypertarget{classPHPMailer_aecad460b067a209821f1b0fc3492aa0c}{{\bfseries \$\+Port} = 25}\label{classPHPMailer_aecad460b067a209821f1b0fc3492aa0c}
+
+\item 
+\hypertarget{classPHPMailer_aefc737f24d6dc6bdd13019297762c8e3}{{\bfseries \$\+Helo} = ''}\label{classPHPMailer_aefc737f24d6dc6bdd13019297762c8e3}
+
+\item 
+\hypertarget{classPHPMailer_a57744693d505d8c945c667fec9e65555}{{\bfseries \$\+S\+M\+T\+P\+Secure} = ''}\label{classPHPMailer_a57744693d505d8c945c667fec9e65555}
+
+\item 
+\hypertarget{classPHPMailer_a1e41f01702afcf903f409c2a8c1eb1c0}{{\bfseries \$\+S\+M\+T\+P\+Auth} = false}\label{classPHPMailer_a1e41f01702afcf903f409c2a8c1eb1c0}
+
+\item 
+\hypertarget{classPHPMailer_a111a9831009cde61ec90b2f702d91f8c}{{\bfseries \$\+Username} = ''}\label{classPHPMailer_a111a9831009cde61ec90b2f702d91f8c}
+
+\item 
+\hypertarget{classPHPMailer_a42bef0c65cf4248312aebc7d6cf05dc7}{{\bfseries \$\+Password} = ''}\label{classPHPMailer_a42bef0c65cf4248312aebc7d6cf05dc7}
+
+\item 
+\hypertarget{classPHPMailer_affe70c58cb6adb734a41f8eb2a2e58b9}{{\bfseries \$\+Timeout} = 10}\label{classPHPMailer_affe70c58cb6adb734a41f8eb2a2e58b9}
+
+\item 
+\hypertarget{classPHPMailer_aedc42401affee6e0e8b205f3c50d5f17}{{\bfseries \$\+S\+M\+T\+P\+Debug} = false}\label{classPHPMailer_aedc42401affee6e0e8b205f3c50d5f17}
+
+\item 
+\hypertarget{classPHPMailer_abcf46a6c16b46fc88f401a7e9acfbb43}{{\bfseries \$\+S\+M\+T\+P\+Keep\+Alive} = false}\label{classPHPMailer_abcf46a6c16b46fc88f401a7e9acfbb43}
+
+\item 
+\hypertarget{classPHPMailer_ae467a7f9d8bbb478bd0ea7a8b9bb512b}{{\bfseries \$\+Single\+To} = false}\label{classPHPMailer_ae467a7f9d8bbb478bd0ea7a8b9bb512b}
+
+\item 
+\hypertarget{classPHPMailer_ab0c4941bda43ab5a330a712d036c7ae5}{{\bfseries \$\+L\+E} = \char`\"{}\textbackslash{}n\char`\"{}}\label{classPHPMailer_ab0c4941bda43ab5a330a712d036c7ae5}
+
+\item 
+\hypertarget{classPHPMailer_a50e20d60ee564b2e0e09774b0f0c4ee4}{{\bfseries \$\+Version} = '5.\+0.\+2'}\label{classPHPMailer_a50e20d60ee564b2e0e09774b0f0c4ee4}
+
+\item 
+\hypertarget{classPHPMailer_a84dc28f3f0eb955044cb1f559d40253b}{const {\bfseries S\+T\+O\+P\+\_\+\+M\+E\+S\+S\+A\+G\+E} = 0}\label{classPHPMailer_a84dc28f3f0eb955044cb1f559d40253b}
+
+\item 
+\hypertarget{classPHPMailer_acb27435a7e929b1e41e476c5067ddd43}{const {\bfseries S\+T\+O\+P\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E} = 1}\label{classPHPMailer_acb27435a7e929b1e41e476c5067ddd43}
+
+\item 
+\hypertarget{classPHPMailer_a4b6cdf657bb4ded1f91020a2d26e31ab}{const {\bfseries S\+T\+O\+P\+\_\+\+C\+R\+I\+T\+I\+C\+A\+L} = 2}\label{classPHPMailer_a4b6cdf657bb4ded1f91020a2d26e31ab}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPHPMailer_a34248b37be1ca31e3d0440dcea1d40c5}{Sendmail\+Send} (\$header, \$body)
+\item 
+\hyperlink{classPHPMailer_a0420328dd91b081096acd4a12a6d130f}{Mail\+Send} (\$header, \$body)
+\item 
+\hyperlink{classPHPMailer_aa8e219822a2048621d1130f4bf883122}{Smtp\+Send} (\$header, \$body)
+\item 
+\hyperlink{classPHPMailer_a8b55431cdaf8b5fd59869a07a8058b0e}{Set\+Error} (\$msg)
+\end{DoxyCompactItemize}
+\subsection*{Protected 属性}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPHPMailer_aa6a0ec99ebdf7280f6565369d4d291b7}{{\bfseries \$language} = array()}\label{classPHPMailer_aa6a0ec99ebdf7280f6565369d4d291b7}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{构造及析构函数说明}
+\hypertarget{classPHPMailer_a7db7d7c8a66de77de19b44e38319bb74}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$exceptions = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a7db7d7c8a66de77de19b44e38319bb74}
+Constructor 
+\begin{DoxyParams}[1]{参数}
+boolean & {\em \$exceptions} & Should we throw external exceptions? \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{成员函数说明}
+\hypertarget{classPHPMailer_a8d2fb441ebefa49645d44f5f5a5fb751}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!\+\_\+mime\+\_\+types@{\+\_\+mime\+\_\+types}}
+\index{\+\_\+mime\+\_\+types@{\+\_\+mime\+\_\+types}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{\+\_\+mime\+\_\+types}]{\setlength{\rightskip}{0pt plus 5cm}static P\+H\+P\+Mailer\+::\+\_\+mime\+\_\+types (
+\begin{DoxyParamCaption}
+\item[{}]{\$ext = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classPHPMailer_a8d2fb441ebefa49645d44f5f5a5fb751}
+Gets the M\+I\+M\+E type of the embedded or inline image 
+\begin{DoxyParams}{参数}
+{\em string} & File extension  public \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+string M\+I\+M\+E type of ext 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a278520a47bb3d7387ff259464d94be21}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+Address@{Add\+Address}}
+\index{Add\+Address@{Add\+Address}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+Address}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+Address (
+\begin{DoxyParamCaption}
+\item[{}]{\$address, }
+\item[{}]{\$name = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a278520a47bb3d7387ff259464d94be21}
+Adds a \char`\"{}\+To\char`\"{} address. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$address} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean true on success, false if address already used 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_ab10ab08da06063473d6408def22819fa}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+Attachment@{Add\+Attachment}}
+\index{Add\+Attachment@{Add\+Attachment}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+Attachment}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+Attachment (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$name = {\ttfamily ''}, }
+\item[{}]{\$encoding = {\ttfamily 'base64'}, }
+\item[{}]{\$type = {\ttfamily 'application/octet-\/stream'}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ab10ab08da06063473d6408def22819fa}
+Adds an attachment from a path on the filesystem. Returns false if the file could not be found or accessed. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$path} & Path to the attachment. \\
+\hline
+string & {\em \$name} & Overrides the attachment name. \\
+\hline
+string & {\em \$encoding} & File encoding (see \$\+Encoding). \\
+\hline
+string & {\em \$type} & File extension (M\+I\+M\+E) type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a5d2d5f530005db5329912a5ffc9bffdd}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+B\+C\+C@{Add\+B\+C\+C}}
+\index{Add\+B\+C\+C@{Add\+B\+C\+C}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+B\+C\+C}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+B\+C\+C (
+\begin{DoxyParamCaption}
+\item[{}]{\$address, }
+\item[{}]{\$name = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a5d2d5f530005db5329912a5ffc9bffdd}
+Adds a \char`\"{}\+Bcc\char`\"{} address. Note\+: this function works with the \hyperlink{classSMTP}{S\+M\+T\+P} mailer on win32, not with the \char`\"{}mail\char`\"{} mailer. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$address} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean true on success, false if address already used 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a3a68f4df5277a7332fc498b205045616}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+C\+C@{Add\+C\+C}}
+\index{Add\+C\+C@{Add\+C\+C}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+C\+C}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+C\+C (
+\begin{DoxyParamCaption}
+\item[{}]{\$address, }
+\item[{}]{\$name = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a3a68f4df5277a7332fc498b205045616}
+Adds a \char`\"{}\+Cc\char`\"{} address. Note\+: this function works with the \hyperlink{classSMTP}{S\+M\+T\+P} mailer on win32, not with the \char`\"{}mail\char`\"{} mailer. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$address} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean true on success, false if address already used 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a09a3f40782f26399efdec4f53f7f08f0}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+Custom\+Header@{Add\+Custom\+Header}}
+\index{Add\+Custom\+Header@{Add\+Custom\+Header}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+Custom\+Header}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+Custom\+Header (
+\begin{DoxyParamCaption}
+\item[{}]{\$custom\+\_\+header}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a09a3f40782f26399efdec4f53f7f08f0}
+Adds a custom header.  public \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_ad65e08211e123fa3537e7af91d1e5fba}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+Embedded\+Image@{Add\+Embedded\+Image}}
+\index{Add\+Embedded\+Image@{Add\+Embedded\+Image}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+Embedded\+Image}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+Embedded\+Image (
+\begin{DoxyParamCaption}
+\item[{}]{\$path, }
+\item[{}]{\$cid, }
+\item[{}]{\$name = {\ttfamily ''}, }
+\item[{}]{\$encoding = {\ttfamily 'base64'}, }
+\item[{}]{\$type = {\ttfamily 'application/octet-\/stream'}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ad65e08211e123fa3537e7af91d1e5fba}
+Adds an embedded attachment. This can include images, sounds, and just about any other document. Make sure to set the \$type to an image type. For J\+P\+E\+G images use \char`\"{}image/jpeg\char`\"{} and for G\+I\+F images use \char`\"{}image/gif\char`\"{}. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$path} & Path to the attachment. \\
+\hline
+string & {\em \$cid} & Content I\+D of the attachment. Use this to identify the Id for accessing the image in an H\+T\+M\+L form. \\
+\hline
+string & {\em \$name} & Overrides the attachment name. \\
+\hline
+string & {\em \$encoding} & File encoding (see \$\+Encoding). \\
+\hline
+string & {\em \$type} & File extension (M\+I\+M\+E) type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Msg\+H\+T\+M\+L().
+
+\hypertarget{classPHPMailer_ac15a3cde96d7928f4a43cd81d0911afb}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Addr\+Append@{Addr\+Append}}
+\index{Addr\+Append@{Addr\+Append}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Addr\+Append}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Addr\+Append (
+\begin{DoxyParamCaption}
+\item[{}]{\$type, }
+\item[{}]{\$addr}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ac15a3cde96d7928f4a43cd81d0911afb}
+Creates recipient headers.  public \begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Create\+Header().
+
+\hypertarget{classPHPMailer_aa19b774f8f3eacf0af5aca25f5509b24}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+Reply\+To@{Add\+Reply\+To}}
+\index{Add\+Reply\+To@{Add\+Reply\+To}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+Reply\+To}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+Reply\+To (
+\begin{DoxyParamCaption}
+\item[{}]{\$address, }
+\item[{}]{\$name = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_aa19b774f8f3eacf0af5aca25f5509b24}
+Adds a \char`\"{}\+Reply-\/to\char`\"{} address. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$address} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a626beaf7b877bd8d1f0f8c6869962bd2}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Addr\+Format@{Addr\+Format}}
+\index{Addr\+Format@{Addr\+Format}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Addr\+Format}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Addr\+Format (
+\begin{DoxyParamCaption}
+\item[{}]{\$addr}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a626beaf7b877bd8d1f0f8c6869962bd2}
+Formats an address correctly.  public \begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Addr\+Append() , 以及 Mail\+Send().
+
+\hypertarget{classPHPMailer_a92ef5134fdce5bd5fd24a723c508bf2b}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Add\+String\+Attachment@{Add\+String\+Attachment}}
+\index{Add\+String\+Attachment@{Add\+String\+Attachment}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Add\+String\+Attachment}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Add\+String\+Attachment (
+\begin{DoxyParamCaption}
+\item[{}]{\$string, }
+\item[{}]{\$filename, }
+\item[{}]{\$encoding = {\ttfamily 'base64'}, }
+\item[{}]{\$type = {\ttfamily 'application/octet-\/stream'}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a92ef5134fdce5bd5fd24a723c508bf2b}
+Adds a string or binary attachment (non-\/filesystem) to the list. This method can be used to attach ascii or binary data, such as a B\+L\+O\+B record from a database. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$string} & String attachment data. \\
+\hline
+string & {\em \$filename} & Name of the attachment. \\
+\hline
+string & {\em \$encoding} & File encoding (see \$\+Encoding). \\
+\hline
+string & {\em \$type} & File extension (M\+I\+M\+E) type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a898ae09e6b08a3db116744b6d44923c5}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Base64\+Encode\+Wrap\+M\+B@{Base64\+Encode\+Wrap\+M\+B}}
+\index{Base64\+Encode\+Wrap\+M\+B@{Base64\+Encode\+Wrap\+M\+B}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Base64\+Encode\+Wrap\+M\+B}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Base64\+Encode\+Wrap\+M\+B (
+\begin{DoxyParamCaption}
+\item[{}]{\$str}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a898ae09e6b08a3db116744b6d44923c5}
+Correctly encodes and wraps long multibyte strings for mail headers without breaking lines within a character. Adapted from a function by paravoid at \href{http://uk.php.net/manual/en/function.mb-encode-mimeheader.php}{\tt http\+://uk.\+php.\+net/manual/en/function.\+mb-\/encode-\/mimeheader.\+php}  public 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$str} & multi-\/byte text to wrap encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Encode\+Header().
+
+\hypertarget{classPHPMailer_a0dddfa22e54f935641ed9a1ce9635f07}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Clear\+Addresses@{Clear\+Addresses}}
+\index{Clear\+Addresses@{Clear\+Addresses}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Clear\+Addresses}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Clear\+Addresses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a0dddfa22e54f935641ed9a1ce9635f07}
+Clears all recipients assigned in the T\+O array. Returns void. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a5734ae30e8e523bdae2d8d92200ba34f}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Clear\+All\+Recipients@{Clear\+All\+Recipients}}
+\index{Clear\+All\+Recipients@{Clear\+All\+Recipients}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Clear\+All\+Recipients}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Clear\+All\+Recipients (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a5734ae30e8e523bdae2d8d92200ba34f}
+Clears all recipients assigned in the T\+O, C\+C and B\+C\+C array. Returns void. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_ad8f2cb3e17912028a5e39b4f23b2268c}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Clear\+Attachments@{Clear\+Attachments}}
+\index{Clear\+Attachments@{Clear\+Attachments}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Clear\+Attachments}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Clear\+Attachments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ad8f2cb3e17912028a5e39b4f23b2268c}
+Clears all previously set filesystem, string, and binary attachments. Returns void. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a94c5461b6fa875543fa1abbe41ac687b}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Clear\+B\+C\+Cs@{Clear\+B\+C\+Cs}}
+\index{Clear\+B\+C\+Cs@{Clear\+B\+C\+Cs}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Clear\+B\+C\+Cs}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Clear\+B\+C\+Cs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a94c5461b6fa875543fa1abbe41ac687b}
+Clears all recipients assigned in the B\+C\+C array. Returns void. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a9304081ed2524139748d20c08076b2f5}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Clear\+C\+Cs@{Clear\+C\+Cs}}
+\index{Clear\+C\+Cs@{Clear\+C\+Cs}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Clear\+C\+Cs}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Clear\+C\+Cs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a9304081ed2524139748d20c08076b2f5}
+Clears all recipients assigned in the C\+C array. Returns void. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_ac97c4987eefae07373a8becf2fdb4c6e}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Clear\+Custom\+Headers@{Clear\+Custom\+Headers}}
+\index{Clear\+Custom\+Headers@{Clear\+Custom\+Headers}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Clear\+Custom\+Headers}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Clear\+Custom\+Headers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ac97c4987eefae07373a8becf2fdb4c6e}
+Clears all custom headers. Returns void. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_aa2bbeddb9d5b19eb2202e715912b562f}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Clear\+Reply\+Tos@{Clear\+Reply\+Tos}}
+\index{Clear\+Reply\+Tos@{Clear\+Reply\+Tos}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Clear\+Reply\+Tos}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Clear\+Reply\+Tos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_aa2bbeddb9d5b19eb2202e715912b562f}
+Clears all recipients assigned in the Reply\+To array. Returns void. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a878a0dc40ac9bc7f9a33aabd34728d1c}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Create\+Body@{Create\+Body}}
+\index{Create\+Body@{Create\+Body}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Create\+Body}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Create\+Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a878a0dc40ac9bc7f9a33aabd34728d1c}
+Assembles the message body. Returns an empty string on failure.  public \begin{DoxyReturn}{返回}
+string The assembled message body 
+\end{DoxyReturn}
+
+
+参考自 Send().
+
+\hypertarget{classPHPMailer_a027a59d7e2b70753f182247934bf90bb}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Create\+Header@{Create\+Header}}
+\index{Create\+Header@{Create\+Header}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Create\+Header}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Create\+Header (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a027a59d7e2b70753f182247934bf90bb}
+Assembles message header.  public \begin{DoxyReturn}{返回}
+string The assembled header 
+\end{DoxyReturn}
+
+
+参考自 Send().
+
+\hypertarget{classPHPMailer_a5c6862be627a60363fd470711c5ae0cc}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Encode\+Header@{Encode\+Header}}
+\index{Encode\+Header@{Encode\+Header}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Encode\+Header}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Encode\+Header (
+\begin{DoxyParamCaption}
+\item[{}]{\$str, }
+\item[{}]{\$position = {\ttfamily 'text'}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a5c6862be627a60363fd470711c5ae0cc}
+Encode a header string to best (shortest) of Q, B, quoted or none.  public \begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Addr\+Format(), Create\+Header() , 以及 Mail\+Send().
+
+\hypertarget{classPHPMailer_aad0e420b74b8d2909f1292332bf1bbb8}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Encode\+Q@{Encode\+Q}}
+\index{Encode\+Q@{Encode\+Q}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Encode\+Q}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Encode\+Q (
+\begin{DoxyParamCaption}
+\item[{}]{\$str, }
+\item[{}]{\$position = {\ttfamily 'text'}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_aad0e420b74b8d2909f1292332bf1bbb8}
+Encode string to q encoding. \hyperlink{}{string \$str the text to encode  string \$position Where the text is going to be used, see the R\+F\+C for what that means  public  string }
+
+参考自 Encode\+Header().
+
+\hypertarget{classPHPMailer_a5659b179a899473bbbc891c68d60813f}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Encode\+Q\+P@{Encode\+Q\+P}}
+\index{Encode\+Q\+P@{Encode\+Q\+P}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Encode\+Q\+P}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Encode\+Q\+P (
+\begin{DoxyParamCaption}
+\item[{}]{\$string, }
+\item[{}]{\$line\+\_\+max = {\ttfamily 76}, }
+\item[{}]{\$space\+\_\+conv = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a5659b179a899473bbbc891c68d60813f}
+Encode string to R\+F\+C2045 (6.\+7) quoted-\/printable format Uses a P\+H\+P5 stream filter to do the encoding about 64x faster than the old version Also results in same content as you started with after decoding \begin{DoxySeeAlso}{参见}
+\hyperlink{classPHPMailer_a60cee38180f8a56cf7049582c73bb4f2}{Encode\+Q\+Pphp()}  public 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{参数}
+string & {\em \$string} & the text to encode \\
+\hline
+integer & {\em \$line\+\_\+max} & Number of chars allowed on a line before wrapping \\
+\hline
+boolean & {\em \$space\+\_\+conv} & Dummy param for compatibility with existing Encode\+Q\+P function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{作者}
+Marcus Bointon 
+\end{DoxyAuthor}
+
+
+参考自 Encode\+String().
+
+\hypertarget{classPHPMailer_a60cee38180f8a56cf7049582c73bb4f2}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Encode\+Q\+Pphp@{Encode\+Q\+Pphp}}
+\index{Encode\+Q\+Pphp@{Encode\+Q\+Pphp}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Encode\+Q\+Pphp}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Encode\+Q\+Pphp (
+\begin{DoxyParamCaption}
+\item[{}]{\$input = {\ttfamily ''}, }
+\item[{}]{\$line\+\_\+max = {\ttfamily 76}, }
+\item[{}]{\$space\+\_\+conv = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a60cee38180f8a56cf7049582c73bb4f2}
+Encode string to quoted-\/printable. Only uses standard P\+H\+P, slow, but will always work  public 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$string} & the text to encode \\
+\hline
+integer & {\em \$line\+\_\+max} & Number of chars allowed on a line before wrapping \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Encode\+Q\+P().
+
+\hypertarget{classPHPMailer_ae864ca54059804bf909a03f25b01887a}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Encode\+String@{Encode\+String}}
+\index{Encode\+String@{Encode\+String}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Encode\+String}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Encode\+String (
+\begin{DoxyParamCaption}
+\item[{}]{\$str, }
+\item[{}]{\$encoding = {\ttfamily 'base64'}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ae864ca54059804bf909a03f25b01887a}
+Encodes string to requested format. Returns an empty string on failure. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$str} & The text to encode \\
+\hline
+string & {\em \$encoding} & The encoding to use; one of 'base64', '7bit', '8bit', 'binary', 'quoted-\/printable'  public \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Create\+Body().
+
+\hypertarget{classPHPMailer_ae2ccce9b9fd39e70318eb55ebf16b113}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Get\+Attachments@{Get\+Attachments}}
+\index{Get\+Attachments@{Get\+Attachments}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Get\+Attachments}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Get\+Attachments (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ae2ccce9b9fd39e70318eb55ebf16b113}
+Return the current array of attachments \begin{DoxyReturn}{返回}
+array 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_af696b69cbfc7f6cd3c2ac7701bc0bff4}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Get\+Mail\+M\+I\+M\+E@{Get\+Mail\+M\+I\+M\+E}}
+\index{Get\+Mail\+M\+I\+M\+E@{Get\+Mail\+M\+I\+M\+E}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Get\+Mail\+M\+I\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Get\+Mail\+M\+I\+M\+E (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_af696b69cbfc7f6cd3c2ac7701bc0bff4}
+Returns the message M\+I\+M\+E.  public \begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Create\+Body() , 以及 Create\+Header().
+
+\hypertarget{classPHPMailer_a792a70cfc3f64b1af6bfdad22241b2df}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Get\+Translations@{Get\+Translations}}
+\index{Get\+Translations@{Get\+Translations}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Get\+Translations}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Get\+Translations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a792a70cfc3f64b1af6bfdad22241b2df}
+Return the current array of language strings \begin{DoxyReturn}{返回}
+array 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_ab470a97d2cad671a3c8e05c673b1e0d8}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Has\+Multi\+Bytes@{Has\+Multi\+Bytes}}
+\index{Has\+Multi\+Bytes@{Has\+Multi\+Bytes}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Has\+Multi\+Bytes}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Has\+Multi\+Bytes (
+\begin{DoxyParamCaption}
+\item[{}]{\$str}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ab470a97d2cad671a3c8e05c673b1e0d8}
+Checks if a string contains multibyte characters.  public 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$str} & multi-\/byte text to wrap encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Encode\+Header().
+
+\hypertarget{classPHPMailer_a8256a4880e4fb0ce1498abfcc1231674}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Header\+Line@{Header\+Line}}
+\index{Header\+Line@{Header\+Line}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Header\+Line}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Header\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a8256a4880e4fb0ce1498abfcc1231674}
+Returns a formatted header line.  public \begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Create\+Header() , 以及 Get\+Mail\+M\+I\+M\+E().
+
+\hypertarget{classPHPMailer_a0167ed0843240553feb3cd4d5204f299}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Inline\+Image\+Exists@{Inline\+Image\+Exists}}
+\index{Inline\+Image\+Exists@{Inline\+Image\+Exists}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Inline\+Image\+Exists}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Inline\+Image\+Exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a0167ed0843240553feb3cd4d5204f299}
+Returns true if an inline attachment is present.  public \begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Get\+Mail\+M\+I\+M\+E().
+
+\hypertarget{classPHPMailer_a3ad69f21d5b0f390bd06e0696974b39c}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Is\+Error@{Is\+Error}}
+\index{Is\+Error@{Is\+Error}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Is\+Error}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Is\+Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a3ad69f21d5b0f390bd06e0696974b39c}
+Returns true if an error occurred.  public \begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Create\+Body().
+
+\hypertarget{classPHPMailer_a85eec7e7cf0cfb07653fc8642b36f644}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Is\+H\+T\+M\+L@{Is\+H\+T\+M\+L}}
+\index{Is\+H\+T\+M\+L@{Is\+H\+T\+M\+L}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Is\+H\+T\+M\+L}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Is\+H\+T\+M\+L (
+\begin{DoxyParamCaption}
+\item[{}]{\$ishtml = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a85eec7e7cf0cfb07653fc8642b36f644}
+Sets message type to H\+T\+M\+L. 
+\begin{DoxyParams}[1]{参数}
+bool & {\em \$ishtml} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+
+
+参考自 Msg\+H\+T\+M\+L().
+
+\hypertarget{classPHPMailer_a6c4e6445c6f12b87462cf9ab63239c1b}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Is\+Mail@{Is\+Mail}}
+\index{Is\+Mail@{Is\+Mail}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Is\+Mail}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Is\+Mail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a6c4e6445c6f12b87462cf9ab63239c1b}
+Sets Mailer to send message using P\+H\+P mail() function. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a7c2d3d01329eaa84d9da0b9490351030}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Is\+Qmail@{Is\+Qmail}}
+\index{Is\+Qmail@{Is\+Qmail}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Is\+Qmail}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Is\+Qmail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a7c2d3d01329eaa84d9da0b9490351030}
+Sets Mailer to send message using the qmail M\+T\+A. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a7cdd2b399559d7b36f0259c8f7924b07}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Is\+Sendmail@{Is\+Sendmail}}
+\index{Is\+Sendmail@{Is\+Sendmail}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Is\+Sendmail}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Is\+Sendmail (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a7cdd2b399559d7b36f0259c8f7924b07}
+Sets Mailer to send message using the \$\+Sendmail program. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_acba6e87e0af0baa5bda1026a4e99e236}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Is\+S\+M\+T\+P@{Is\+S\+M\+T\+P}}
+\index{Is\+S\+M\+T\+P@{Is\+S\+M\+T\+P}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Is\+S\+M\+T\+P}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Is\+S\+M\+T\+P (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_acba6e87e0af0baa5bda1026a4e99e236}
+Sets Mailer to send message using \hyperlink{classSMTP}{S\+M\+T\+P}. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a0420328dd91b081096acd4a12a6d130f}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Mail\+Send@{Mail\+Send}}
+\index{Mail\+Send@{Mail\+Send}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Mail\+Send}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Mail\+Send (
+\begin{DoxyParamCaption}
+\item[{}]{\$header, }
+\item[{}]{\$body}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classPHPMailer_a0420328dd91b081096acd4a12a6d130f}
+Sends mail using the P\+H\+P mail() function. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$header} & The message headers \\
+\hline
+string & {\em \$body} & The message body  protected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Send().
+
+\hypertarget{classPHPMailer_a747bfc31959d4454c6a6d7ce116d4e47}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Msg\+H\+T\+M\+L@{Msg\+H\+T\+M\+L}}
+\index{Msg\+H\+T\+M\+L@{Msg\+H\+T\+M\+L}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Msg\+H\+T\+M\+L}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Msg\+H\+T\+M\+L (
+\begin{DoxyParamCaption}
+\item[{}]{\$message, }
+\item[{}]{\$basedir = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a747bfc31959d4454c6a6d7ce116d4e47}
+Evaluates the message and returns modifications for inline images and backgrounds  public \begin{DoxyReturn}{返回}
+\$message 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_ae3943e2e54c83720c42c5f0414466836}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!R\+F\+C\+Date@{R\+F\+C\+Date}}
+\index{R\+F\+C\+Date@{R\+F\+C\+Date}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{R\+F\+C\+Date}]{\setlength{\rightskip}{0pt plus 5cm}static P\+H\+P\+Mailer\+::\+R\+F\+C\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classPHPMailer_ae3943e2e54c83720c42c5f0414466836}
+Returns the proper R\+F\+C 822 formatted date.  public \begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_ac0c6f469479274f00a3715444b1a849a}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Secure\+Header@{Secure\+Header}}
+\index{Secure\+Header@{Secure\+Header}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Secure\+Header}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Secure\+Header (
+\begin{DoxyParamCaption}
+\item[{}]{\$str}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ac0c6f469479274f00a3715444b1a849a}
+Strips newlines to prevent header injection.  public 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$str} & String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Addr\+Format(), Create\+Header() , 以及 Mail\+Send().
+
+\hypertarget{classPHPMailer_a675cc2f9ff744a7819e62ebbd76a2ce1}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Send@{Send}}
+\index{Send@{Send}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Send}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Send (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a675cc2f9ff744a7819e62ebbd76a2ce1}
+Creates message and assigns Mailer. If the message is not sent successfully then it returns false. Use the Error\+Info variable to view description of the error. \begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a34248b37be1ca31e3d0440dcea1d40c5}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Sendmail\+Send@{Sendmail\+Send}}
+\index{Sendmail\+Send@{Sendmail\+Send}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Sendmail\+Send}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Sendmail\+Send (
+\begin{DoxyParamCaption}
+\item[{}]{\$header, }
+\item[{}]{\$body}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classPHPMailer_a34248b37be1ca31e3d0440dcea1d40c5}
+Sends mail using the \$\+Sendmail program. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$header} & The message headers \\
+\hline
+string & {\em \$body} & The message body  protected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Send().
+
+\hypertarget{classPHPMailer_ad7dfabb6c5e91e298be2de2e78749a75}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!set@{set}}
+\index{set@{set}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::set (
+\begin{DoxyParamCaption}
+\item[{}]{\$name, }
+\item[{}]{\$value = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ad7dfabb6c5e91e298be2de2e78749a75}
+Set (or reset) Class Objects (variables)
+
+Usage Example\+: \$page-\/$>$set('X-\/\+Priority', '3');
+
+public 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$name} & Parameter Name \\
+\hline
+mixed & {\em \$value} & Parameter Value N\+O\+T\+E\+: will not work with arrays, there are no arrays to set/reset \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{待办事项}
+\item[\hyperlink{todo__todo000001}{待办事项}]Should this not be using \+\_\+\+\_\+set() magic function? \end{DoxyRefDesc}
+\hypertarget{classPHPMailer_a8b55431cdaf8b5fd59869a07a8058b0e}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Set\+Error@{Set\+Error}}
+\index{Set\+Error@{Set\+Error}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Set\+Error}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Set\+Error (
+\begin{DoxyParamCaption}
+\item[{}]{\$msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classPHPMailer_a8b55431cdaf8b5fd59869a07a8058b0e}
+Adds the error message to the error container.  protected \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+
+
+参考自 Add\+Attachment(), Add\+Embedded\+Image(), Encode\+String(), Send(), set() , 以及 Set\+From().
+
+\hypertarget{classPHPMailer_ac9cfb38512abb09ad381529a8bc0ca1a}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Set\+From@{Set\+From}}
+\index{Set\+From@{Set\+From}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Set\+From}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Set\+From (
+\begin{DoxyParamCaption}
+\item[{}]{\$address, }
+\item[{}]{\$name = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_ac9cfb38512abb09ad381529a8bc0ca1a}
+Set the From and From\+Name properties 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$address} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+boolean 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a39ac3b2e56c56e0efdbc1e71f69a0d9f}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Set\+Language@{Set\+Language}}
+\index{Set\+Language@{Set\+Language}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Set\+Language}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Set\+Language (
+\begin{DoxyParamCaption}
+\item[{}]{\$langcode = {\ttfamily 'en'}, }
+\item[{}]{\$lang\+\_\+path = {\ttfamily 'language/'}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a39ac3b2e56c56e0efdbc1e71f69a0d9f}
+Sets the language for all class error messages. Returns false if it cannot load the language file. The default language is English. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$langcode} & I\+S\+O 639-\/1 2-\/character language code (e.\+g. Portuguese\+: \char`\"{}br\char`\"{}) \\
+\hline
+string & {\em \$lang\+\_\+path} & Path to the language file directory  public \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPHPMailer_adbf94155c6a72aae101c0f5e0cf42823}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Set\+Word\+Wrap@{Set\+Word\+Wrap}}
+\index{Set\+Word\+Wrap@{Set\+Word\+Wrap}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Set\+Word\+Wrap}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Set\+Word\+Wrap (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_adbf94155c6a72aae101c0f5e0cf42823}
+Set the body wrapping.  public \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+
+
+参考自 Create\+Body().
+
+\hypertarget{classPHPMailer_a8ba196caee2ec44d60a34efbd2769719}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Sign@{Sign}}
+\index{Sign@{Sign}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Sign}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Sign (
+\begin{DoxyParamCaption}
+\item[{}]{\$cert\+\_\+filename, }
+\item[{}]{\$key\+\_\+filename, }
+\item[{}]{\$key\+\_\+pass}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a8ba196caee2ec44d60a34efbd2769719}
+Set the private key file and password to sign the message.
+
+public 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$key\+\_\+filename} & Parameter File Name \\
+\hline
+string & {\em \$key\+\_\+pass} & Password for private key \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPHPMailer_a20b4519c300896aff5c22e3710aa19cb}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Smtp\+Close@{Smtp\+Close}}
+\index{Smtp\+Close@{Smtp\+Close}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Smtp\+Close}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Smtp\+Close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a20b4519c300896aff5c22e3710aa19cb}
+Closes the active \hyperlink{classSMTP}{S\+M\+T\+P} session if one exists. \begin{DoxyReturn}{返回}
+void 
+\end{DoxyReturn}
+\hypertarget{classPHPMailer_a4d5a553ee27415465c48143a2b3fdcde}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Smtp\+Connect@{Smtp\+Connect}}
+\index{Smtp\+Connect@{Smtp\+Connect}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Smtp\+Connect}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Smtp\+Connect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a4d5a553ee27415465c48143a2b3fdcde}
+Initiates a connection to an \hyperlink{classSMTP}{S\+M\+T\+P} server. Returns false if the operation failed.  \hyperlink{classSMTP}{S\+M\+T\+P}  public \begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Smtp\+Send().
+
+\hypertarget{classPHPMailer_aa8e219822a2048621d1130f4bf883122}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Smtp\+Send@{Smtp\+Send}}
+\index{Smtp\+Send@{Smtp\+Send}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Smtp\+Send}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Smtp\+Send (
+\begin{DoxyParamCaption}
+\item[{}]{\$header, }
+\item[{}]{\$body}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classPHPMailer_aa8e219822a2048621d1130f4bf883122}
+Sends mail via \hyperlink{classSMTP}{S\+M\+T\+P} using Php\+S\+M\+T\+P Returns false if there is a bad M\+A\+I\+L F\+R\+O\+M, R\+C\+P\+T, or D\+A\+T\+A input. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$header} & The message headers \\
+\hline
+string & {\em \$body} & The message body  \hyperlink{classSMTP}{S\+M\+T\+P}  protected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+bool 
+\end{DoxyReturn}
+
+
+参考自 Send().
+
+\hypertarget{classPHPMailer_a626aa19ef9fda9132ee4c60a91f4869d}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Text\+Line@{Text\+Line}}
+\index{Text\+Line@{Text\+Line}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Text\+Line}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Text\+Line (
+\begin{DoxyParamCaption}
+\item[{}]{\$value}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a626aa19ef9fda9132ee4c60a91f4869d}
+Returns a formatted mail line.  public \begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Get\+Mail\+M\+I\+M\+E().
+
+\hypertarget{classPHPMailer_a5771594e3b02d05c624aec0d3d2930b3}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!U\+T\+F8\+Char\+Boundary@{U\+T\+F8\+Char\+Boundary}}
+\index{U\+T\+F8\+Char\+Boundary@{U\+T\+F8\+Char\+Boundary}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{U\+T\+F8\+Char\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+U\+T\+F8\+Char\+Boundary (
+\begin{DoxyParamCaption}
+\item[{}]{\$encoded\+Text, }
+\item[{}]{\$max\+Length}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_a5771594e3b02d05c624aec0d3d2930b3}
+Finds last character boundary prior to max\+Length in a utf-\/8 quoted (printable) encoded string. Original written by Colin Brown.  public 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$encoded\+Text} & utf-\/8 Q\+P text \\
+\hline
+int & {\em \$max\+Length} & find last character boundary prior to this length \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+int 
+\end{DoxyReturn}
+
+
+参考自 Wrap\+Text().
+
+\hypertarget{classPHPMailer_a67c7355dffd0b46878c2a0cea6dfcb80}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Validate\+Address@{Validate\+Address}}
+\index{Validate\+Address@{Validate\+Address}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Validate\+Address}]{\setlength{\rightskip}{0pt plus 5cm}static P\+H\+P\+Mailer\+::\+Validate\+Address (
+\begin{DoxyParamCaption}
+\item[{}]{\$address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classPHPMailer_a67c7355dffd0b46878c2a0cea6dfcb80}
+Check that a string looks roughly like an email address should Static so it can be used without instantiation Tries to use P\+H\+P built-\/in validator in the filter extension (from P\+H\+P 5.\+2), falls back to a reasonably competent regex validator Conforms approximately to R\+F\+C2822 \hyperlink{}{Original pattern found here  string \$address The email address to check  boolean  public }\hypertarget{classPHPMailer_acc83d51c756e780535b39680bfa0e368}{\index{P\+H\+P\+Mailer@{P\+H\+P\+Mailer}!Wrap\+Text@{Wrap\+Text}}
+\index{Wrap\+Text@{Wrap\+Text}!P\+H\+P\+Mailer@{P\+H\+P\+Mailer}}
+\subsubsection[{Wrap\+Text}]{\setlength{\rightskip}{0pt plus 5cm}P\+H\+P\+Mailer\+::\+Wrap\+Text (
+\begin{DoxyParamCaption}
+\item[{}]{\$message, }
+\item[{}]{\$length, }
+\item[{}]{\$qp\+\_\+mode = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classPHPMailer_acc83d51c756e780535b39680bfa0e368}
+Wraps message for use with mailers that do not automatically perform wrapping and for quoted-\/printable. Original written by philippe. 
+\begin{DoxyParams}[1]{参数}
+string & {\em \$message} & The message to wrap \\
+\hline
+integer & {\em \$length} & The line length to wrap to \\
+\hline
+boolean & {\em \$qp\+\_\+mode} & Whether to run in Quoted-\/\+Printable mode  public \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{返回}
+string 
+\end{DoxyReturn}
+
+
+参考自 Encode\+Header() , 以及 Set\+Word\+Wrap().
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+framework/lib/vendor/email/P\+H\+P\+Mailer.\+class.\+php\end{DoxyCompactItemize}
