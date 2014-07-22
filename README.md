@@ -289,6 +289,3 @@ DB_CACHE_EXPIRE: 数据库查询的缓存时间，默认缓存7200秒即2小时
 ADMIN_APP_NAME: 后台管理模块的APP_NAME
 
 SESSION_SAVE_TYPE: m值表示保存在memcache，f值表示session是文件保存方式
-<h3>核心类库介绍</h3>
-<p>详见doc目录下html里面的文档介绍说明</p>
-<a href="http://localhost/doc/html/index.html">http://localhost/doc/html/index.html</a>

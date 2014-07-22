@@ -55,7 +55,7 @@ function getc($name)
 	return htmlspecialchars($_COOKIE[$name]);
 }
 
-/*
+/**
  * 功能: 发送邮件的函数
  * 参数说明如下
  * $to 接受邮件的email地址
@@ -324,7 +324,7 @@ function check_data($data, $type = 'post')
 	return true;
 }
 
-/*
+/**
    * 功能: 递归读取目录下所有文件(含目录全路径)自动过滤.和..
    * 参数: $dir 目录路径 类型: string
    * 返回: 成功返回目录一维数组，失败返回false
@@ -360,7 +360,7 @@ function read_dir($dir, $clean = true)
 	return $dirArr;
 }
 
-/*
+/**
    * 功能: 脚本退出时候执行
    * 参数: void
    * 返回: void
@@ -371,7 +371,7 @@ function shutdown()
 	debuginfo();
 }
 
-/*
+/**
    * 功能: 输出调试信息
    * 参数: void
    * 返回: void
@@ -395,7 +395,7 @@ function debuginfo()
 	echo $html;
 }
 
-/*
+/**
    * 功能: 包含文件，实现同require，只是做了包含文件个数统计
    * 参数: $file 需要包含的文件 类型: string
    * 返回: 成功返回同require，失败返回false
@@ -408,7 +408,7 @@ function import($file)
 	return require_once($file);
 }
 
-/*
+/**
    * 功能: 判断是否所单词，含字母/数字/下划线
    * 参数: $str 需要测试的字符串 类型: string
    * 返回: 成功返回1，失败返回0
@@ -418,7 +418,7 @@ function isword($str)
 	return preg_match('/^(\w|\-)+$/', $str);
 }
 
-/*
+/**
    * 功能: 递归创建目录
    * 参数: $dir 需要递归创建的目录 类型: string / array
    * 返回: 成功返回true，失败返回false
@@ -472,7 +472,7 @@ function callback($content)
 }
 
 //if success return url else return false
-/*
+/**
  * 功能: 自动根据URL路由模式，生成URL地址
  * 参数说明
  * $act 控制器和操作方法 例如 User/add
