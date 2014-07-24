@@ -245,7 +245,7 @@
 <text text-anchor="middle" x="481" y="-494.943" font-family="Times Roman,serif" font-size="11.00">OODBBean</text>
 </g>
 <!-- \\IteratorAggregate -->
-<g id="node61" class="node"><title>\\IteratorAggregate</title>
+<g id="node63" class="node"><title>\\IteratorAggregate</title>
 <ellipse fill="none" stroke="black" cx="260" cy="-54.3427" rx="82.0244" ry="19.0919"/>
 <text text-anchor="middle" x="260" y="-51.2427" font-family="Times Roman,serif" font-size="14.00" fill="gray">\IteratorAggregate</text>
 </g>
@@ -255,7 +255,7 @@
 <polygon fill="none" stroke="black" points="331.977,-68.9183 321.57,-66.934 328.468,-74.9753 331.977,-68.9183"/>
 </g>
 <!-- \\ArrayAccess -->
-<g id="node63" class="node"><title>\\ArrayAccess</title>
+<g id="node65" class="node"><title>\\ArrayAccess</title>
 <ellipse fill="none" stroke="black" cx="260" cy="-166.343" rx="63.1385" ry="19.0919"/>
 <text text-anchor="middle" x="260" y="-163.243" font-family="Times Roman,serif" font-size="14.00" fill="gray">\ArrayAccess</text>
 </g>
@@ -265,7 +265,7 @@
 <polygon fill="none" stroke="black" points="322.572,-178.354 312.026,-177.343 319.64,-184.71 322.572,-178.354"/>
 </g>
 <!-- \\Countable -->
-<g id="node65" class="node"><title>\\Countable</title>
+<g id="node67" class="node"><title>\\Countable</title>
 <ellipse fill="none" stroke="black" cx="260" cy="-110.343" rx="53.2379" ry="19.0919"/>
 <text text-anchor="middle" x="260" y="-107.243" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Countable</text>
 </g>
@@ -275,7 +275,7 @@
 <polygon fill="none" stroke="black" points="319.808,-118.46 309.22,-118.075 317.257,-124.979 319.808,-118.46"/>
 </g>
 <!-- \\Exception -->
-<g id="node75" class="node"><title>\\Exception</title>
+<g id="node77" class="node"><title>\\Exception</title>
 <ellipse fill="none" stroke="black" cx="53" cy="-511.343" rx="53.033" ry="19.0919"/>
 <text text-anchor="middle" x="53" y="-508.243" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Exception</text>
 </g>
@@ -361,116 +361,126 @@
 </g>
 <!-- \\Kernel -->
 <g id="node38" class="node"><title>\\Kernel</title>
-<polygon fill="none" stroke="black" points="708,-1476.34 654,-1476.34 654,-1440.34 708,-1440.34 708,-1476.34"/>
-<text text-anchor="middle" x="681" y="-1455.94" font-family="Times Roman,serif" font-size="11.00">Kernel</text>
+<polygon fill="none" stroke="black" points="708,-1477.34 654,-1477.34 654,-1441.34 708,-1441.34 708,-1477.34"/>
+<text text-anchor="middle" x="681" y="-1456.94" font-family="Times Roman,serif" font-size="11.00">Kernel</text>
 </g>
 <!-- \\Session -->
 <g id="node39" class="node"><title>\\Session</title>
-<polygon fill="none" stroke="black" points="708,-1420.34 654,-1420.34 654,-1384.34 708,-1384.34 708,-1420.34"/>
-<text text-anchor="middle" x="681" y="-1399.94" font-family="Times Roman,serif" font-size="11.00">Session</text>
+<polygon fill="none" stroke="black" points="708,-1423.34 654,-1423.34 654,-1387.34 708,-1387.34 708,-1423.34"/>
+<text text-anchor="middle" x="681" y="-1402.94" font-family="Times Roman,serif" font-size="11.00">Session</text>
 </g>
 <!-- \\Model -->
 <g id="node40" class="node"><title>\\Model</title>
-<polygon fill="none" stroke="black" points="708,-1363.34 654,-1363.34 654,-1327.34 708,-1327.34 708,-1363.34"/>
-<text text-anchor="middle" x="681" y="-1342.94" font-family="Times Roman,serif" font-size="11.00">Model</text>
+<polygon fill="none" stroke="black" points="708,-1368.34 654,-1368.34 654,-1332.34 708,-1332.34 708,-1368.34"/>
+<text text-anchor="middle" x="681" y="-1347.94" font-family="Times Roman,serif" font-size="11.00">Model</text>
 </g>
 <!-- \\Config -->
 <g id="node41" class="node"><title>\\Config</title>
-<polygon fill="none" stroke="black" points="708,-1302.34 654,-1302.34 654,-1266.34 708,-1266.34 708,-1302.34"/>
-<text text-anchor="middle" x="681" y="-1281.94" font-family="Times Roman,serif" font-size="11.00">Config</text>
+<polygon fill="none" stroke="black" points="708,-1312.34 654,-1312.34 654,-1276.34 708,-1276.34 708,-1312.34"/>
+<text text-anchor="middle" x="681" y="-1291.94" font-family="Times Roman,serif" font-size="11.00">Config</text>
 </g>
 <!-- \\Controller -->
 <g id="node42" class="node"><title>\\Controller</title>
-<polygon fill="none" stroke="black" points="712,-1235.34 650,-1235.34 650,-1199.34 712,-1199.34 712,-1235.34"/>
-<text text-anchor="middle" x="681" y="-1214.94" font-family="Times Roman,serif" font-size="11.00">Controller</text>
+<polygon fill="none" stroke="black" points="712,-1255.34 650,-1255.34 650,-1219.34 712,-1219.34 712,-1255.34"/>
+<text text-anchor="middle" x="681" y="-1234.94" font-family="Times Roman,serif" font-size="11.00">Controller</text>
 </g>
 <!-- \\Lang -->
 <g id="node43" class="node"><title>\\Lang</title>
-<polygon fill="none" stroke="black" points="708,-1154.34 654,-1154.34 654,-1118.34 708,-1118.34 708,-1154.34"/>
-<text text-anchor="middle" x="681" y="-1133.94" font-family="Times Roman,serif" font-size="11.00">Lang</text>
+<polygon fill="none" stroke="black" points="708,-1194.34 654,-1194.34 654,-1158.34 708,-1158.34 708,-1194.34"/>
+<text text-anchor="middle" x="681" y="-1173.94" font-family="Times Roman,serif" font-size="11.00">Lang</text>
 </g>
 <!-- \\Action -->
 <g id="node44" class="node"><title>\\Action</title>
-<polygon fill="none" stroke="black" points="708,-1046.34 654,-1046.34 654,-1010.34 708,-1010.34 708,-1046.34"/>
-<text text-anchor="middle" x="681" y="-1025.94" font-family="Times Roman,serif" font-size="11.00">Action</text>
+<polygon fill="none" stroke="black" points="708,-1127.34 654,-1127.34 654,-1091.34 708,-1091.34 708,-1127.34"/>
+<text text-anchor="middle" x="681" y="-1106.94" font-family="Times Roman,serif" font-size="11.00">Action</text>
+</g>
+<!-- \\HttpClient -->
+<g id="node45" class="node"><title>\\HttpClient</title>
+<polygon fill="none" stroke="black" points="712,-1046.34 650,-1046.34 650,-1010.34 712,-1010.34 712,-1046.34"/>
+<text text-anchor="middle" x="681" y="-1025.94" font-family="Times Roman,serif" font-size="11.00">HttpClient</text>
 </g>
 <!-- \\RedBean_SimpleModel -->
-<g id="node45" class="node"><title>\\RedBean_SimpleModel</title>
-<polygon fill="none" stroke="black" points="742,-885.343 620,-885.343 620,-849.343 742,-849.343 742,-885.343"/>
-<text text-anchor="middle" x="681" y="-864.943" font-family="Times Roman,serif" font-size="11.00">RedBean_SimpleModel</text>
+<g id="node46" class="node"><title>\\RedBean_SimpleModel</title>
+<polygon fill="none" stroke="black" points="742,-939.343 620,-939.343 620,-903.343 742,-903.343 742,-939.343"/>
+<text text-anchor="middle" x="681" y="-918.943" font-family="Times Roman,serif" font-size="11.00">RedBean_SimpleModel</text>
 </g>
 <!-- \\RedBean_SimpleModel&#45;&gt;\\RedBeanPHP\\SimpleModel -->
 <g id="edge48" class="edge"><title>\\RedBean_SimpleModel&#45;&gt;\\RedBeanPHP\\SimpleModel</title>
-<path fill="none" stroke="black" d="M629.387,-849.173C625.898,-846.597 622.702,-843.668 620,-840.343 544.911,-747.928 643.711,-666.801 564,-578.343 554.866,-568.206 541.888,-561.86 528.901,-557.892"/>
-<polygon fill="none" stroke="black" points="529.593,-554.455 519.032,-555.298 527.813,-561.225 529.593,-554.455"/>
+<path fill="none" stroke="black" d="M629.258,-903.276C625.797,-900.677 622.643,-897.715 620,-894.343 532.016,-782.08 657.603,-685.965 564,-578.343 555.046,-568.047 542.121,-561.654 529.128,-557.691"/>
+<polygon fill="none" stroke="black" points="529.803,-554.25 519.243,-555.111 528.034,-561.023 529.803,-554.25"/>
 </g>
 <!-- \\R -->
-<g id="node46" class="node"><title>\\R</title>
-<polygon fill="none" stroke="black" points="708,-831.343 654,-831.343 654,-795.343 708,-795.343 708,-831.343"/>
-<text text-anchor="middle" x="681" y="-810.943" font-family="Times Roman,serif" font-size="11.00">R</text>
+<g id="node47" class="node"><title>\\R</title>
+<polygon fill="none" stroke="black" points="708,-885.343 654,-885.343 654,-849.343 708,-849.343 708,-885.343"/>
+<text text-anchor="middle" x="681" y="-864.943" font-family="Times Roman,serif" font-size="11.00">R</text>
 </g>
 <!-- \\R&#45;&gt;\\RedBeanPHP\\Facade -->
 <g id="edge50" class="edge"><title>\\R&#45;&gt;\\RedBeanPHP\\Facade</title>
-<path fill="none" stroke="black" d="M653.761,-807.7C641.561,-803.761 628.121,-797.189 620,-786.343 506.073,-634.187 685.55,-508.481 564,-362.343 552.766,-348.836 534.684,-342.025 518.261,-338.616"/>
-<polygon fill="none" stroke="black" points="518.774,-335.153 508.325,-336.903 517.585,-342.051 518.774,-335.153"/>
+<path fill="none" stroke="black" d="M653.69,-861.752C641.474,-857.826 628.042,-851.249 620,-840.343 493.059,-668.185 699.568,-527.791 564,-362.343 552.786,-348.657 534.534,-341.839 517.998,-338.47"/>
+<polygon fill="none" stroke="black" points="518.444,-334.996 508.001,-336.788 517.282,-341.899 518.444,-334.996"/>
 </g>
 <!-- \\PHPMailer -->
-<g id="node47" class="node"><title>\\PHPMailer</title>
-<polygon fill="none" stroke="black" points="714,-777.343 648,-777.343 648,-741.343 714,-741.343 714,-777.343"/>
-<text text-anchor="middle" x="681" y="-756.943" font-family="Times Roman,serif" font-size="11.00">PHPMailer</text>
+<g id="node48" class="node"><title>\\PHPMailer</title>
+<polygon fill="none" stroke="black" points="714,-831.343 648,-831.343 648,-795.343 714,-795.343 714,-831.343"/>
+<text text-anchor="middle" x="681" y="-810.943" font-family="Times Roman,serif" font-size="11.00">PHPMailer</text>
 </g>
 <!-- \\phpmailerException -->
-<g id="node48" class="node"><title>\\phpmailerException</title>
-<polygon fill="none" stroke="black" points="733,-723.343 629,-723.343 629,-687.343 733,-687.343 733,-723.343"/>
-<text text-anchor="middle" x="681" y="-702.943" font-family="Times Roman,serif" font-size="11.00">phpmailerException</text>
+<g id="node49" class="node"><title>\\phpmailerException</title>
+<polygon fill="none" stroke="black" points="733,-777.343 629,-777.343 629,-741.343 733,-741.343 733,-777.343"/>
+<text text-anchor="middle" x="681" y="-756.943" font-family="Times Roman,serif" font-size="11.00">phpmailerException</text>
 </g>
 <!-- \\phpmailerException&#45;&gt;\\Exception -->
 <g id="edge52" class="edge"><title>\\phpmailerException&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M628.759,-687.231C625.457,-684.646 622.473,-681.699 620,-678.343 492.336,-505.074 670.037,-384.63 564,-197.343 502.639,-88.964 459.897,-66.485 342,-26.3427 273.001,-2.84947 235.614,18.3051 178,-26.3427 104.209,-83.5267 66.2636,-385.995 55.9458,-482.044"/>
+<path fill="none" stroke="black" d="M628.716,-741.263C625.423,-738.67 622.454,-735.714 620,-732.343 479.305,-539.048 680.581,-406.069 564,-197.343 503.269,-88.6097 459.897,-66.485 342,-26.3427 273.001,-2.84947 235.614,18.3051 178,-26.3427 104.209,-83.5267 66.2636,-385.995 55.9458,-482.044"/>
 <polygon fill="none" stroke="black" points="52.4426,-481.892 54.8755,-492.203 59.4041,-482.625 52.4426,-481.892"/>
 </g>
 <!-- \\SMTP -->
-<g id="node49" class="node"><title>\\SMTP</title>
-<polygon fill="none" stroke="black" points="708,-669.343 654,-669.343 654,-633.343 708,-633.343 708,-669.343"/>
-<text text-anchor="middle" x="681" y="-648.943" font-family="Times Roman,serif" font-size="11.00">SMTP</text>
+<g id="node50" class="node"><title>\\SMTP</title>
+<polygon fill="none" stroke="black" points="708,-723.343 654,-723.343 654,-687.343 708,-687.343 708,-723.343"/>
+<text text-anchor="middle" x="681" y="-702.943" font-family="Times Roman,serif" font-size="11.00">SMTP</text>
 </g>
 <!-- \\Ftp -->
-<g id="node50" class="node"><title>\\Ftp</title>
-<polygon fill="none" stroke="black" points="708,-615.343 654,-615.343 654,-579.343 708,-579.343 708,-615.343"/>
-<text text-anchor="middle" x="681" y="-594.943" font-family="Times Roman,serif" font-size="11.00">Ftp</text>
+<g id="node51" class="node"><title>\\Ftp</title>
+<polygon fill="none" stroke="black" points="708,-669.343 654,-669.343 654,-633.343 708,-633.343 708,-669.343"/>
+<text text-anchor="middle" x="681" y="-648.943" font-family="Times Roman,serif" font-size="11.00">Ftp</text>
 </g>
 <!-- \\Cache -->
-<g id="node51" class="node"><title>\\Cache</title>
-<polygon fill="none" stroke="black" points="708,-561.343 654,-561.343 654,-525.343 708,-525.343 708,-561.343"/>
-<text text-anchor="middle" x="681" y="-540.943" font-family="Times Roman,serif" font-size="11.00">Cache</text>
+<g id="node52" class="node"><title>\\Cache</title>
+<polygon fill="none" stroke="black" points="708,-615.343 654,-615.343 654,-579.343 708,-579.343 708,-615.343"/>
+<text text-anchor="middle" x="681" y="-594.943" font-family="Times Roman,serif" font-size="11.00">Cache</text>
 </g>
 <!-- \\Upload -->
-<g id="node52" class="node"><title>\\Upload</title>
+<g id="node53" class="node"><title>\\Upload</title>
+<polygon fill="none" stroke="black" points="708,-561.343 654,-561.343 654,-525.343 708,-525.343 708,-561.343"/>
+<text text-anchor="middle" x="681" y="-540.943" font-family="Times Roman,serif" font-size="11.00">Upload</text>
+</g>
+<!-- \\Http -->
+<g id="node54" class="node"><title>\\Http</title>
 <polygon fill="none" stroke="black" points="708,-507.343 654,-507.343 654,-471.343 708,-471.343 708,-507.343"/>
-<text text-anchor="middle" x="681" y="-486.943" font-family="Times Roman,serif" font-size="11.00">Upload</text>
+<text text-anchor="middle" x="681" y="-486.943" font-family="Times Roman,serif" font-size="11.00">Http</text>
 </g>
 <!-- \\Mysql -->
-<g id="node53" class="node"><title>\\Mysql</title>
+<g id="node55" class="node"><title>\\Mysql</title>
 <polygon fill="none" stroke="black" points="708,-453.343 654,-453.343 654,-417.343 708,-417.343 708,-453.343"/>
 <text text-anchor="middle" x="681" y="-432.943" font-family="Times Roman,serif" font-size="11.00">Mysql</text>
 </g>
 <!-- \\String -->
-<g id="node54" class="node"><title>\\String</title>
+<g id="node56" class="node"><title>\\String</title>
 <polygon fill="none" stroke="black" points="708,-399.343 654,-399.343 654,-363.343 708,-363.343 708,-399.343"/>
 <text text-anchor="middle" x="681" y="-378.943" font-family="Times Roman,serif" font-size="11.00">String</text>
 </g>
 <!-- \\Demo -->
-<g id="node55" class="node"><title>\\Demo</title>
+<g id="node57" class="node"><title>\\Demo</title>
 <polygon fill="none" stroke="black" points="708,-345.343 654,-345.343 654,-309.343 708,-309.343 708,-345.343"/>
 <text text-anchor="middle" x="681" y="-324.943" font-family="Times Roman,serif" font-size="11.00">Demo</text>
 </g>
 <!-- \\Image -->
-<g id="node56" class="node"><title>\\Image</title>
+<g id="node58" class="node"><title>\\Image</title>
 <polygon fill="none" stroke="black" points="708,-291.343 654,-291.343 654,-255.343 708,-255.343 708,-291.343"/>
 <text text-anchor="middle" x="681" y="-270.943" font-family="Times Roman,serif" font-size="11.00">Image</text>
 </g>
 <!-- \\Page -->
-<g id="node57" class="node"><title>\\Page</title>
+<g id="node59" class="node"><title>\\Page</title>
 <polygon fill="none" stroke="black" points="708,-237.343 654,-237.343 654,-201.343 708,-201.343 708,-237.343"/>
 <text text-anchor="middle" x="681" y="-216.943" font-family="Times Roman,serif" font-size="11.00">Page</text>
 </g>

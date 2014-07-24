@@ -1,0 +1,571 @@
+<?php
+/**
+* 第三方提供的基于socket模式的http请求类库,Rain只做注释，如果支持CURL也可以使用我们lib/core提供的Http类
+* @filename HttpClient.class.php
+* @touch date 2014-07-24 16:55:21
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
+
+/**
+* 第三方提供的基于socket模式的http请求类库,Rain只做注释，如果支持CURL也可以使用我们lib/core提供的Http类
+*/
+class HttpClient {
+	/**
+    * Request vars 主机host
+	*/
+    var $host;
+
+	/**
+    * Request vars 主机端口
+	*/
+    var $port;
+
+	/**
+    * Request vars 路径
+	*/
+    var $path;
+
+	/**
+    * Request vars 请求方法
+	*/
+    var $method;
+
+	/**
+    * Request vars 请求的数据
+	*/
+    var $postdata = '';
+
+	/**
+    * Request vars 请求的携带cookie
+	*/
+    var $cookies = array();
+
+	/**
+    * Request vars 请求的携带referer
+	*/
+    var $referer;
+
+	/**
+    * Request vars 请求的接受数据类型
+	*/
+    var $accept = 'text/xml,application/xml,application/xhtml+xml,text/html,text/plain,image/png,image/jpeg,image/gif,*/*';
+
+	/**
+    * Request vars 请求的编码方式
+	*/
+    var $accept_encoding = 'gzip';
+
+	/**
+    * Request vars 请求的语言类型
+	*/
+    var $accept_language = 'en-us';
+
+	/**
+    * Request vars 请求的agent信息
+	*/
+    var $user_agent = 'Incutio HttpClient v0.9';
+
+	/**
+    * Request vars 请求的超时时间
+	*/
+    var $timeout = 20;
+
+	/**
+    * Request vars 是否开启gzip压缩
+	*/
+    var $use_gzip = true;
+
+	/**
+    * If true, received cookies are placed in the $this->cookies array ready for the next request
+    * Note: This currently ignores the cookie path (and time) completely. Time is not important, 
+    * but path could possibly lead to security problems.
+	*/
+    var $persist_cookies = true;  // If true, received cookies are placed in the $this->cookies array ready for the next request
+                                  // Note: This currently ignores the cookie path (and time) completely. Time is not important, 
+                                  //       but path could possibly lead to security problems.
+
+	/**
+    * For each request, sends path of last request as referer
+	*/
+    var $persist_referers = true; // For each request, sends path of last request as referer
+
+	/**
+    * 是否开启调试，默认false
+	*/
+    var $debug = false;
+
+	/**
+    * Auaomtically redirect if Location or URI header is found
+	*/
+    var $handle_redirects = true; // Auaomtically redirect if Location or URI header is found
+
+	/**
+    * 最多的重定向次数，默认5
+	*/
+    var $max_redirects = 5;
+
+	/**
+    * If true, stops receiving once headers have been read.
+	*/
+    var $headers_only = false;    // If true, stops receiving once headers have been read.
+    // Basic authorization variables
+
+	/**
+    * Basic authorization variables 用户名
+	*/
+    var $username;
+
+	/**
+    * Basic authorization variables 密码
+	*/
+    var $password;
+
+    // Response vars
+	/**
+	* 返回变量 状态
+	*/
+    var $status;
+
+	/**
+	* 返回变量 http头
+	*/
+    var $headers = array();
+
+	/**
+	* 返回变量 http内容体
+	*/
+    var $content = '';
+
+	/**
+	* 返回变量 错误信息
+	*/
+    var $errormsg;
+    // Tracker variables
+	/**
+	* 调试变量 错误信息
+	*/
+    var $redirect_count = 0;
+
+	/**
+	* 调试变量 cookie的host
+	*/
+    var $cookie_host = '';
+
+	/**
+	* HttpClient的构造方法
+	* @param string $host 主机host
+	* @param int $port 主机端口
+	*/
+    function HttpClient($host, $port=80) {
+        $this->host = $host;
+        $this->port = $port;
+    }
+
+	/**
+	* HttpClient的get请求
+	* @param string $path 路径
+	* @param array $data 数据
+	*/
+    function get($path, $data = false) {
+        $this->path = $path;
+        $this->method = 'GET';
+        if ($data) {
+            $this->path .= '?'.$this->buildQueryString($data);
+        }
+        return $this->doRequest();
+    }
+
+	/**
+	* HttpClient的post请求
+	* @param string $path 路径
+	* @param array $data 数据
+	*/
+    function post($path, $data) {
+        $this->path = $path;
+        $this->method = 'POST';
+        $this->postdata = $this->buildQueryString($data);
+    	return $this->doRequest();
+    }
+
+	/**
+	* HttpClient的绑定query参数
+	* @param array $data 数据
+	*/
+    function buildQueryString($data) {
+        $querystring = '';
+        if (is_array($data)) {
+            // Change data in to postable data
+    		foreach ($data as $key => $val) {
+    			if (is_array($val)) {
+    				foreach ($val as $val2) {
+    					$querystring .= urlencode($key).'='.urlencode($val2).'&';
+    				}
+    			} else {
+    				$querystring .= urlencode($key).'='.urlencode($val).'&';
+    			}
+    		}
+    		$querystring = substr($querystring, 0, -1); // Eliminate unnecessary &
+    	} else {
+    	    $querystring = $data;
+    	}
+    	return $querystring;
+    }
+
+	/**
+	* HttpClient的发送请求
+	*/
+    function doRequest() {
+        // Performs the actual HTTP request, returning true or false depending on outcome
+		if (!$fp = @fsockopen($this->host, $this->port, $errno, $errstr, $this->timeout)) {
+		    // Set error message
+            switch($errno) {
+				case -3:
+					$this->errormsg = 'Socket creation failed (-3)';
+				case -4:
+					$this->errormsg = 'DNS lookup failure (-4)';
+				case -5:
+					$this->errormsg = 'Connection refused or timed out (-5)';
+				default:
+					$this->errormsg = 'Connection failed ('.$errno.')';
+			    $this->errormsg .= ' '.$errstr;
+			    $this->debug($this->errormsg);
+			}
+			return false;
+        }
+        socket_set_timeout($fp, $this->timeout);
+        $request = $this->buildRequest();
+        $this->debug('Request', $request);
+        fwrite($fp, $request);
+    	// Reset all the variables that should not persist between requests
+    	$this->headers = array();
+    	$this->content = '';
+    	$this->errormsg = '';
+    	// Set a couple of flags
+    	$inHeaders = true;
+    	$atStart = true;
+    	// Now start reading back the response
+    	while (!feof($fp)) {
+    	    $line = fgets($fp, 4096);
+    	    if ($atStart) {
+    	        // Deal with first line of returned data
+    	        $atStart = false;
+    	        if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
+    	            $this->errormsg = "Status code line invalid: ".htmlentities($line);
+    	            $this->debug($this->errormsg);
+    	            return false;
+    	        }
+    	        $http_version = $m[1]; // not used
+    	        $this->status = $m[2];
+    	        $status_string = $m[3]; // not used
+    	        $this->debug(trim($line));
+    	        continue;
+    	    }
+    	    if ($inHeaders) {
+    	        if (trim($line) == '') {
+    	            $inHeaders = false;
+    	            $this->debug('Received Headers', $this->headers);
+    	            if ($this->headers_only) {
+    	                break; // Skip the rest of the input
+    	            }
+    	            continue;
+    	        }
+    	        if (!preg_match('/([^:]+):\\s*(.*)/', $line, $m)) {
+    	            // Skip to the next header
+    	            continue;
+    	        }
+    	        $key = strtolower(trim($m[1]));
+    	        $val = trim($m[2]);
+    	        // Deal with the possibility of multiple headers of same name
+    	        if (isset($this->headers[$key])) {
+    	            if (is_array($this->headers[$key])) {
+    	                $this->headers[$key][] = $val;
+    	            } else {
+    	                $this->headers[$key] = array($this->headers[$key], $val);
+    	            }
+    	        } else {
+    	            $this->headers[$key] = $val;
+    	        }
+    	        continue;
+    	    }
+    	    // We're not in the headers, so append the line to the contents
+    	    $this->content .= $line;
+        }
+        fclose($fp);
+        // If data is compressed, uncompress it
+        if (isset($this->headers['content-encoding']) && $this->headers['content-encoding'] == 'gzip') {
+            $this->debug('Content is gzip encoded, unzipping it');
+            $this->content = substr($this->content, 10); // See http://www.php.net/manual/en/function.gzencode.php
+            $this->content = gzinflate($this->content);
+        }
+        // If $persist_cookies, deal with any cookies
+        if ($this->persist_cookies && isset($this->headers['set-cookie']) && $this->host == $this->cookie_host) {
+            $cookies = $this->headers['set-cookie'];
+            if (!is_array($cookies)) {
+                $cookies = array($cookies);
+            }
+            foreach ($cookies as $cookie) {
+                if (preg_match('/([^=]+)=([^;]+);/', $cookie, $m)) {
+                    $this->cookies[$m[1]] = $m[2];
+                }
+            }
+            // Record domain of cookies for security reasons
+            $this->cookie_host = $this->host;
+        }
+        // If $persist_referers, set the referer ready for the next request
+        if ($this->persist_referers) {
+            $this->debug('Persisting referer: '.$this->getRequestURL());
+            $this->referer = $this->getRequestURL();
+        }
+        // Finally, if handle_redirects and a redirect is sent, do that
+        if ($this->handle_redirects) {
+            if (++$this->redirect_count >= $this->max_redirects) {
+                $this->errormsg = 'Number of redirects exceeded maximum ('.$this->max_redirects.')';
+                $this->debug($this->errormsg);
+                $this->redirect_count = 0;
+                return false;
+            }
+            $location = isset($this->headers['location']) ? $this->headers['location'] : '';
+            $uri = isset($this->headers['uri']) ? $this->headers['uri'] : '';
+            if ($location || $uri) {
+                $url = parse_url($location.$uri);
+                // This will FAIL if redirect is to a different site
+                return $this->get($url['path']);
+            }
+        }
+        return true;
+    }
+
+	/**
+	* HttpClient的绑定请求
+	*/
+    function buildRequest() {
+        $headers = array();
+        $headers[] = "{$this->method} {$this->path} HTTP/1.0"; // Using 1.1 leads to all manner of problems, such as "chunked" encoding
+        $headers[] = "Host: {$this->host}";
+        $headers[] = "User-Agent: {$this->user_agent}";
+        $headers[] = "Accept: {$this->accept}";
+        if ($this->use_gzip) {
+            $headers[] = "Accept-encoding: {$this->accept_encoding}";
+        }
+        $headers[] = "Accept-language: {$this->accept_language}";
+        if ($this->referer) {
+            $headers[] = "Referer: {$this->referer}";
+        }
+    	// Cookies
+    	if ($this->cookies) {
+    	    $cookie = 'Cookie: ';
+    	    foreach ($this->cookies as $key => $value) {
+    	        $cookie .= "$key=$value; ";
+    	    }
+    	    $headers[] = $cookie;
+    	}
+    	// Basic authentication
+    	if ($this->username && $this->password) {
+    	    $headers[] = 'Authorization: BASIC '.base64_encode($this->username.':'.$this->password);
+    	}
+    	// If this is a POST, set the content type and length
+    	if ($this->postdata) {
+    	    $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+    	    $headers[] = 'Content-Length: '.strlen($this->postdata);
+    	}
+    	$request = implode("\r\n", $headers)."\r\n\r\n".$this->postdata;
+    	return $request;
+    }
+
+	/**
+	* HttpClient的获取状态信息
+	*/
+    function getStatus() {
+        return $this->status;
+    }
+
+	/**
+	* HttpClient的获取内容
+	*/
+    function getContent() {
+        return $this->content;
+    }
+
+	/**
+	* HttpClient的获取头信息
+	*/
+    function getHeaders() {
+        return $this->headers;
+    }
+
+	/**
+	* HttpClient的获取头信息
+	*/
+    function getHeader($header) {
+        $header = strtolower($header);
+        if (isset($this->headers[$header])) {
+            return $this->headers[$header];
+        } else {
+            return false;
+        }
+    }
+
+	/**
+	* HttpClient的获取错误信息
+	*/
+    function getError() {
+        return $this->errormsg;
+    }
+
+	/**
+	* HttpClient的获取cookie
+	*/
+    function getCookies() {
+        return $this->cookies;
+    }
+
+	/**
+	* HttpClient的获取请求URL
+	*/
+    function getRequestURL() {
+        $url = 'http://'.$this->host;
+        if ($this->port != 80) {
+            $url .= ':'.$this->port;
+        }            
+        $url .= $this->path;
+        return $url;
+    }
+
+	/**
+	* HttpClient的设置agent
+	*/
+    function setUserAgent($string) {
+        $this->user_agent = $string;
+    }
+
+	/**
+	* HttpClient的设置认证信息
+	* @param string $username 用户名
+	* @param string $password 密码
+	*/
+    function setAuthorization($username, $password) {
+        $this->username = $username;
+        $this->password = $password;
+    }
+
+	/**
+	* HttpClient的设置cookie
+	* @param array $array cookie的数组
+	*/
+    function setCookies($array) {
+        $this->cookies = $array;
+    }
+
+	/**
+	* HttpClient的设置选项参数的方法 是否使用gzip
+	* @param bool $boolean 是否使用gzip
+	*/
+    function useGzip($boolean) {
+        $this->use_gzip = $boolean;
+    }
+
+	/**
+	* HttpClient的设置选项参数的方法 是否前置cookie
+	* @param bool $boolean 是否前置cookie
+	*/
+    function setPersistCookies($boolean) {
+        $this->persist_cookies = $boolean;
+    }
+
+	/**
+	* HttpClient的设置选项参数的方法 是否自动referer
+	* @param bool $boolean 是否前置cookie
+	*/
+    function setPersistReferers($boolean) {
+        $this->persist_referers = $boolean;
+    }
+
+	/**
+	* HttpClient的设置是否允许跳转重定向
+	*/
+    function setHandleRedirects($boolean) {
+        $this->handle_redirects = $boolean;
+    }
+
+	/**
+	* HttpClient的设置是否允许跳转重定向，次数
+	*/
+    function setMaxRedirects($num) {
+        $this->max_redirects = $num;
+    }
+
+	/**
+	* HttpClient的设置http的head only
+	*/
+    function setHeadersOnly($boolean) {
+        $this->headers_only = $boolean;
+    }
+
+	/**
+	* HttpClient的设置是否开启调试
+	*/
+    function setDebug($boolean) {
+        $this->debug = $boolean;
+    }
+
+	/**
+	* HttpClient的设置快速发送http的get请求
+	* @param string $url 请求的url
+	* @param array $data 请求的数据
+	*/
+    function quickGet($url) {
+        $bits = parse_url($url);
+        $host = $bits['host'];
+        $port = isset($bits['port']) ? $bits['port'] : 80;
+        $path = isset($bits['path']) ? $bits['path'] : '/';
+        if (isset($bits['query'])) {
+            $path .= '?'.$bits['query'];
+        }
+        $client = new HttpClient($host, $port);
+        if (!$client->get($path)) {
+            return false;
+        } else {
+            return $client->getContent();
+        }
+    }
+
+	/**
+	* HttpClient的设置快速发送http的post请求
+	* @param string $url 请求的url
+	* @param array $data 请求的数据
+	*/
+    function quickPost($url, $data) {
+        $bits = parse_url($url);
+        $host = $bits['host'];
+        $port = isset($bits['port']) ? $bits['port'] : 80;
+        $path = isset($bits['path']) ? $bits['path'] : '/';
+        $client = new HttpClient($host, $port);
+        if (!$client->post($path, $data)) {
+            return false;
+        } else {
+            return $client->getContent();
+        }
+    }
+
+	/**
+	* HttpClient的设置调试信息
+	*/
+    function debug($msg, $object = false) {
+        if ($this->debug) {
+            print '<div style="border: 1px solid red; padding: 0.5em; margin: 0.5em;"><strong>HttpClient Debug:</strong> '.$msg;
+            if ($object) {
+                ob_start();
+        	    print_r($object);
+        	    $content = htmlentities(ob_get_contents());
+        	    ob_end_clean();
+        	    print '<pre>'.$content.'</pre>';
+        	}
+        	print '</div>';
+        }
+    }   
+}
+
+?>
