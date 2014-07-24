@@ -1,22 +1,23 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
+/**
+* 用来创建Demo例子的类
+* @filename Demo.class.php
+* @touch date 2014-07-24 10:11:14
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 
 defined('RPF_PATH') or exit();
 
+/**
+* 该类用来创建相应的demo例子
+*/
 class Demo
 {
-	/*
-	  * 功能  ： 生成Demo例子程序
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 生成Demo例子程序
 	*/
 	public static function cdemo()
 	{

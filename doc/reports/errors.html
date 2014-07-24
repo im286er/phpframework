@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Compilation errors
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">231</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>
+                                                                            <li><a href="#framework/conf/main.conf.php"><i class="icon-file"></i> framework/conf/main.conf.php</a></li>
+                                                                                                    <li><a href="#framework/init.php"><i class="icon-file"></i> framework/init.php</a></li>
+                                                                                                    <li><a href="#framework/functions/core.func.php"><i class="icon-file"></i> framework/functions/core.func.php</a></li>
+                                                                                                    <li><a href="#framework/lang/en.conf.php"><i class="icon-file"></i> framework/lang/en.conf.php</a></li>
+                                                                                                    <li><a href="#framework/lang/zh.conf.php"><i class="icon-file"></i> framework/lang/zh.conf.php</a></li>
+                                                                                                    <li><a href="#framework/kernel/Kernel.class.php"><i class="icon-file"></i> framework/kernel/Kernel.class.php</a></li>
+                                                                                                    <li><a href="#framework/kernel/Session.class.php"><i class="icon-file"></i> framework/kernel/Session.class.php</a></li>
+                                                                                                    <li><a href="#framework/kernel/Model.class.php"><i class="icon-file"></i> framework/kernel/Model.class.php</a></li>
+                                                                                                    <li><a href="#framework/kernel/Config.class.php"><i class="icon-file"></i> framework/kernel/Config.class.php</a></li>
+                                                                                                    <li><a href="#framework/kernel/Controller.class.php"><i class="icon-file"></i> framework/kernel/Controller.class.php</a></li>
+                                                                                                    <li><a href="#framework/kernel/Lang.class.php"><i class="icon-file"></i> framework/kernel/Lang.class.php</a></li>
+                                                                                                    <li><a href="#framework/kernel/Action.class.php"><i class="icon-file"></i> framework/kernel/Action.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/vendor/orm.php"><i class="icon-file"></i> framework/lib/vendor/orm.php</a></li>
+                                                                                                    <li><a href="#framework/lib/vendor/email/PHPMailer.class.php"><i class="icon-file"></i> framework/lib/vendor/email/PHPMailer.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/vendor/email/SMTP.class.php"><i class="icon-file"></i> framework/lib/vendor/email/SMTP.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/vendor/ftp/Ftp.class.php"><i class="icon-file"></i> framework/lib/vendor/ftp/Ftp.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/core/Cache.class.php"><i class="icon-file"></i> framework/lib/core/Cache.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/core/Upload.class.php"><i class="icon-file"></i> framework/lib/core/Upload.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/core/Mysql.class.php"><i class="icon-file"></i> framework/lib/core/Mysql.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/core/String.class.php"><i class="icon-file"></i> framework/lib/core/String.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/core/Demo.class.php"><i class="icon-file"></i> framework/lib/core/Demo.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/core/Image.class.php"><i class="icon-file"></i> framework/lib/core/Image.class.php</a></li>
+                                                                                                    <li><a href="#framework/lib/core/Page.class.php"><i class="icon-file"></i> framework/lib/core/Page.class.php</a></li>
+                                                                                                    <li><a href="#admin.php"><i class="icon-file"></i> admin.php</a></li>
+                                                                                                    <li><a href="#index.php"><i class="icon-file"></i> index.php</a></li>
+                                                                    </ul>
+        </div>
+
+        <div class="span10 offset2">
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-remove-sign"></i></a><span class="divider">\</span></li>
+                <li>Compilation Errors</li>
+            </ul>
+
+            
+                            <div class="package-contents">
+                                            <a name="framework/conf/main.conf.php" id="framework/conf/main.conf.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/conf/main.conf.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/init.php" id="framework/init.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/init.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/functions/core.func.php" id="framework/functions/core.func.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/functions/core.func.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lang/en.conf.php" id="framework/lang/en.conf.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lang/en.conf.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lang/zh.conf.php" id="framework/lang/zh.conf.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lang/zh.conf.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/kernel/Kernel.class.php" id="framework/kernel/Kernel.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/kernel/Kernel.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/kernel/Session.class.php" id="framework/kernel/Session.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/kernel/Session.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/kernel/Model.class.php" id="framework/kernel/Model.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/kernel/Model.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/kernel/Config.class.php" id="framework/kernel/Config.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/kernel/Config.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/kernel/Controller.class.php" id="framework/kernel/Controller.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/kernel/Controller.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/kernel/Lang.class.php" id="framework/kernel/Lang.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/kernel/Lang.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/kernel/Action.class.php" id="framework/kernel/Action.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/kernel/Action.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/vendor/orm.php" id="framework/lib/vendor/orm.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/vendor/orm.php
+                            <small style="float: right;padding-right: 10px;">177</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9812</td>
+                                        <td>No summary for function \EID()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6531</td>
+                                        <td>No summary for class \RedBeanPHP\ToolBox</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9775</td>
+                                        <td>No summary for class \RedBean_SimpleModel</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9778</td>
+                                        <td>No summary for class \R</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>63</td>
+                                        <td>No summary for property $mode</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>68</td>
+                                        <td>No summary for property $logs</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>586</td>
+                                        <td>No summary for method GetAll()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>596</td>
+                                        <td>No summary for method GetAssocRow()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>609</td>
+                                        <td>No summary for method GetCol()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>626</td>
+                                        <td>No summary for method GetCell()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>639</td>
+                                        <td>No summary for method GetRow()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>649</td>
+                                        <td>No summary for method Execute()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>659</td>
+                                        <td>No summary for method GetInsertID()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>669</td>
+                                        <td>No summary for method Affected_Rows()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>724</td>
+                                        <td>No summary for method StartTrans()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>734</td>
+                                        <td>No summary for method CommitTrans()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>744</td>
+                                        <td>No summary for method FailTrans()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>329</td>
+                                        <td>No summary for property $dsn</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>334</td>
+                                        <td>No summary for property $debug</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>339</td>
+                                        <td>No summary for property $logger</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>344</td>
+                                        <td>No summary for property $pdo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>349</td>
+                                        <td>No summary for property $affectedRows</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>354</td>
+                                        <td>No summary for property $resultArray</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>359</td>
+                                        <td>No summary for property $connectInfo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>364</td>
+                                        <td>No summary for property $isConnected</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>369</td>
+                                        <td>No summary for property $flagUseStringOnlyBinding</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>374</td>
+                                        <td>No summary for property $mysqlEncoding</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>867</td>
+                                        <td>No summary for property $fetchType</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>872</td>
+                                        <td>No summary for property $withSql</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>877</td>
+                                        <td>No summary for property $withParams</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>882</td>
+                                        <td>No summary for property $aliasName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>887</td>
+                                        <td>No summary for property $via</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>892</td>
+                                        <td>No summary for property $noLoad</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>897</td>
+                                        <td>No summary for property $all</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2319</td>
+                                        <td>No summary for property $observers</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2631</td>
+                                        <td>No summary for method getSQL()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2639</td>
+                                        <td>No summary for method exec()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2652</td>
+                                        <td>No summary for method get()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2663</td>
+                                        <td>No summary for method getRow()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2674</td>
+                                        <td>No summary for method getCol()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2685</td>
+                                        <td>No summary for method getAssoc()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2718</td>
+                                        <td>No summary for method getAssocRow()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2729</td>
+                                        <td>No summary for method getCell()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2747</td>
+                                        <td>No summary for method getInsertID()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2755</td>
+                                        <td>No summary for method getAffectedRows()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2763</td>
+                                        <td>No summary for method getDatabase()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2771</td>
+                                        <td>No summary for method startTransaction()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2779</td>
+                                        <td>No summary for method commit()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2787</td>
+                                        <td>No summary for method rollback()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2795</td>
+                                        <td>No summary for method close()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2607</td>
+                                        <td>No summary for property $db</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2612</td>
+                                        <td>No summary for property $sql</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3628</td>
+                                        <td>No summary for method getAssocTableFormat()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3640</td>
+                                        <td>No summary for method renameAssociation()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3682</td>
+                                        <td>No summary for method glueSQLCondition()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3714</td>
+                                        <td>No summary for method esc()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3724</td>
+                                        <td>No summary for method addColumn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3739</td>
+                                        <td>No summary for method updateRecord()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3781</td>
+                                        <td>No summary for method queryRecord()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3811</td>
+                                        <td>No summary for method queryRecordRelated()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3865</td>
+                                        <td>No summary for method queryRecordLink()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3894</td>
+                                        <td>No summary for method queryRecordCount()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3911</td>
+                                        <td>No summary for method queryRecordCountRelated()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3944</td>
+                                        <td>No summary for method deleteRecord()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3959</td>
+                                        <td>No summary for method deleteRelations()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3981</td>
+                                        <td>No summary for method widenColumn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3999</td>
+                                        <td>No summary for method wipe()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4009</td>
+                                        <td>No summary for method renameAssocTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4017</td>
+                                        <td>No summary for method getAssocTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4025</td>
+                                        <td>No summary for method addConstraintForTypes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4064</td>
+                                        <td>No summary for method safeColumn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4077</td>
+                                        <td>No summary for method safeTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3237</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3242</td>
+                                        <td>No summary for property $defaultValue</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3247</td>
+                                        <td>No summary for property $quoteCharacter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3252</td>
+                                        <td>No summary for property $flagUseCache</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3257</td>
+                                        <td>No summary for property $cache</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3262</td>
+                                        <td>No summary for property $renames</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>3267</td>
+                                        <td>No summary for property $typeno_sqltype</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4235</td>
+                                        <td>No summary for method getTables()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4243</td>
+                                        <td>No summary for method createTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4256</td>
+                                        <td>No summary for method getColumns()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4271</td>
+                                        <td>No summary for method scanType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4317</td>
+                                        <td>No summary for method code()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4339</td>
+                                        <td>No summary for method addUniqueIndex()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4374</td>
+                                        <td>No summary for method addIndex()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4393</td>
+                                        <td>No summary for method addFK()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4428</td>
+                                        <td>No summary for method sqlStateIn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4442</td>
+                                        <td>No summary for method wipeAll()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4123</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4128</td>
+                                        <td>No summary for property $quoteCharacter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4726</td>
+                                        <td>No summary for method scanType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4751</td>
+                                        <td>No summary for method addColumn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4763</td>
+                                        <td>No summary for method code()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4773</td>
+                                        <td>No summary for method widenColumn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4785</td>
+                                        <td>No summary for method getTables()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4794</td>
+                                        <td>No summary for method createTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4806</td>
+                                        <td>No summary for method getColumns()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4821</td>
+                                        <td>No summary for method addUniqueIndex()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4837</td>
+                                        <td>No summary for method sqlStateIn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4850</td>
+                                        <td>No summary for method addIndex()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4876</td>
+                                        <td>No summary for method wipe()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4886</td>
+                                        <td>No summary for method addFK()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4894</td>
+                                        <td>No summary for method wipeAll()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4488</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4493</td>
+                                        <td>No summary for property $quoteCharacter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5072</td>
+                                        <td>No summary for method getTables()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5080</td>
+                                        <td>No summary for method createTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5090</td>
+                                        <td>No summary for method getColumns()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5107</td>
+                                        <td>No summary for method scanType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5159</td>
+                                        <td>No summary for method code()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5175</td>
+                                        <td>No summary for method widenColumn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5191</td>
+                                        <td>No summary for method addUniqueIndex()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5230</td>
+                                        <td>No summary for method sqlStateIn()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5244</td>
+                                        <td>No summary for method addIndex()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5266</td>
+                                        <td>No summary for method addFK()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5294</td>
+                                        <td>No summary for method wipeAll()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4953</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4958</td>
+                                        <td>No summary for property $quoteCharacter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>4963</td>
+                                        <td>No summary for property $defaultValue</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5371</td>
+                                        <td>No summary for method setSQLState()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5351</td>
+                                        <td>No summary for property $sqlState</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5426</td>
+                                        <td>No summary for property $chillList</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5432</td>
+                                        <td>No summary for property $stash</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5437</td>
+                                        <td>No summary for property $nesting</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5442</td>
+                                        <td>No summary for property $writer</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5447</td>
+                                        <td>No summary for property $isFrozen</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5452</td>
+                                        <td>No summary for property $beanhelper</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>5457</td>
+                                        <td>No summary for property $assocManager</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6537</td>
+                                        <td>No summary for property $oodb</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6542</td>
+                                        <td>No summary for property $writer</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6547</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6691</td>
+                                        <td>No summary for method findAndExport()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6711</td>
+                                        <td>No summary for method findOne()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6732</td>
+                                        <td>No summary for method findLast()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6754</td>
+                                        <td>No summary for method findOrDispense()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6636</td>
+                                        <td>No summary for property $toolbox</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6641</td>
+                                        <td>No summary for property $redbean</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6797</td>
+                                        <td>No summary for property $oodb</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6802</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>6807</td>
+                                        <td>No summary for property $writer</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7250</td>
+                                        <td>No summary for method getToolbox()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7258</td>
+                                        <td>No summary for method getModelForBean()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7296</td>
+                                        <td>No summary for method getExtractedToolbox()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7354</td>
+                                        <td>No summary for property $bean</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7467</td>
+                                        <td>No summary for method onEvent()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7520</td>
+                                        <td>No summary for property $toolbox</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7525</td>
+                                        <td>No summary for property $associationManager</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7530</td>
+                                        <td>No summary for property $redbean</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7798</td>
+                                        <td>No summary for property $toolbox</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8501</td>
+                                        <td>No summary for method findAll()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8516</td>
+                                        <td>No summary for method findAndExport()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8531</td>
+                                        <td>No summary for method findOne()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8546</td>
+                                        <td>No summary for method findLast()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8583</td>
+                                        <td>No summary for method loadAll()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9270</td>
+                                        <td>No summary for method getExtractedToolbox()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7948</td>
+                                        <td>No summary for property $toolboxes</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7953</td>
+                                        <td>No summary for property $toolbox</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7958</td>
+                                        <td>No summary for property $redbean</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7963</td>
+                                        <td>No summary for property $writer</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7968</td>
+                                        <td>No summary for property $adapter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7973</td>
+                                        <td>No summary for property $associationManager</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7978</td>
+                                        <td>No summary for property $tagManager</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7983</td>
+                                        <td>No summary for property $duplicationManager</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7988</td>
+                                        <td>No summary for property $labelMaker</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7993</td>
+                                        <td>No summary for property $finder</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>7998</td>
+                                        <td>No summary for property $currentDB</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8003</td>
+                                        <td>No summary for property $plugins</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9558</td>
+                                        <td>No summary for method duplicate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9387</td>
+                                        <td>No summary for property $toolbox</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9392</td>
+                                        <td>No summary for property $associationManager</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9397</td>
+                                        <td>No summary for property $redbean</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9402</td>
+                                        <td>No summary for property $tables</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9407</td>
+                                        <td>No summary for property $columns</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9412</td>
+                                        <td>No summary for property $filters</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>9417</td>
+                                        <td>No summary for property $cacheTables</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/vendor/email/PHPMailer.class.php" id="framework/lib/vendor/email/PHPMailer.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/vendor/email/PHPMailer.class.php
+                            <small style="float: right;padding-right: 10px;">21</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>1344</td>
+                                        <td>No summary for function \get_magic_quotes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>43</td>
+                                        <td>No summary for class \PHPMailer</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2067</td>
+                                        <td>No summary for class \phpmailerException</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>263</td>
+                                        <td>No summary for property $smtp</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>264</td>
+                                        <td>No summary for property $to</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>265</td>
+                                        <td>No summary for property $cc</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>266</td>
+                                        <td>No summary for property $bcc</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>267</td>
+                                        <td>No summary for property $ReplyTo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>268</td>
+                                        <td>No summary for property $all_recipients</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>269</td>
+                                        <td>No summary for property $attachment</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>270</td>
+                                        <td>No summary for property $CustomHeader</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>271</td>
+                                        <td>No summary for property $message_type</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>272</td>
+                                        <td>No summary for property $boundary</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>273</td>
+                                        <td>No summary for property $language</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>274</td>
+                                        <td>No summary for property $error_count</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>275</td>
+                                        <td>No summary for property $sign_cert_file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>276</td>
+                                        <td>No summary for property $sign_key_file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>277</td>
+                                        <td>No summary for property $sign_key_pass</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>278</td>
+                                        <td>No summary for property $exceptions</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>2068</td>
+                                        <td>No summary for method errorMessage()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/vendor/email/SMTP.class.php" id="framework/lib/vendor/email/SMTP.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/vendor/email/SMTP.class.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>78</td>
+                                        <td>No summary for property $smtp_conn</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>79</td>
+                                        <td>No summary for property $error</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>80</td>
+                                        <td>No summary for property $helo_rply</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/vendor/ftp/Ftp.class.php" id="framework/lib/vendor/ftp/Ftp.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/vendor/ftp/Ftp.class.php
+                            <small style="float: right;padding-right: 10px;">8</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $hostname</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $username</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $password</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $port</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $passive</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $debug</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $conn_id</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/core/Cache.class.php" id="framework/lib/core/Cache.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/core/Cache.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/core/Upload.class.php" id="framework/lib/core/Upload.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/core/Upload.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/core/Mysql.class.php" id="framework/lib/core/Mysql.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/core/Mysql.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/core/String.class.php" id="framework/lib/core/String.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/core/String.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/core/Demo.class.php" id="framework/lib/core/Demo.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/core/Demo.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/core/Image.class.php" id="framework/lib/core/Image.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/core/Image.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="framework/lib/core/Page.class.php" id="framework/lib/core/Page.class.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            framework/lib/core/Page.class.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="admin.php" id="admin.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            admin.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="index.php" id="index.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            index.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>Only one @package tag is allowed</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                    </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 24th, 2014 at 11:00.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

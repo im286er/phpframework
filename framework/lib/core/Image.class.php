@@ -1,18 +1,24 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
+/**
+* 图片GD的相关的操作类库
+* @filename Image.class.php
+* @touch date 2014-07-24 10:12:59
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 
 defined('RPF_PATH') or exit();
 
+/**
+* Image类主要用来针对图像GD的相关操作的类
+*/
 class Image
 {
+	/**
+	* 该方法主要用来检测是否开启GD库支持
+	*/
 	private static function init()
 	{
 		if (!extension_loaded('gd'))
@@ -24,6 +30,16 @@ class Image
 		}
 	}
 
+	/**
+	* 该方法主要用来获取验证码
+	* <code>
+	* Image::getCode();
+	* </code>
+	* @param int $width  验证码图片的宽度,默认70px
+	* @param int $height 验证码图片的高度,默认24px
+	* @param int $len    验证码个数，默认4
+	* @return void
+	*/
 	public static function getCode($width = 70, $height = 24, $len = 4)
 	{
 		self::init();
@@ -51,26 +67,26 @@ class Image
 		imagedestroy($image);
 	}
 
-	/*
-	 * 功能：PHP图片水印 (水印支持图片或文字)
-	 * 参数：
-	*       $groundImage     背景图片，即需要加水印的图片，暂只支持GIF,JPG,PNG格式；
-	*       $waterPos        水印位置，有10种状态，0为随机位置；
+	/**
+	* 功能：PHP图片水印 (水印支持图片或文字)
+	* 参数：
+	*       @param $groundImage     背景图片，即需要加水印的图片，暂只支持GIF,JPG,PNG格式；
+	*       @param $waterPos        水印位置，有10种状态，0为随机位置；
 	*                       1为顶端居左，2为顶端居中，3为顶端居右；
 	*                       4为中部居左，5为中部居中，6为中部居右；
 	*                       7为底端居左，8为底端居中，9为底端居右；
-	*       $waterImage      图片水印，即作为水印的图片，暂只支持GIF,JPG,PNG格式；
-	*       $waterText       文字水印，即把文字作为为水印，支持ASCII码，不支持中文；
-	*       $fontSize        文字大小，值为1、2、3、4或5，默认为5；
-	*       $textColor       文字颜色，值为十六进制颜色值，默认为#CCCCCC(白灰色)；
-	*       $fontfile        ttf字体文件，即用来设置文字水印的字体。使用windows的用户在系统盘的目录中
+	*       @param $waterImage      图片水印，即作为水印的图片，暂只支持GIF,JPG,PNG格式；
+	*      @param $waterText       文字水印，即把文字作为为水印，支持ASCII码，不支持中文；
+	*      @param $fontSize        文字大小，值为1、2、3、4或5，默认为5；
+	*      @param $textColor       文字颜色，值为十六进制颜色值，默认为#CCCCCC(白灰色)；
+	*      @param $fontfile        ttf字体文件，即用来设置文字水印的字体。使用windows的用户在系统盘的目录中
 	*                       搜索*.ttf可以得到系统中安装的字体文件，将所要的文件拷到网站合适的目录中,
 	 *                       默认是当前目录下arial.ttf。
-	*       $xOffset         水平偏移量，即在默认水印坐标值基础上加上这个值，默认为0，如果你想留给水印留
+	*      @param $xOffset         水平偏移量，即在默认水印坐标值基础上加上这个值，默认为0，如果你想留给水印留
 	*                       出水平方向上的边距，可以设置这个值,如：2 则表示在默认的基础上向右移2个单位,-2 表示向左移两单位
-	*       $yOffset         垂直偏移量，即在默认水印坐标值基础上加上这个值，默认为0，如果你想留给水印留
+	*      @param $yOffset         垂直偏移量，即在默认水印坐标值基础上加上这个值，默认为0，如果你想留给水印留
 	*                       出垂直方向上的边距，可以设置这个值,如：2 则表示在默认的基础上向下移2个单位,-2 表示向上移两单位
-	* 返回值：
+	* @return 
 	*        0   水印成功
 	*        1   水印图片格式目前不支持
 	*        2   要水印的背景图片不存在
@@ -219,7 +235,16 @@ class Image
 	}
 
 
-	//if success true new image file real path else return false
+	/**
+	* 该方法主要用来调整图像大小
+	* <code>
+	* Image::resize($s_img, $d_img);
+	* </code>
+	* @param string $s_img  原始图像地址
+	* @param string $d_img  目标图像地址
+	* @param float $percent 压缩比例，默认0.5 
+	* @return string|bool 成功返回新的图像地址，失败返回false
+	*/
 	public static function resize($s_img, $d_img = null, $percent = 0.5)
 	{
 		if (!file_exists($s_img))

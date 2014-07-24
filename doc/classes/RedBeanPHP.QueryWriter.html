@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">231</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1258058478"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1258058478" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1526493553"></a>
+                                <a href="../namespaces/RedBeanPHP.html" style="margin-left: 30px; padding-left: 0">RedBeanPHP</a>
+            </div>
+            <div id="namespace-1526493553" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1188209579"></a>
+                                <a href="../namespaces/RedBeanPHP.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-1188209579" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Adapter.DBAdapter.html">DBAdapter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-572652202"></a>
+                                <a href="../namespaces/RedBeanPHP.BeanHelper.html" style="margin-left: 30px; padding-left: 0">BeanHelper</a>
+            </div>
+            <div id="namespace-572652202" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.BeanHelper.SimpleFacadeBeanHelper.html">SimpleFacadeBeanHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1913424639"></a>
+                                <a href="../namespaces/RedBeanPHP.Driver.html" style="margin-left: 30px; padding-left: 0">Driver</a>
+            </div>
+            <div id="namespace-1913424639" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Driver.RPDO.html">RPDO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-554610747"></a>
+                                <a href="../namespaces/RedBeanPHP.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-554610747" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Logger.RDefault.html">RDefault</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-643053112"></a>
+                                <a href="../namespaces/RedBeanPHP.QueryWriter.html" style="margin-left: 30px; padding-left: 0">QueryWriter</a>
+            </div>
+            <div id="namespace-643053112" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.AQueryWriter.html">AQueryWriter</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.MySQL.html">MySQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.PostgreSQL.html">PostgreSQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.SQLiteT.html">SQLiteT</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1672194504"></a>
+                                <a href="../namespaces/RedBeanPHP.RedException.html" style="margin-left: 30px; padding-left: 0">RedException</a>
+            </div>
+            <div id="namespace-1672194504" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.SQL.html">SQL</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Adapter.html">Adapter</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.BeanHelper.html">BeanHelper</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Driver.html">Driver</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Logger.html">Logger</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Observer.html">Observer</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Plugin.html">Plugin</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.QueryWriter.html">QueryWriter</a></li>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.AssociationManager.html">AssociationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.DuplicationManager.html">DuplicationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Facade.html">Facade</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Finder.html">Finder</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.LabelMaker.html">LabelMaker</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Observable.html">Observable</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODB.html">OODB</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODBBean.html">OODBBean</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.html">RedException</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModel.html">SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModelHelper.html">SimpleModelHelper</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.TagManager.html">TagManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.ToolBox.html">ToolBox</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Action.html">Action</a></li>
+                                                    <li class="class"><a href="../classes/Cache.html">Cache</a></li>
+                                                    <li class="class"><a href="../classes/Config.html">Config</a></li>
+                                                    <li class="class"><a href="../classes/Controller.html">Controller</a></li>
+                                                    <li class="class"><a href="../classes/Demo.html">Demo</a></li>
+                                                    <li class="class"><a href="../classes/Ftp.html">Ftp</a></li>
+                                                    <li class="class"><a href="../classes/Image.html">Image</a></li>
+                                                    <li class="class"><a href="../classes/Kernel.html">Kernel</a></li>
+                                                    <li class="class"><a href="../classes/Lang.html">Lang</a></li>
+                                                    <li class="class"><a href="../classes/Model.html">Model</a></li>
+                                                    <li class="class"><a href="../classes/Mysql.html">Mysql</a></li>
+                                                    <li class="class"><a href="../classes/Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/PHPMailer.html">PHPMailer</a></li>
+                                                    <li class="class"><a href="../classes/phpmailerException.html">phpmailerException</a></li>
+                                                    <li class="class"><a href="../classes/R.html">R</a></li>
+                                                    <li class="class"><a href="../classes/RedBean_SimpleModel.html">RedBean_SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/SMTP.html">SMTP</a></li>
+                                                    <li class="class"><a href="../classes/String.html">String</a></li>
+                                                    <li class="class"><a href="../classes/Upload.html">Upload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\RedBeanPHP</small>QueryWriter</h1>
+                    <p><em>QueryWriter
+Interface for QueryWriters</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span6">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span6">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span6">
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_glueSQLCondition">glueSQLCondition()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_getTables">getTables()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_createTable">createTable()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_getColumns">getColumns()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_scanType">scanType()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_addColumn">addColumn()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_code">code()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_widenColumn">widenColumn()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_queryRecord">queryRecord()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_queryRecordRelated">queryRecordRelated()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_queryRecordLink">queryRecordLink()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_queryRecordCount">queryRecordCount()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_queryRecordCountRelated">queryRecordCountRelated()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_updateRecord">updateRecord()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_deleteRecord">deleteRecord()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_deleteRelations">deleteRelations()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_addUniqueIndex">addUniqueIndex()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_sqlStateIn">sqlStateIn()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_wipe">wipe()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_addConstraintForTypes">addConstraintForTypes()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_addFK">addFK()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_addIndex">addIndex()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_esc">esc()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_wipeAll">wipeAll()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_renameAssocTable">renameAssocTable()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#method_getAssocTable">getAssocTable()</a><br />
+                                                            </section>
+                            <section class="span6">
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#constant_C_SQLSTATE_NO_SUCH_TABLE">C_SQLSTATE_NO_SUCH_TABLE</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#constant_C_SQLSTATE_NO_SUCH_COLUMN">C_SQLSTATE_NO_SUCH_COLUMN</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#constant_C_SQLSTATE_INTEGRITY_CONSTRAINT_VIOLATION">C_SQLSTATE_INTEGRITY_CONSTRAINT_VIOLATION</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#constant_C_DATATYPE_RANGE_SPECIAL">C_DATATYPE_RANGE_SPECIAL</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#constant_C_DATATYPE_RANGE_SPECIFIED">C_DATATYPE_RANGE_SPECIFIED</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#constant_C_GLUE_WHERE">C_GLUE_WHERE</a><br />
+                                                                    <a href="../classes/RedBeanPHP.QueryWriter.html#constant_C_GLUE_AND">C_GLUE_AND</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span6">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span6">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span6">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span6">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        <dl>
+                        <dt>File</dt>
+                            <dd>
+                                <a href="../files/framework.lib.vendor.orm.html"><div class="path-wrapper">framework/lib/vendor/orm.php</div></a>
+                            </dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                
+                                            </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>file</th>
+                            <td>
+                                                                    <p>RedBean/QueryWriter.php</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>desc</th>
+                            <td>
+                                                                    <p>Describes the API for a QueryWriter</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>author</th>
+                            <td>
+                                                                    <p>Gabor de Mooij and the RedBeanPHP community</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>license</th>
+                            <td>
+                                                                    <p>BSD/GPLv2
+Notes:</p>
+<ul>
+<li>Whenever you see a parameter called $table or $type you should always
+be aware of the fact that this argument contains a Bean Type string, not the
+actual table name. These raw type names are passed to safeTable() to obtain the
+actual name of the database table. Don't let the names confuse you $type/$table
+refers to Bean Type, not physical database table names!</li>
+<li>This is the interface for FLUID database drivers. Drivers intended to support
+just FROZEN mode should implement the IceWriter instead.
+copyright (c) G.J.G.T. (Gabor) de Mooij and the RedBeanPHP Community.
+This source file is subject to the BSD/GPLv2 License that is bundled
+with this source code in the file license.txt.</li>
+</ul>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                            <a id="constants" name="constants"></a>
+                <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_SQLSTATE_NO_SUCH_TABLE" name="constant_C_SQLSTATE_NO_SUCH_TABLE" class="anchor"></a>
+            <article id="constant_C_SQLSTATE_NO_SUCH_TABLE" class="constant">
+                <h3 class="">C_SQLSTATE_NO_SUCH_TABLE</h3>
+                <pre class="signature">C_SQLSTATE_NO_SUCH_TABLE</pre>
+                <p><em>Query Writer constants.</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_SQLSTATE_NO_SUCH_COLUMN" name="constant_C_SQLSTATE_NO_SUCH_COLUMN" class="anchor"></a>
+            <article id="constant_C_SQLSTATE_NO_SUCH_COLUMN" class="constant">
+                <h3 class="">C_SQLSTATE_NO_SUCH_COLUMN</h3>
+                <pre class="signature">C_SQLSTATE_NO_SUCH_COLUMN</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_SQLSTATE_INTEGRITY_CONSTRAINT_VIOLATION" name="constant_C_SQLSTATE_INTEGRITY_CONSTRAINT_VIOLATION" class="anchor"></a>
+            <article id="constant_C_SQLSTATE_INTEGRITY_CONSTRAINT_VIOLATION" class="constant">
+                <h3 class="">C_SQLSTATE_INTEGRITY_CONSTRAINT_VIOLATION</h3>
+                <pre class="signature">C_SQLSTATE_INTEGRITY_CONSTRAINT_VIOLATION</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_DATATYPE_RANGE_SPECIAL" name="constant_C_DATATYPE_RANGE_SPECIAL" class="anchor"></a>
+            <article id="constant_C_DATATYPE_RANGE_SPECIAL" class="constant">
+                <h3 class="">C_DATATYPE_RANGE_SPECIAL</h3>
+                <pre class="signature">C_DATATYPE_RANGE_SPECIAL</pre>
+                <p><em>Define data type regions</em></p>
+                <p>00 - 80: normal data types
+80 - 99: special data types, only scan/code if requested
+99     : specified by user, don't change</p>
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_DATATYPE_RANGE_SPECIFIED" name="constant_C_DATATYPE_RANGE_SPECIFIED" class="anchor"></a>
+            <article id="constant_C_DATATYPE_RANGE_SPECIFIED" class="constant">
+                <h3 class="">C_DATATYPE_RANGE_SPECIFIED</h3>
+                <pre class="signature">C_DATATYPE_RANGE_SPECIFIED</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_GLUE_WHERE" name="constant_C_GLUE_WHERE" class="anchor"></a>
+            <article id="constant_C_GLUE_WHERE" class="constant">
+                <h3 class="">C_GLUE_WHERE</h3>
+                <pre class="signature">C_GLUE_WHERE</pre>
+                <p><em>Define GLUE types for use with glueSQLCondition methods.</em></p>
+                <p>Determines how to prefix a snippet of SQL before appending it
+to other SQL (or integrating it, mixing it otherwise).</p>
+<p>WHERE - glue as WHERE condition
+AND   - glue as AND condition</p>
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_GLUE_AND" name="constant_C_GLUE_AND" class="anchor"></a>
+            <article id="constant_C_GLUE_AND" class="constant">
+                <h3 class="">C_GLUE_AND</h3>
+                <pre class="signature">C_GLUE_AND</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                        <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Methods</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_glueSQLCondition" name="method_glueSQLCondition" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">glueSQLCondition()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">glueSQLCondition(string <span class="argument">$sql</span>, integer <span class="argument">$glue</span>) : string</pre>
+                <p><em>Glues an SQL snippet to the beginning of a WHERE clause.</em></p>
+                <p>This ensures users don't have to add WHERE to their query snippets.</p>
+<p>The snippet gets prefixed with WHERE or AND
+if it starts with a condition.</p>
+<p>If the snippet does NOT start with a condition (or this function thinks so)
+the snippet is returned as-is.</p>
+<p>The GLUE type determines the prefix:</p>
+<ul>
+<li>NONE  prefixes with WHERE</li>
+<li>WHERE prefixes with WHERE and replaces AND if snippets starts with AND</li>
+<li>AND   prefixes with AND</li>
+</ul>
+<p>This method will never replace WHERE with AND since a snippet should never
+begin with WHERE in the first place. OR is not supported.</p>
+<p>Only a limited set of clauses will be recognized as non-conditions.
+For instance beginning a snippet with complex statements like JOIN or UNION
+will not work. This is too complex for use in a snippet.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>SQL Snippet</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$glue </td>
+                                <td><p>the GLUE type - how to glue (C_GLUE_WHERE or C_GLUE_AND)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getTables" name="method_getTables" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getTables()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getTables() : array</pre>
+                <p><em>Returns the tables that are in the database.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createTable" name="method_createTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createTable(string <span class="argument">$type</span>) : void</pre>
+                <p><em>This method will create a table for the bean.</em></p>
+                <p>This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of bean you want to create a table for</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getColumns" name="method_getColumns" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getColumns()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getColumns(string <span class="argument">$type</span>) : array</pre>
+                <p><em>Returns an array containing all the columns of the specified type.</em></p>
+                <p>The format of the return array looks like this:
+$field => $type where $field is the name of the column and $type
+is a database specific description of the datatype.</p>
+<p>This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of bean you want to obtain a column list of</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_scanType" name="method_scanType" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">scanType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">scanType(string <span class="argument">$value</span>,  <span class="argument">$alsoScanSpecialForTypes</span>) : integer</pre>
+                <p><em>Returns the Column Type Code (integer) that corresponds
+to the given value type. This method is used to determine the minimum
+column type required to represent the given value.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$value </td>
+                                <td><p>value</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$alsoScanSpecialForTypes </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addColumn" name="method_addColumn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addColumn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addColumn(string <span class="argument">$type</span>, string <span class="argument">$column</span>, integer <span class="argument">$field</span>) : void</pre>
+                <p><em>This method will add a column to a table.</em></p>
+                <p>This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>name of the table</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$column </td>
+                                <td><p>name of the column</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$field </td>
+                                <td><p>data type for field</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_code" name="method_code" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">code()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">code(string <span class="argument">$typedescription</span>, boolean <span class="argument">$includeSpecials</span>) : integer</pre>
+                <p><em>Returns the Type Code for a Column Description.</em></p>
+                <p>Given an SQL column description this method will return the corresponding
+code for the writer. If the include specials flag is set it will also
+return codes for special columns. Otherwise special columns will be identified
+as specified columns.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$typedescription </td>
+                                <td><p>description</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$includeSpecials </td>
+                                <td><p>whether you want to get codes for special columns as well</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_widenColumn" name="method_widenColumn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">widenColumn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">widenColumn(string <span class="argument">$type</span>, string <span class="argument">$column</span>, integer <span class="argument">$datatype</span>) : void</pre>
+                <p><em>This method will widen the column to the specified data type.</em></p>
+                <p>This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type / table that needs to be adjusted</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$column </td>
+                                <td><p>column that needs to be altered</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$datatype </td>
+                                <td><p>target data type</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryRecord" name="method_queryRecord" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryRecord()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryRecord(string <span class="argument">$type</span>, array <span class="argument">$conditions</span>,  <span class="argument">$addSql</span>, array <span class="argument">$bindings</span>) : array</pre>
+                <p><em>Selects records from the database.</em></p>
+                <p>This methods selects the records from the database that match the specified
+type, conditions (optional) and additional SQL snippet (optional).</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>name of the table you want to query</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>criteria ( $column => array( $values ) )</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$addSql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>bindings for SQL snippet</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryRecordRelated" name="method_queryRecordRelated" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryRecordRelated()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryRecordRelated(string <span class="argument">$sourceType</span>, string <span class="argument">$destType</span>, mixed <span class="argument">$linkID</span>, string <span class="argument">$addSql</span>, array <span class="argument">$bindings</span>) : array</pre>
+                <p><em>Returns records through an intermediate type. This method is used to obtain records using a link table and
+allows the SQL snippets to reference columns in the link table for additional filtering or ordering.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sourceType </td>
+                                <td><p>source type, the reference type you want to use to fetch related items on the other side</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$destType </td>
+                                <td><p>destination type, the target type you want to get beans of</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$linkID </td>
+                                <td><p>ID to use for the link table</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$addSql </td>
+                                <td><p>Additional SQL snippet</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>Bindings for SQL snippet</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryRecordLink" name="method_queryRecordLink" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryRecordLink()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryRecordLink(string <span class="argument">$sourceType</span>, string <span class="argument">$destType</span>, string <span class="argument">$sourceID</span>, string <span class="argument">$destID</span>) : array|null</pre>
+                <p><em>Returns the row that links $sourceType $sourcID to $destType $destID in an N-M relation.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sourceType </td>
+                                <td><p>source type, the first part of the link you're looking for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$destType </td>
+                                <td><p>destination type, the second part of the link you're looking for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sourceID </td>
+                                <td><p>ID for the source</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$destID </td>
+                                <td><p>ID for the destination</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array|null
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryRecordCount" name="method_queryRecordCount" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryRecordCount()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryRecordCount(string <span class="argument">$type</span>, array <span class="argument">$conditions</span>,  <span class="argument">$addSql</span>, array <span class="argument">$bindings</span>) : integer</pre>
+                <p><em>Counts the number of records in the database that match the
+conditions and additional SQL.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>name of the table you want to query</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>criteria ( $column => array( $values ) )</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$addSql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>bindings for SQL snippet</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryRecordCountRelated" name="method_queryRecordCountRelated" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryRecordCountRelated()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryRecordCountRelated(string <span class="argument">$sourceType</span>, string <span class="argument">$targetType</span>, mixed <span class="argument">$linkID</span>, string <span class="argument">$addSQL</span>, array <span class="argument">$bindings</span>) : integer</pre>
+                <p><em>Returns the number of records linked through $linkType and satisfying the SQL in $addSQL/$bindings.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sourceType </td>
+                                <td><p>source type</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$targetType </td>
+                                <td><p>the thing you want to count</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$linkID </td>
+                                <td><p>the of the source type</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$addSQL </td>
+                                <td><p>additional SQL snippet</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>bindings for SQL snippet</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateRecord" name="method_updateRecord" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateRecord()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateRecord(string <span class="argument">$type</span>, array <span class="argument">$updatevalues</span>, integer <span class="argument">$id</span>) : integer</pre>
+                <p><em>This method should update (or insert a record), it takes
+a table name, a list of update values ( $field =&gt; $value ) and an
+primary key ID (optional). If no primary key ID is provided, an
+INSERT will take place.</em></p>
+                <p>Returns the new ID.
+This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>name of the table to update</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$updatevalues </td>
+                                <td><p>list of update values</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td><p>optional primary key ID value</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteRecord" name="method_deleteRecord" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteRecord()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteRecord(string <span class="argument">$type</span>, array <span class="argument">$conditions</span>,  <span class="argument">$addSql</span>, array <span class="argument">$bindings</span>) : void</pre>
+                <p><em>Deletes records from the database.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>name of the table you want to query</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>criteria ( $column => array( $values ) )</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$addSql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>bindings</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            note
+                        </th>
+                        <td>
+                                                                                            <p>$addSql is always prefixed with ' WHERE ' or ' AND .'</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteRelations" name="method_deleteRelations" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteRelations()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteRelations(string <span class="argument">$sourceType</span>, string <span class="argument">$destType</span>, string <span class="argument">$sourceID</span>) : void</pre>
+                <p><em>Deletes all links between $sourceType and $destType in an N-M relation.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sourceType </td>
+                                <td><p>source type</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$destType </td>
+                                <td><p>destination type</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sourceID </td>
+                                <td><p>source ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addUniqueIndex" name="method_addUniqueIndex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addUniqueIndex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addUniqueIndex(string <span class="argument">$type</span>,  <span class="argument">$columns</span>) : void</pre>
+                <p><em>This method will add a UNIQUE constraint index to a table on columns $columns.</em></p>
+                <p>This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$columns </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_sqlStateIn" name="method_sqlStateIn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">sqlStateIn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">sqlStateIn(string <span class="argument">$state</span>, array <span class="argument">$list</span>) : boolean</pre>
+                <p><em>This method will check whether the SQL state is in the list of specified states
+and returns TRUE if it does appear in this list or FALSE if it
+does not. The purpose of this method is to translate the database specific state to
+a one of the constants defined in this class and then check whether it is in the list
+of standard states provided.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$state </td>
+                                <td><p>sql state</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$list </td>
+                                <td><p>list</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wipe" name="method_wipe" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">wipe()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wipe(string <span class="argument">$type</span>) : void</pre>
+                <p><em>This method will remove all beans of a certain type.</em></p>
+                <p>This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>bean type</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addConstraintForTypes" name="method_addConstraintForTypes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addConstraintForTypes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addConstraintForTypes(string <span class="argument">$sourceType</span>, string <span class="argument">$destType</span>) : void</pre>
+                <p><em>Given two types this method will add a foreign key constraint.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sourceType </td>
+                                <td><p>source type</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$destType </td>
+                                <td><p>destination type</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addFK" name="method_addFK" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addFK()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addFK(string <span class="argument">$type</span>, string <span class="argument">$targetType</span>, string <span class="argument">$field</span>, string <span class="argument">$targetField</span>, string <span class="argument">$isDep</span>) : void</pre>
+                <p><em>This method will add a foreign key from type and field to
+target type and target field.</em></p>
+                <p>The foreign key is created without an action. On delete/update
+no action will be triggered. The FK is only used to allow database
+tools to generate pretty diagrams and to make it easy to add actions
+later on.
+This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type that will have a foreign key field</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$targetType </td>
+                                <td><p>points to this type</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$field </td>
+                                <td><p>field that contains the foreign key value</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$targetField </td>
+                                <td><p>field where the fk points to</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$isDep </td>
+                                <td><p>whether target is dependent and should cascade on update/delete</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addIndex" name="method_addIndex" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addIndex()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addIndex(string <span class="argument">$type</span>, string <span class="argument">$name</span>, string <span class="argument">$column</span>) : void</pre>
+                <p><em>This method will add an index to a type and field with name
+$name.</em></p>
+                <p>This methods accepts a type and infers the corresponding table name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type to add index to</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>name of the new index</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$column </td>
+                                <td><p>field to index</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_esc" name="method_esc" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">esc()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">esc(string <span class="argument">$databaseStructure</span>,  <span class="argument">$dontQuote</span>) : string</pre>
+                <p><em>Checks and filters a database structure element like a table of column
+for safe use in a query. A database structure has to conform to the
+RedBeanPHP DB security policy which basically means only alphanumeric
+symbols are allowed. This security policy is more strict than conventional
+SQL policies and does therefore not require database specific escaping rules.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$databaseStructure </td>
+                                <td><p>name of the column/table to check</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$dontQuote </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wipeAll" name="method_wipeAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">wipeAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wipeAll() : void</pre>
+                <p><em>Removes all tables and views from the database.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_renameAssocTable" name="method_renameAssocTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">renameAssocTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">renameAssocTable(string|array <span class="argument">$from</span>, string <span class="argument">$to</span>) : void</pre>
+                <p><em>Renames an association. For instance if you would like to refer to
+album_song as: track you can specify this by calling this method like:</em></p>
+                <p>renameAssociation('album_song','track')</p>
+<p>This allows:</p>
+<p>$album->sharedSong</p>
+<p>to add/retrieve beans from track instead of album_song.
+Also works for exportAll().</p>
+<p>This method also accepts a single associative array as
+its first argument.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|array</td>
+                                <td>$from </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$to </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAssocTable" name="method_getAssocTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAssocTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAssocTable(array <span class="argument">$types</span>) : string</pre>
+                <p><em>Returns the format for link tables.</em></p>
+                <p>Given an array containing two type names this method returns the
+name of the link table to be used to store and retrieve
+association records.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$types </td>
+                                <td><p>two types array($type1, $type2)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">orm.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/framework/lib/vendor/orm.php.txt" class="language-php"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 24th, 2014 at 11:00.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

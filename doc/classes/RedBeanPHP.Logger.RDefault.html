@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">231</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-935304381"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-935304381" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-614998571"></a>
+                                <a href="../namespaces/RedBeanPHP.html" style="margin-left: 30px; padding-left: 0">RedBeanPHP</a>
+            </div>
+            <div id="namespace-614998571" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-341075413"></a>
+                                <a href="../namespaces/RedBeanPHP.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-341075413" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Adapter.DBAdapter.html">DBAdapter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-221661429"></a>
+                                <a href="../namespaces/RedBeanPHP.BeanHelper.html" style="margin-left: 30px; padding-left: 0">BeanHelper</a>
+            </div>
+            <div id="namespace-221661429" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.BeanHelper.SimpleFacadeBeanHelper.html">SimpleFacadeBeanHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1243963235"></a>
+                                <a href="../namespaces/RedBeanPHP.Driver.html" style="margin-left: 30px; padding-left: 0">Driver</a>
+            </div>
+            <div id="namespace-1243963235" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Driver.RPDO.html">RPDO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-622030217"></a>
+                                <a href="../namespaces/RedBeanPHP.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-622030217" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Logger.RDefault.html">RDefault</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1587597958"></a>
+                                <a href="../namespaces/RedBeanPHP.QueryWriter.html" style="margin-left: 30px; padding-left: 0">QueryWriter</a>
+            </div>
+            <div id="namespace-1587597958" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.AQueryWriter.html">AQueryWriter</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.MySQL.html">MySQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.PostgreSQL.html">PostgreSQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.SQLiteT.html">SQLiteT</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1717406670"></a>
+                                <a href="../namespaces/RedBeanPHP.RedException.html" style="margin-left: 30px; padding-left: 0">RedException</a>
+            </div>
+            <div id="namespace-1717406670" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.SQL.html">SQL</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Adapter.html">Adapter</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.BeanHelper.html">BeanHelper</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Driver.html">Driver</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Logger.html">Logger</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Observer.html">Observer</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Plugin.html">Plugin</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.QueryWriter.html">QueryWriter</a></li>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.AssociationManager.html">AssociationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.DuplicationManager.html">DuplicationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Facade.html">Facade</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Finder.html">Finder</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.LabelMaker.html">LabelMaker</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Observable.html">Observable</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODB.html">OODB</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODBBean.html">OODBBean</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.html">RedException</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModel.html">SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModelHelper.html">SimpleModelHelper</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.TagManager.html">TagManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.ToolBox.html">ToolBox</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Action.html">Action</a></li>
+                                                    <li class="class"><a href="../classes/Cache.html">Cache</a></li>
+                                                    <li class="class"><a href="../classes/Config.html">Config</a></li>
+                                                    <li class="class"><a href="../classes/Controller.html">Controller</a></li>
+                                                    <li class="class"><a href="../classes/Demo.html">Demo</a></li>
+                                                    <li class="class"><a href="../classes/Ftp.html">Ftp</a></li>
+                                                    <li class="class"><a href="../classes/Image.html">Image</a></li>
+                                                    <li class="class"><a href="../classes/Kernel.html">Kernel</a></li>
+                                                    <li class="class"><a href="../classes/Lang.html">Lang</a></li>
+                                                    <li class="class"><a href="../classes/Model.html">Model</a></li>
+                                                    <li class="class"><a href="../classes/Mysql.html">Mysql</a></li>
+                                                    <li class="class"><a href="../classes/Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/PHPMailer.html">PHPMailer</a></li>
+                                                    <li class="class"><a href="../classes/phpmailerException.html">phpmailerException</a></li>
+                                                    <li class="class"><a href="../classes/R.html">R</a></li>
+                                                    <li class="class"><a href="../classes/RedBean_SimpleModel.html">RedBean_SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/SMTP.html">SMTP</a></li>
+                                                    <li class="class"><a href="../classes/String.html">String</a></li>
+                                                    <li class="class"><a href="../classes/Upload.html">Upload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/RedBeanPHP.Logger.html">\RedBeanPHP\Logger</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\RedBeanPHP\Logger</small>RDefault</h1>
+                    <p><em>Logger. Provides a basic logging function for RedBeanPHP.</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.Logger.RDefault.html#method_log" class="">log()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Logger.RDefault.html#method_getLogs" class="">getLogs()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Logger.RDefault.html#method_clear" class="">clear()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Logger.RDefault.html#method_setMode" class="">setMode()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Logger.RDefault.html#method_grep" class="">grep()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.Logger.RDefault.html#property_mode" class="">$mode</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Logger.RDefault.html#property_logs" class="">$logs</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/framework.lib.vendor.orm.html"><div class="path-wrapper">framework/lib/vendor/orm.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\RedBeanPHP\Logger\RDefault</div>
+                            </dd>
+
+                                                                            <dt>Implements</dt>
+                                                        <dd><a href="../classes/RedBeanPHP.Logger.html"><div class="namespace-wrapper">\RedBeanPHP\Logger</div></a></dd>
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                file
+                            </th>
+                            <td>
+                                                                    <p>RedBean/Logger.php</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                desc
+                            </th>
+                            <td>
+                                                                    <p>Logger</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Gabor de Mooij and the RedBeanPHP Community</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                license
+                            </th>
+                            <td>
+                                                                    <p>BSD/GPLv2
+Provides a basic logging function for RedBeanPHP.
+copyright (c) G.J.G.T. (Gabor) de Mooij
+This source file is subject to the BSD/GPLv2 License that is bundled
+with this source code in the file license.txt.</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_mode" name="property_mode" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$mode</h3>
+                <pre class="signature">$mode : integer</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_logs" name="property_logs" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$logs</h3>
+                <pre class="signature">$logs : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_log" name="method_log" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">log()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">log() : void</pre>
+                <p><em>Default logger method logging to STDOUT.</em></p>
+                <p>This is the default/reference implementation of a logger.
+This method will write the message value to STDOUT (screen).</p>
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLogs" name="method_getLogs" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLogs()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLogs() : array</pre>
+                <p><em>Returns the logs array.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_clear" name="method_clear" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">clear()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">clear() : self</pre>
+                <p><em>Empties the logs array.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    self
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setMode" name="method_setMode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setMode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setMode(integer <span class="argument">$mode</span>) : self</pre>
+                <p><em>Selects a logging mode.</em></p>
+                <p>Mode 0 means echoing all statements, while mode 1
+means populating the logs array.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$mode </td>
+                                <td><p>mode</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    self
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_grep" name="method_grep" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">grep()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">grep(string <span class="argument">$needle</span>) : array</pre>
+                <p><em>Searches for all log entries in internal log array
+for $needle and returns those entries.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$needle </td>
+                                <td><p>needle</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">orm.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/framework/lib/vendor/orm.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 24th, 2014 at 11:00.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

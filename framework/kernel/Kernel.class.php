@@ -1,46 +1,74 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
-
+/**
+* 核心类Kernel类
+* @filename Kernel.class.php
+* @touch date 2014-07-23 16:47:33
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 defined('RPF_PATH') or exit();
 
+/**
+* 核心类Kernel类
+*/
 class Kernel
 {
-	//配置信息
+	/**
+	* 配置信息存储变量
+	*/
 	static $_conf = array();
-	//语言包信息
+
+	/**
+	* 语言包信息存储变量
+	*/
 	static $_lang = array();
-	//初始化MVCA模式的值
+
+	/**
+	* controller名称存储变量
+	*/
 	static $_controller = null;
+
+	/**
+	* action名称存储变量
+	*/
 	static $_action = null;
+
+	/**
+	* app名称存储变量
+	*/
 	static $_app = null;
 
+	/**
+	* 获取当前的action名称
+	*/
 	public static function getAction()
 	{
 		return self::$_action;
 	}
 
+	/**
+	* 获取当前的controller名称
+	*/
 	public static function getController()
 	{
 		return self::$_controller;
 	}
 
+	/**
+	* 获取当前的app名称
+	*/
 	public static function getApp()
 	{
 		return self::$_app;
 	}
 
+	/**
+	* Kernel类的核心启动框架的方法
+	*/
 	public static function start()
 	{
-
-
 		//加载配置信息，用户自定义的配置会覆盖系统的配置
 		self::loadConf();
 
@@ -101,10 +129,8 @@ class Kernel
 		$act_obj->run();
 	}
 
-	/*
-	  * 功能  ： 初始化session
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 初始化session
 	*/
 	private static function session()
 	{
@@ -120,10 +146,8 @@ class Kernel
 		session_start();
 	}
 
-	/*
-	  * 功能  ： 实现目录检测和自动创建目录
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 递归创建框架所需的目录
 	*/
 	private static function mkdirs()
 	{
@@ -152,11 +176,10 @@ class Kernel
 		touch($lockfile);
 	}
 
-	/*
-	  * 功能  ： 该方法实现了自动加载类库的功能，在使用类似new操作时候，将自动调用此方法
-	  * 参数  ： $cls  类库class名称
-	  * 返回  ： 加载类库成功返回import函数的返回值 ， 加载类库失败程序停止执行
-	  * 说明  ： 在debug模式下，类库加载失败，程序会报错，并且停止运行， 非debug模式，程序仅仅提示错误，但不显示详细错误内容
+	/**
+	* 该方法实现了自动加载类库的功能，在使用类似new操作时候，将自动调用此方法
+	* @param string $cls 类名称
+	* @return bool 返回同import函数的返回值 ， 加载类库失败程序停止执行
 	*/
 	public static function autoload($cls)
 	{
@@ -173,10 +196,8 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 实现URL的解析和分发
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 实现URL的解析和分发
 	*/
 	private static function parseurl()
 	{
@@ -196,11 +217,8 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 解析URL为rewrite模式
-	  * 参数  ： void
-	  * 返回  ： void
-	  * 说明  ： 由于未找到合适的判断rewrite模块是否支持函数，所以仅仅对使用apache的服务器做了rewrite检测，使用nginx/iis等服务器的请自己测试
+	/**
+	* 解析URL为rewrite模式,由于未找到合适的判断rewrite模块是否支持函数，所以仅仅对使用apache的服务器做了rewrite检测，使用nginx/iis等服务器的请自己测试
 	*/
 	private static function url_rewrite()
 	{
@@ -263,10 +281,8 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 解析URL为兼容模式
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 解析URL为兼容模式
 	*/
 	private static function url_compat()
 	{
@@ -328,10 +344,8 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 解析URL为普通模式
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 解析URL为普通模式
 	*/
 	private static function url_common()
 	{
@@ -373,10 +387,9 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 解析URL为pathinfo模式，如果服务器不支持pathinfo模式，停止执行程序
-	  * 参数  ： void
-	  * 返回  ： void
+	
+	/**
+	* 解析URL为pathinfo模式，如果服务器不支持pathinfo模式，停止执行程序
 	*/
 	private static function url_pathinfo()
 	{
@@ -438,10 +451,8 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 自动加载配置项
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 自动加载配置项
 	*/
 	private static function loadConf()
 	{
@@ -468,10 +479,8 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 自动加载语言包
-	  * 参数  ： void
-	  * 返回  ： void
+	/**
+	* 自动加载语言包
 	*/
 	private static function loadLang()
 	{
@@ -498,11 +507,11 @@ class Kernel
 		}
 	}
 
-	/*
-	  * 功能  ： 自动加载用户自定义的类库文件
-	  * 参数  ： $cls 需要加载的类名称
-	  * 返回  ： 成功返回true,失败返回false
-	  * 说明  ： 所有类定义扩展名必须符合相关类常量扩展名的定义
+
+	/**
+	* 自动加载用户自定义的类库文件
+	* @param string $cls 类名称
+	* @return bool  成功返回true,失败返回false
 	*/
 	private static function loadUserClass($cls)
 	{
@@ -538,10 +547,9 @@ class Kernel
 		return false;
 	}
 
-	/*
-	  * 功能  ： 自动加载用户自定义的函数库文件
-	  * 返回  ： void
-	  * 说明  ： 所有函数名称不应该重复，其次必须符合FUNC_EXT常量的扩展名定义
+	
+	/**
+	* 自动加载用户自定义的函数库文件
 	*/
 	private static function loadfunc()
 	{
@@ -558,10 +566,8 @@ class Kernel
 		unset($dirArr);
 	}
 
-	/*
-	  * 功能  ： 该方法实现了自动缓存系统类库代码路径到内存
-	  * 返回  ： 成功返回缓存类库路径array ， 失败返回 false
-	  * 说明  ： 系统类库下所有类名称不允许重复，否则会导致类覆盖
+	/**
+	* 该方法实现了自动缓存系统类库代码路径到内存
 	*/
 	private static function sysClassCache()
 	{

@@ -1,0 +1,2477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">231</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-968724991"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-968724991" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1155941015"></a>
+                                <a href="../namespaces/RedBeanPHP.html" style="margin-left: 30px; padding-left: 0">RedBeanPHP</a>
+            </div>
+            <div id="namespace-1155941015" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-52088962"></a>
+                                <a href="../namespaces/RedBeanPHP.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-52088962" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Adapter.DBAdapter.html">DBAdapter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-690507536"></a>
+                                <a href="../namespaces/RedBeanPHP.BeanHelper.html" style="margin-left: 30px; padding-left: 0">BeanHelper</a>
+            </div>
+            <div id="namespace-690507536" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.BeanHelper.SimpleFacadeBeanHelper.html">SimpleFacadeBeanHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-870040656"></a>
+                                <a href="../namespaces/RedBeanPHP.Driver.html" style="margin-left: 30px; padding-left: 0">Driver</a>
+            </div>
+            <div id="namespace-870040656" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Driver.RPDO.html">RPDO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2007526649"></a>
+                                <a href="../namespaces/RedBeanPHP.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-2007526649" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Logger.RDefault.html">RDefault</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-212890548"></a>
+                                <a href="../namespaces/RedBeanPHP.QueryWriter.html" style="margin-left: 30px; padding-left: 0">QueryWriter</a>
+            </div>
+            <div id="namespace-212890548" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.AQueryWriter.html">AQueryWriter</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.MySQL.html">MySQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.PostgreSQL.html">PostgreSQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.SQLiteT.html">SQLiteT</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-232144101"></a>
+                                <a href="../namespaces/RedBeanPHP.RedException.html" style="margin-left: 30px; padding-left: 0">RedException</a>
+            </div>
+            <div id="namespace-232144101" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.SQL.html">SQL</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Adapter.html">Adapter</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.BeanHelper.html">BeanHelper</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Driver.html">Driver</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Logger.html">Logger</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Observer.html">Observer</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Plugin.html">Plugin</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.QueryWriter.html">QueryWriter</a></li>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.AssociationManager.html">AssociationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.DuplicationManager.html">DuplicationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Facade.html">Facade</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Finder.html">Finder</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.LabelMaker.html">LabelMaker</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Observable.html">Observable</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODB.html">OODB</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODBBean.html">OODBBean</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.html">RedException</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModel.html">SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModelHelper.html">SimpleModelHelper</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.TagManager.html">TagManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.ToolBox.html">ToolBox</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Action.html">Action</a></li>
+                                                    <li class="class"><a href="../classes/Cache.html">Cache</a></li>
+                                                    <li class="class"><a href="../classes/Config.html">Config</a></li>
+                                                    <li class="class"><a href="../classes/Controller.html">Controller</a></li>
+                                                    <li class="class"><a href="../classes/Demo.html">Demo</a></li>
+                                                    <li class="class"><a href="../classes/Ftp.html">Ftp</a></li>
+                                                    <li class="class"><a href="../classes/Image.html">Image</a></li>
+                                                    <li class="class"><a href="../classes/Kernel.html">Kernel</a></li>
+                                                    <li class="class"><a href="../classes/Lang.html">Lang</a></li>
+                                                    <li class="class"><a href="../classes/Model.html">Model</a></li>
+                                                    <li class="class"><a href="../classes/Mysql.html">Mysql</a></li>
+                                                    <li class="class"><a href="../classes/Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/PHPMailer.html">PHPMailer</a></li>
+                                                    <li class="class"><a href="../classes/phpmailerException.html">phpmailerException</a></li>
+                                                    <li class="class"><a href="../classes/R.html">R</a></li>
+                                                    <li class="class"><a href="../classes/RedBean_SimpleModel.html">RedBean_SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/SMTP.html">SMTP</a></li>
+                                                    <li class="class"><a href="../classes/String.html">String</a></li>
+                                                    <li class="class"><a href="../classes/Upload.html">Upload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\RedBeanPHP</small>OODB</h1>
+                    <p><em>RedBean Object Oriented DataBase</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.Observable.html#method_addEventListener" class="">addEventListener()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Observable.html#method_signal" class="">signal()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_freeze" class="">freeze()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_isFrozen" class="">isFrozen()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_isChilled" class="">isChilled()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_dispense" class="">dispense()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_setBeanHelper" class="">setBeanHelper()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_check" class="">check()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_find" class="">find()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_tableExists" class="deprecated">tableExists()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_store" class="">store()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_load" class="">load()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_trash" class="">trash()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_batch" class="">batch()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_convertToBeans" class="">convertToBeans()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_count" class="">count()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_wipe" class="">wipe()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_getAssociationManager" class="">getAssociationManager()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_setAssociationManager" class="">setAssociationManager()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#property_chillList" class="">$chillList</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#property_stash" class="">$stash</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#property_nesting" class="">$nesting</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#property_writer" class="">$writer</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#property_isFrozen" class="">$isFrozen</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#property_beanhelper" class="">$beanhelper</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#property_assocManager" class="">$assocManager</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_handleException" class="">handleException()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_unboxIfNeeded" class="">unboxIfNeeded()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processGroups" class="">processGroups()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_getTypeFromCast" class="">getTypeFromCast()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_prepareEmbeddedBean" class="">prepareEmbeddedBean()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_createTableIfNotExists" class="">createTableIfNotExists()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_addUniqueConstraints" class="">addUniqueConstraints()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_storeBean" class="">storeBean()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_getUpdateValues" class="">getUpdateValues()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_moldTable" class="">moldTable()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processSharedAdditions" class="">processSharedAdditions()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processResidue" class="">processResidue()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processTrashcan" class="">processTrashcan()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processSharedTrashcan" class="">processSharedTrashcan()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processSharedResidue" class="">processSharedResidue()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_addForeignKeysForParentBeans" class="">addForeignKeysForParentBeans()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processAdditions" class="">processAdditions()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_hasListsOrObjects" class="">hasListsOrObjects()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processBuildCommands" class="">processBuildCommands()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processEmbeddedBean" class="">processEmbeddedBean()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.OODB.html#method_processLists" class="">processLists()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.Observable.html#property_observers" class="">$observers</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/framework.lib.vendor.orm.html"><div class="path-wrapper">framework/lib/vendor/orm.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/RedBeanPHP.Observable.html">\RedBeanPHP\Observable</a></div>
+                                                                                                    <div class="namespace-wrapper">\RedBeanPHP\OODB</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                file
+                            </th>
+                            <td>
+                                                                    <p>RedBean/OODB.php</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                desc
+                            </th>
+                            <td>
+                                                                    <p>RedBean Object Database</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Gabor de Mooij and the RedBeanPHP community</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                license
+                            </th>
+                            <td>
+                                                                    <p>BSD/GPLv2
+The RedBean OODB Class is the main class of RedBeanPHP.
+It takes OODBBean objects and stores them to and loads them from the
+database as well as providing other CRUD functions. This class acts as a
+object database.
+copyright (c) G.J.G.T. (Gabor) de Mooij and the RedBeanPHP Community
+This source file is subject to the BSD/GPLv2 License that is bundled
+with this source code in the file license.txt.</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_chillList" name="property_chillList" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$chillList</h3>
+                <pre class="signature">$chillList : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_stash" name="property_stash" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$stash</h3>
+                <pre class="signature">$stash : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_nesting" name="property_nesting" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$nesting</h3>
+                <pre class="signature">$nesting : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_writer" name="property_writer" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$writer</h3>
+                <pre class="signature">$writer : \RedBeanPHP\Adapter\DBAdapter</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/RedBeanPHP.Adapter.DBAdapter.html">\RedBeanPHP\Adapter\DBAdapter</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_isFrozen" name="property_isFrozen" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$isFrozen</h3>
+                <pre class="signature">$isFrozen : boolean</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_beanhelper" name="property_beanhelper" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$beanhelper</h3>
+                <pre class="signature">$beanhelper : \RedBeanPHP\BeanHelper\FacadeBeanHelper</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \RedBeanPHP\BeanHelper\FacadeBeanHelper
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_assocManager" name="property_assocManager" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$assocManager</h3>
+                <pre class="signature">$assocManager : \RedBeanPHP\AssociationManager</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/RedBeanPHP.AssociationManager.html">\RedBeanPHP\AssociationManager</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_observers" name="property_observers" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$observers</h3>
+                <pre class="signature">$observers : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/RedBeanPHP.Observable.html"><div class="path-wrapper">\RedBeanPHP\Observable</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addEventListener" name="method_addEventListener" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addEventListener()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addEventListener(string <span class="argument">$eventname</span>, \RedBeanPHP\Observer <span class="argument">$observer</span>) : void</pre>
+                <p><em>Implementation of the Observer Pattern.</em></p>
+                <p>Adds an event listener to the observable object.
+First argument should be the name of the event you wish to listen for.
+Second argument should be the object that wants to be notified in case
+the event occurs.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$eventname </td>
+                                <td><p>event identifier</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.Observer.html">\RedBeanPHP\Observer</a></td>
+                                <td>$observer </td>
+                                <td><p>observer instance</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/RedBeanPHP.Observable.html"><div class="path-wrapper">\RedBeanPHP\Observable</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_signal" name="method_signal" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">signal()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">signal(string <span class="argument">$eventname</span>, mixed <span class="argument">$info</span>) : void</pre>
+                <p><em>Notifies listeners.</em></p>
+                <p>Sends the signal $eventname, the event identifier and a message object
+to all observers that have been registered to receive notification for
+this event. Part of the observer pattern implementation in RedBeanPHP.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$eventname </td>
+                                <td><p>event you want signal</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$info </td>
+                                <td><p>message object to send along</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/RedBeanPHP.Observable.html"><div class="path-wrapper">\RedBeanPHP\Observable</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\RedBeanPHP\QueryWriter <span class="argument">$writer</span>)</pre>
+                <p><em>Constructor, requires a query writer.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.QueryWriter.html">\RedBeanPHP\QueryWriter</a></td>
+                                <td>$writer </td>
+                                <td><p>writer</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_freeze" name="method_freeze" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">freeze()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">freeze(boolean|array <span class="argument">$toggle</span>) : void</pre>
+                <p><em>Toggles fluid or frozen mode. In fluid mode the database
+structure is adjusted to accomodate your objects. In frozen mode
+this is not the case.</em></p>
+                <p>You can also pass an array containing a selection of frozen types.
+Let's call this chilly mode, it's just like fluid mode except that
+certain types (i.e. tables) aren't touched.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean|array</td>
+                                <td>$toggle </td>
+                                <td><p>TRUE if you want to use OODB instance in frozen mode</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isFrozen" name="method_isFrozen" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isFrozen()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isFrozen() : boolean</pre>
+                <p><em>Returns the current mode of operation of RedBean.</em></p>
+                <p>In fluid mode the database
+structure is adjusted to accomodate your objects.
+In frozen mode
+this is not the case.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isChilled" name="method_isChilled" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isChilled()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isChilled(string <span class="argument">$type</span>) : boolean</pre>
+                <p><em>Determines whether a type is in the chill list.</em></p>
+                <p>If a type is 'chilled' it's frozen, so its schema cannot be
+changed anymore. However other bean types may still be modified.
+This method is a convenience method for other objects to check if
+the schema of a certain type is locked for modification.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>the type you wish to check</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_dispense" name="method_dispense" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">dispense()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">dispense(string <span class="argument">$type</span>, string <span class="argument">$number</span>, boolean <span class="argument">$alwaysReturnArray</span>) : \RedBeanPHP\OODBBean</pre>
+                <p><em>Dispenses a new bean (a OODBBean Bean Object)
+of the specified type. Always
+use this function to get an empty bean object. Never
+instantiate a OODBBean yourself because it needs
+to be configured before you can use it with RedBean. This
+function applies the appropriate initialization /
+configuration for you.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of bean you want to dispense</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$number </td>
+                                <td><p>number of beans you would like to get</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$alwaysReturnArray </td>
+                                <td><p>if TRUE always returns the result as an array</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setBeanHelper" name="method_setBeanHelper" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setBeanHelper()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setBeanHelper(\RedBeanPHP\BeanHelper <span class="argument">$beanhelper</span>) : void</pre>
+                <p><em>Sets bean helper to be given to beans.</em></p>
+                <p>Bean helpers assist beans in getting a reference to a toolbox.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.BeanHelper.html">\RedBeanPHP\BeanHelper</a></td>
+                                <td>$beanhelper </td>
+                                <td><p>helper</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_check" name="method_check" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">check()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">check(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : void</pre>
+                <p><em>Checks whether a OODBBean bean is valid.</em></p>
+                <p>If the type is not valid or the ID is not valid it will
+throw an exception: Security.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>the bean that needs to be checked</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd><p>$exception</p></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_find" name="method_find" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">find()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">find(string <span class="argument">$type</span>, array <span class="argument">$conditions</span>,  <span class="argument">$sql</span>, array <span class="argument">$bindings</span>) : array</pre>
+                <p><em>Searches the database for a bean that matches conditions $conditions and sql $addSQL
+and returns an array containing all the beans that have been found.</em></p>
+                <p>Conditions need to take form:</p>
+<p>array(
+'PROPERTY' => array( POSSIBLE VALUES... 'John', 'Steve' )
+'PROPERTY' => array( POSSIBLE VALUES... )
+);</p>
+<p>All conditions are glued together using the AND-operator, while all value lists
+are glued using IN-operators thus acting as OR-conditions.</p>
+<p>Note that you can use property names; the columns will be extracted using the
+appropriate bean formatter.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of beans you are looking for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$conditions </td>
+                                <td><p>list of conditions</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>whether you prefer to use a WHERE clause or not (TRUE = not)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\SQL</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_tableExists" name="method_tableExists" class="anchor"></a>
+            <article class="method">
+                <h3 class="public deprecated">tableExists()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">tableExists(string <span class="argument">$table</span>) : boolean</pre>
+                <p><em>Checks whether the specified table already exists in the database.</em></p>
+                <p>Not part of the Object Database interface!</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$table </td>
+                                <td><p>table name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                                <aside class="alert alert-block alert-error">
+                    <h4>Deprecated</h4>
+                    Use AQueryWriter::typeExists() instead.
+                </aside>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_store" name="method_store" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">store()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">store(\RedBeanPHP\OODBBean|\RedBeanPHP\SimpleModel <span class="argument">$bean</span>) : integer|string</pre>
+                <p><em>Stores a bean in the database. This method takes a
+OODBBean Bean Object $bean and stores it
+in the database. If the database schema is not compatible
+with this bean and RedBean runs in fluid mode the schema
+will be altered to store the bean correctly.</em></p>
+                <p>If the database schema is not compatible with this bean and
+RedBean runs in frozen mode it will throw an exception.
+This function returns the primary key ID of the inserted
+bean.</p>
+<p>The return value is an integer if possible. If it is not possible to
+represent the value as an integer a string will be returned. We use
+explicit casts instead of functions to preserve performance
+(0.13 vs 0.28 for 10000 iterations on Core i3).</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>|<a href="../classes/RedBeanPHP.SimpleModel.html">\RedBeanPHP\SimpleModel</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to store</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    integer|string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_load" name="method_load" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">load()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">load(string <span class="argument">$type</span>, integer <span class="argument">$id</span>) : \RedBeanPHP\OODBBean</pre>
+                <p><em>Loads a bean from the object database.</em></p>
+                <p>It searches for a OODBBean Bean Object in the
+database. It does not matter how this bean has been stored.
+RedBean uses the primary key ID $id and the string $type
+to find the bean. The $type specifies what kind of bean you
+are looking for; this is the same type as used with the
+dispense() function. If RedBean finds the bean it will return
+the OODB Bean object; if it cannot find the bean
+RedBean will return a new bean of type $type and with
+primary key ID 0. In the latter case it acts basically the
+same as dispense().</p>
+<p>Important note:
+If the bean cannot be found in the database a new bean of
+the specified type will be generated and returned.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of bean you want to load</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$id </td>
+                                <td><p>ID of the bean you want to load</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\SQL</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_trash" name="method_trash" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">trash()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">trash(\RedBeanPHP\OODBBean|\RedBeanPHP\SimpleModel <span class="argument">$bean</span>) : void</pre>
+                <p><em>Removes a bean from the database.</em></p>
+                <p>This function will remove the specified OODBBean
+Bean Object from the database.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>|<a href="../classes/RedBeanPHP.SimpleModel.html">\RedBeanPHP\SimpleModel</a></td>
+                                <td>$bean </td>
+                                <td><p>bean you want to remove from database</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_batch" name="method_batch" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">batch()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">batch(string <span class="argument">$type</span>, array <span class="argument">$ids</span>) : array</pre>
+                <p><em>Returns an array of beans. Pass a type and a series of ids and
+this method will bring you the corresponding beans.</em></p>
+                <p>important note: Because this method loads beans using the load()
+function (but faster) it will return empty beans with ID 0 for
+every bean that could not be located. The resulting beans will have the
+passed IDs as their keys.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of beans</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$ids </td>
+                                <td><p>ids to load</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_convertToBeans" name="method_convertToBeans" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">convertToBeans()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">convertToBeans(string <span class="argument">$type</span>, array <span class="argument">$rows</span>) : array</pre>
+                <p><em>This is a convenience method; it converts database rows
+(arrays) into beans. Given a type and a set of rows this method
+will return an array of beans of the specified type loaded with
+the data fields provided by the result set from the database.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of beans you would like to have</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$rows </td>
+                                <td><p>rows from the database result</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_count" name="method_count" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">count()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">count(string <span class="argument">$type</span>, string <span class="argument">$addSQL</span>, array <span class="argument">$bindings</span>) : integer</pre>
+                <p><em>Counts the number of beans of type $type.</em></p>
+                <p>This method accepts a second argument to modify the count-query.
+A third argument can be used to provide bindings for the SQL snippet.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of bean we are looking for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$addSQL </td>
+                                <td><p>additional SQL snippet</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>parameters to bind to SQL</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\SQL</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wipe" name="method_wipe" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">wipe()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wipe(string <span class="argument">$type</span>) : boolean</pre>
+                <p><em>Trash all beans of a given type. Wipes an entire type of bean.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type of bean you wish to delete all instances of</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\SQL</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAssociationManager" name="method_getAssociationManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAssociationManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAssociationManager() : \RedBeanPHP\AssociationManager</pre>
+                <p><em>Returns an Association Manager for use with OODB.</em></p>
+                <p>A simple getter function to obtain a reference to the association manager used for
+storage and more.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.AssociationManager.html">\RedBeanPHP\AssociationManager</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setAssociationManager" name="method_setAssociationManager" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setAssociationManager()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setAssociationManager(\RedBeanPHP\AssociationManager <span class="argument">$assocManager</span>) : void</pre>
+                <p><em>Sets the association manager instance to be used by this OODB.</em></p>
+                <p>A simple setter function to set the association manager to be used for storage and
+more.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.AssociationManager.html">\RedBeanPHP\AssociationManager</a></td>
+                                <td>$assocManager </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_handleException" name="method_handleException" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">handleException()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">handleException(\Exception <span class="argument">$exception</span>) : void</pre>
+                <p><em>Handles\Exceptions. Suppresses exceptions caused by missing structures.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Exception</td>
+                                <td>$exception </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            param\Exception
+                        </th>
+                        <td>
+                                                                                            <p>$exception exception</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            throws\Exception
+                        </th>
+                        <td>
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unboxIfNeeded" name="method_unboxIfNeeded" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">unboxIfNeeded()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unboxIfNeeded(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : \RedBeanPHP\OODBBean</pre>
+                <p><em>Unboxes a bean from a FUSE model if needed and checks whether the bean is
+an instance of OODBBean.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean you wish to unbox</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processGroups" name="method_processGroups" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processGroups()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processGroups(array <span class="argument">$originals</span>, array <span class="argument">$current</span>, array <span class="argument">$additions</span>, array <span class="argument">$trashcan</span>, array <span class="argument">$residue</span>) : array</pre>
+                <p><em>Process groups. Internal function. Processes different kind of groups for
+storage function. Given a list of original beans and a list of current beans,
+this function calculates which beans remain in the list (residue), which
+have been deleted (are in the trashcan) and which beans have been added
+(additions).</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$originals </td>
+                                <td><p>originals</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$current </td>
+                                <td><p>the current beans</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$additions </td>
+                                <td><p>beans that have been added</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$trashcan </td>
+                                <td><p>beans that have been deleted</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$residue </td>
+                                <td><p>beans that have been left untouched</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getTypeFromCast" name="method_getTypeFromCast" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">getTypeFromCast()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getTypeFromCast(string <span class="argument">$cast</span>) : integer</pre>
+                <p><em>Figures out the desired type given the cast string ID.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$cast </td>
+                                <td><p>cast identifier</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_prepareEmbeddedBean" name="method_prepareEmbeddedBean" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">prepareEmbeddedBean()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">prepareEmbeddedBean(\RedBeanPHP\OODBBean|\RedBeanPHP\SimpleModel <span class="argument">$embeddedBean</span>) : integer</pre>
+                <p><em>Processes an embedded bean.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>|<a href="../classes/RedBeanPHP.SimpleModel.html">\RedBeanPHP\SimpleModel</a></td>
+                                <td>$embeddedBean </td>
+                                <td><p>the bean or model</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createTableIfNotExists" name="method_createTableIfNotExists" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">createTableIfNotExists()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createTableIfNotExists(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, string <span class="argument">$table</span>) : void</pre>
+                <p><em>Orders the Query Writer to create a table if it does not exist already and
+adds a note in the build report about the creation.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to update report of</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$table </td>
+                                <td><p>table to check and create if not exists</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addUniqueConstraints" name="method_addUniqueConstraints" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">addUniqueConstraints()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addUniqueConstraints(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : void</pre>
+                <p><em>Adds the unique constraints described in the meta data.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_storeBean" name="method_storeBean" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">storeBean()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">storeBean(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : void</pre>
+                <p><em>Stores a cleaned bean; i.e. only scalar values. This is the core of the store()
+method. When all lists and embedded beans (parent objects) have been processed and
+removed from the original bean the bean is passed to this method to be stored
+in the database.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>the clean bean</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getUpdateValues" name="method_getUpdateValues" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">getUpdateValues()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getUpdateValues(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : array</pre>
+                <p><em>Returns a structured array of update values using the following format:
+array(
+       property =&gt; $property,
+       value =&gt; $value
+);</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to extract update values from</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_moldTable" name="method_moldTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">moldTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">moldTable(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, string <span class="argument">$property</span>, mixed <span class="argument">$value</span>) : void</pre>
+                <p><em>Molds the table to fit the bean data.</em></p>
+                <p>Given a property and a value and the bean, this method will
+adjust the table structure to fit the requirements of the property and value.
+This may include adding a new column or widening an existing column to hold a larger
+or different kind of value. This method employs the writer to adjust the table
+structure in the database. Schema updates are recorded in meta properties of the bean.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to get cast data from and store meta in</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$property </td>
+                                <td><p>property to store</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td><p>value to store</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processSharedAdditions" name="method_processSharedAdditions" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processSharedAdditions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processSharedAdditions(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$sharedAdditions</span>) : void</pre>
+                <p><em>Processes a list of beans from a bean. A bean may contain lists. This
+method handles shared addition lists; i.e. the $bean-&gt;sharedObject properties.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>the bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$sharedAdditions </td>
+                                <td><p>list with shared additions</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processResidue" name="method_processResidue" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processResidue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processResidue(array <span class="argument">$ownresidue</span>) : void</pre>
+                <p><em>Processes a list of beans from a bean. A bean may contain lists. This
+method handles own lists; i.e. the $bean-&gt;ownObject properties.</em></p>
+                <p>A residue is a bean in an own-list that stays where it is. This method
+checks if there have been any modification to this bean, in that case
+the bean is stored once again, otherwise the bean will be left untouched.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$ownresidue </td>
+                                <td><p>list</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processTrashcan" name="method_processTrashcan" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processTrashcan()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processTrashcan(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$ownTrashcan</span>) : void</pre>
+                <p><em>Processes a list of beans from a bean. A bean may contain lists. This
+method handles own lists; i.e. the $bean-&gt;ownObject properties.</em></p>
+                <p>A trash can bean is a bean in an own-list that has been removed
+(when checked with the shadow). This method
+checks if the bean is also in the dependency list. If it is the bean will be removed.
+If not, the connection between the bean and the owner bean will be broken by
+setting the ID to NULL.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>the bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$ownTrashcan </td>
+                                <td><p>list</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processSharedTrashcan" name="method_processSharedTrashcan" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processSharedTrashcan()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processSharedTrashcan(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$sharedTrashcan</span>) : void</pre>
+                <p><em>Unassociates the list items in the trashcan.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$sharedTrashcan </td>
+                                <td><p>list</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processSharedResidue" name="method_processSharedResidue" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processSharedResidue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processSharedResidue(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$sharedresidue</span>) : void</pre>
+                <p><em>Stores all the beans in the residue group.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$sharedresidue </td>
+                                <td><p>list</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addForeignKeysForParentBeans" name="method_addForeignKeysForParentBeans" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">addForeignKeysForParentBeans()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addForeignKeysForParentBeans(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$embeddedBeans</span>) : void</pre>
+                <p><em>Processes embedded beans.</em></p>
+                <p>Each embedded bean will be indexed and foreign keys will
+be created if the bean is in the dependency list.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$embeddedBeans </td>
+                                <td><p>embedded beans</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processAdditions" name="method_processAdditions" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processAdditions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processAdditions(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$ownAdditions</span>) : void</pre>
+                <p><em>Part of the store() functionality.</em></p>
+                <p>Handles all new additions after the bean has been saved.
+Stores addition bean in own-list, extracts the id and
+adds a foreign key. Also adds a constraint in case the type is
+in the dependent list.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$ownAdditions </td>
+                                <td><p>list of addition beans in own-list</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\Security</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasListsOrObjects" name="method_hasListsOrObjects" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">hasListsOrObjects()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasListsOrObjects(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : boolean</pre>
+                <p><em>Determines whether the bean has &#039;loaded lists&#039; or
+&#039;loaded embedded beans&#039; that need to be processed
+by the store() method.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to be examined</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processBuildCommands" name="method_processBuildCommands" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processBuildCommands()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processBuildCommands(string <span class="argument">$table</span>, string <span class="argument">$property</span>, \RedBeanPHP\OODBBean <span class="argument">$bean</span>) : void</pre>
+                <p><em>Processes all column based build commands.</em></p>
+                <p>A build command is an additional instruction for the Query Writer. It is processed only when
+a column gets created. The build command is often used to instruct the writer to write some
+extra SQL to create indexes or constraints. Build commands are stored in meta data of the bean.
+They are only for internal use, try to refrain from using them in your code directly.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$table </td>
+                                <td><p>name of the table to process build commands for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$property </td>
+                                <td><p>name of the property to process build commands for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean that contains the build commands</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processEmbeddedBean" name="method_processEmbeddedBean" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processEmbeddedBean()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processEmbeddedBean(array <span class="argument">$embeddedBeans</span>, \RedBeanPHP\OODBBean <span class="argument">$bean</span>, string <span class="argument">$property</span>, \RedBeanPHP\OODBBean <span class="argument">$value</span>)</pre>
+                <p><em>Converts an embedded bean to an ID, removed the bean property and
+stores the bean in the embedded beans array.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$embeddedBeans </td>
+                                <td><p>destination array for embedded bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>target bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$property </td>
+                                <td><p>property that contains the embedded bean</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$value </td>
+                                <td><p>embedded bean itself</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processLists" name="method_processLists" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processLists()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processLists(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : void</pre>
+                <p><em>Stores a bean and its lists in one run.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">orm.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/framework/lib/vendor/orm.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 24th, 2014 at 11:00.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

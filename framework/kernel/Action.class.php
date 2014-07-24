@@ -1,78 +1,48 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
+/**
+* Action类，所有Action都应该继承此类
+* @filename Action.class.php
+* @touch date 2014-07-23 16:16:16
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 
 defined('RPF_PATH') or exit();
 
 /**
-  * 所有的action都应该继承此类
+* Action类，所有的action都应该继承此类
 */
 class Action
 {
-	//存储action设置的模板变量
+	/**
+	* 存储action设置的模板变量
+	*/
 	private $valArr = array();
-	//是否开启对于form表单的token校验
+
+	/**
+	* 是否开启对于form表单的token校验
+	*/
 	protected $open_token = true;
 
-	//action 初始化调用
+	/**
+	* action 初始化调用
+	*/
 	protected function init()
 	{
 	}
 
-	protected function success($msg = '操作成功', $code = 200, $navTabId = '', $rel = '', $callbackType = '', $forwardUrl = '', $confirmMsg = '')
-	{
-		$data = array(
-			'statusCode' => $code,
-			'message' => $msg,
-			'navTabId' => $navTabId,
-			'rel' => $rel,
-			'callbackType' => $callbackType,
-			'forwardUrl' => $forwardUrl,
-			'confirmMsg' => $confirmMsg,
-		);
-		exit(json_encode($data));
-	}
-
-	protected function error($msg = '操作失败', $code = 300, $navTabId = '', $rel = '', $callbackType = '', $forwardUrl = '', $confirmMsg = '')
-	{
-		$data = array(
-			'statusCode' => $code,
-			'message' => $msg,
-			'navTabId' => $navTabId,
-			'rel' => $rel,
-			'callbackType' => $callbackType,
-			'forwardUrl' => $forwardUrl,
-			'confirmMsg' => $confirmMsg,
-		);
-		exit(json_encode($data));
-	}
-
-	protected function timeout($msg = '操作超时', $code = 301, $navTabId = '', $rel = '', $callbackType = '', $forwardUrl = '', $confirmMsg = '')
-	{
-		$data = array(
-			'statusCode' => $code,
-			'message' => $msg,
-			'navTabId' => $navTabId,
-			'rel' => $rel,
-			'callbackType' => $callbackType,
-			'forwardUrl' => $forwardUrl,
-			'confirmMsg' => $confirmMsg,
-		);
-		exit(json_encode($data));
-	}
-
-	//action 真正执行的方法，所有子类必须重写这个方法
+	/**
+	* action 真正执行的方法，所有子类必须重写这个方法
+	*/
 	protected function run()
 	{
 	}
 
+	/**
+	* 自动帮助子类校验表单token的方法
+	*/
 	protected function checktoken()
 	{
 		if (count($_POST) && $this->open_token && isset($_SESSION[TOKEN_NAME]) && isset($_SESSION[$_SESSION[TOKEN_NAME]]))
@@ -92,11 +62,28 @@ class Action
 		return true;
 	}
 
+   /**
+	* 设置action中的变量到模板的方法
+	* <code>
+	* $this->set('val', 'abc');
+	* </code>
+	* @param string $key 变量名称
+	* @param string  $val 变量值
+	* @return void 
+	*/
 	protected function set($key, $val)
 	{
 		$this->valArr[$key] = $val;
 	}
 
+	/**
+	* 显示模板文件的方法
+	* <code>
+	* $this->display();
+	* </code>
+	* @param string $tpl 模板名称，默认同action名称
+	* @return void 
+	*/
 	protected function display($tpl = null)
 	{
 		if (is_null($tpl))

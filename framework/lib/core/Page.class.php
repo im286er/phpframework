@@ -1,49 +1,81 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
+/**
+* 分页类库
+* @filename Page.class.php
+* @touch date 2014-07-24 10:43:58
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 
 defined('RPF_PATH') or exit();
 
+/**
+* Page分页类库,主要用来分页相关操作，完美支持URL四种模式下的分页效果
+*/
 class Page {
-    // 分页栏每页显示的页数
+	/**
+	* 分页栏每页显示的页数
+	*/
     public $rollPage = 5;
-    // 页数跳转时要带的参数
+
+	/**
+	* 页数跳转时要带的参数
+	*/
     public $parameter  ;
-    // 默认列表每页显示行数
+
+	/**
+	* 默认列表每页显示行数
+	*/
     public $listRows = 20;
+
+	/**
+	* 分页URL头
+	*/
 	public $hurl = null;
-    // 起始行数
+
+	/**
+	* 起始行数
+	*/
     public $firstRow	;
-    // 分页总页面数
+
+	/**
+	* 分页总页面数
+	*/
     protected $totalPages  ;
-    // 总行数
+
+	/**
+	* 总行数
+	*/
     protected $totalRows  ;
-    // 当前页数
+
+	/**
+	* 当前页数
+	*/
     protected $nowPage    ;
-    // 分页的栏的总页数
+
+	/**
+	* 分页的栏的总页数
+	*/
     protected $coolPages   ;
-    // 分页显示定制
+
+	/**
+	* 分页显示定制
+	*/
     protected $config  =	array('header'=>'条记录','prev'=>'上一页','next'=>'下一页','first'=>'第一页','last'=>'最后一页','theme'=>' %totalRow% %header% %nowPage%/%totalPage% 页 %upPage% %downPage% %first%  %prePage%  %linkPage%  %nextPage% %end%');
-    // 默认分页变量名
+
+	/**
+	* 默认分页变量名
+	*/
     protected $varPage;
 
     /**
-     +----------------------------------------------------------
      * 架构函数
-     +----------------------------------------------------------
      * @access public
-     +----------------------------------------------------------
      * @param array $totalRows  总的记录数
      * @param array $listRows  每页显示记录数
      * @param array $parameter  分页跳转的参数
-     +----------------------------------------------------------
      */
     public function __construct($totalRows,$listRows='',$parameter='') {
         $this->totalRows = $totalRows;
@@ -61,6 +93,12 @@ class Page {
         $this->firstRow = $this->listRows*($this->nowPage-1);
     }
 
+	/**
+     * 分页配置设置方法
+	 * @param $name string 配置名称
+	 * @param $value string 配置值
+     * @access public
+     */
     public function setConfig($name,$value) {
         if(isset($this->config[$name])) {
             $this->config[$name]    =   $value;
@@ -68,11 +106,8 @@ class Page {
     }
 
     /**
-     +----------------------------------------------------------
      * 分页显示输出
-     +----------------------------------------------------------
      * @access public
-     +----------------------------------------------------------
      */
     public function show() {
         if(0 == $this->totalRows) return '';

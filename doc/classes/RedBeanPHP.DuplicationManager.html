@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">231</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1145624859"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1145624859" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-563189956"></a>
+                                <a href="../namespaces/RedBeanPHP.html" style="margin-left: 30px; padding-left: 0">RedBeanPHP</a>
+            </div>
+            <div id="namespace-563189956" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2140425482"></a>
+                                <a href="../namespaces/RedBeanPHP.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-2140425482" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Adapter.DBAdapter.html">DBAdapter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1132057391"></a>
+                                <a href="../namespaces/RedBeanPHP.BeanHelper.html" style="margin-left: 30px; padding-left: 0">BeanHelper</a>
+            </div>
+            <div id="namespace-1132057391" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.BeanHelper.SimpleFacadeBeanHelper.html">SimpleFacadeBeanHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1881985154"></a>
+                                <a href="../namespaces/RedBeanPHP.Driver.html" style="margin-left: 30px; padding-left: 0">Driver</a>
+            </div>
+            <div id="namespace-1881985154" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Driver.RPDO.html">RPDO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1262003346"></a>
+                                <a href="../namespaces/RedBeanPHP.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-1262003346" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Logger.RDefault.html">RDefault</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1193751106"></a>
+                                <a href="../namespaces/RedBeanPHP.QueryWriter.html" style="margin-left: 30px; padding-left: 0">QueryWriter</a>
+            </div>
+            <div id="namespace-1193751106" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.AQueryWriter.html">AQueryWriter</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.MySQL.html">MySQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.PostgreSQL.html">PostgreSQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.SQLiteT.html">SQLiteT</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1708770719"></a>
+                                <a href="../namespaces/RedBeanPHP.RedException.html" style="margin-left: 30px; padding-left: 0">RedException</a>
+            </div>
+            <div id="namespace-1708770719" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.SQL.html">SQL</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Adapter.html">Adapter</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.BeanHelper.html">BeanHelper</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Driver.html">Driver</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Logger.html">Logger</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Observer.html">Observer</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Plugin.html">Plugin</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.QueryWriter.html">QueryWriter</a></li>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.AssociationManager.html">AssociationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.DuplicationManager.html">DuplicationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Facade.html">Facade</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Finder.html">Finder</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.LabelMaker.html">LabelMaker</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Observable.html">Observable</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODB.html">OODB</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODBBean.html">OODBBean</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.html">RedException</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModel.html">SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModelHelper.html">SimpleModelHelper</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.TagManager.html">TagManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.ToolBox.html">ToolBox</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Action.html">Action</a></li>
+                                                    <li class="class"><a href="../classes/Cache.html">Cache</a></li>
+                                                    <li class="class"><a href="../classes/Config.html">Config</a></li>
+                                                    <li class="class"><a href="../classes/Controller.html">Controller</a></li>
+                                                    <li class="class"><a href="../classes/Demo.html">Demo</a></li>
+                                                    <li class="class"><a href="../classes/Ftp.html">Ftp</a></li>
+                                                    <li class="class"><a href="../classes/Image.html">Image</a></li>
+                                                    <li class="class"><a href="../classes/Kernel.html">Kernel</a></li>
+                                                    <li class="class"><a href="../classes/Lang.html">Lang</a></li>
+                                                    <li class="class"><a href="../classes/Model.html">Model</a></li>
+                                                    <li class="class"><a href="../classes/Mysql.html">Mysql</a></li>
+                                                    <li class="class"><a href="../classes/Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/PHPMailer.html">PHPMailer</a></li>
+                                                    <li class="class"><a href="../classes/phpmailerException.html">phpmailerException</a></li>
+                                                    <li class="class"><a href="../classes/R.html">R</a></li>
+                                                    <li class="class"><a href="../classes/RedBean_SimpleModel.html">RedBean_SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/SMTP.html">SMTP</a></li>
+                                                    <li class="class"><a href="../classes/String.html">String</a></li>
+                                                    <li class="class"><a href="../classes/Upload.html">Upload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\RedBeanPHP</small>DuplicationManager</h1>
+                    <p><em>Duplication Manager</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_setTables" class="">setTables()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_getSchema" class="">getSchema()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_setCacheTables" class="">setCacheTables()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_setFilters" class="">setFilters()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_dup" class="">dup()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_exportAll" class="">exportAll()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_hasOwnList" class="">hasOwnList()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_hasSharedList" class="">hasSharedList()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_duplicate" class="">duplicate()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#property_toolbox" class="">$toolbox</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#property_associationManager" class="">$associationManager</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#property_redbean" class="">$redbean</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#property_tables" class="">$tables</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#property_columns" class="">$columns</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#property_filters" class="">$filters</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#property_cacheTables" class="">$cacheTables</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_copySharedBeans" class="">copySharedBeans()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_copyOwnBeans" class="">copyOwnBeans()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_createCopy" class="">createCopy()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_inTrailOrAdd" class="">inTrailOrAdd()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.DuplicationManager.html#method_getListNames" class="">getListNames()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/framework.lib.vendor.orm.html"><div class="path-wrapper">framework/lib/vendor/orm.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\RedBeanPHP\DuplicationManager</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                file
+                            </th>
+                            <td>
+                                                                    <p>RedBean/DuplicationManager.php</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                desc
+                            </th>
+                            <td>
+                                                                    <p>Creates deep copies of beans</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Gabor de Mooij and the RedBeanPHP Community</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                license
+                            </th>
+                            <td>
+                                                                    <p>BSD/GPLv2
+copyright (c) G.J.G.T. (Gabor) de Mooij and the RedBeanPHP Community
+This source file is subject to the BSD/GPLv2 License that is bundled
+with this source code in the file license.txt.</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_toolbox" name="property_toolbox" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$toolbox</h3>
+                <pre class="signature">$toolbox : \RedBeanPHP\ToolBox</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/RedBeanPHP.ToolBox.html">\RedBeanPHP\ToolBox</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_associationManager" name="property_associationManager" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$associationManager</h3>
+                <pre class="signature">$associationManager : \RedBeanPHP\AssociationManager</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/RedBeanPHP.AssociationManager.html">\RedBeanPHP\AssociationManager</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_redbean" name="property_redbean" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$redbean</h3>
+                <pre class="signature">$redbean : \RedBeanPHP\OODB</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/RedBeanPHP.OODB.html">\RedBeanPHP\OODB</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_tables" name="property_tables" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$tables</h3>
+                <pre class="signature">$tables : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_columns" name="property_columns" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$columns</h3>
+                <pre class="signature">$columns : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_filters" name="property_filters" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$filters</h3>
+                <pre class="signature">$filters : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_cacheTables" name="property_cacheTables" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$cacheTables</h3>
+                <pre class="signature">$cacheTables : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\RedBeanPHP\ToolBox <span class="argument">$toolbox</span>)</pre>
+                <p><em>Constructor,
+creates a new instance of DupManager.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.ToolBox.html">\RedBeanPHP\ToolBox</a></td>
+                                <td>$toolbox </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setTables" name="method_setTables" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setTables()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setTables(array <span class="argument">$tables</span>) : void</pre>
+                <p><em>For better performance you can pass the tables in an array to this method.</em></p>
+                <p>If the tables are available the duplication manager will not query them so
+this might be beneficial for performance.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$tables </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSchema" name="method_getSchema" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSchema()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSchema() : array</pre>
+                <p><em>Returns a schema array for cache.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCacheTables" name="method_setCacheTables" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCacheTables()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCacheTables(boolean <span class="argument">$yesNo</span>)</pre>
+                <p><em>Indicates whether you want the duplication manager to cache the database schema.</em></p>
+                <p>If this flag is set to TRUE the duplication manager will query the database schema
+only once. Otherwise the duplicationmanager will, by default, query the schema
+every time a duplication action is performed (dup()).</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$yesNo </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setFilters" name="method_setFilters" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setFilters()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setFilters(array <span class="argument">$filters</span>)</pre>
+                <p><em>A filter array is an array with table names.</em></p>
+                <p>By setting a table filter you can make the duplication manager only take into account
+certain bean types. Other bean types will be ignored when exporting or making a
+deep copy. If no filters are set all types will be taking into account, this is
+the default behavior.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$filters </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_dup" name="method_dup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">dup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">dup(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$trail</span>, boolean <span class="argument">$preserveIDs</span>) : \RedBeanPHP\OODBBean</pre>
+                <p><em>Makes a copy of a bean. This method makes a deep copy
+of the bean.The copy will have the following features.</em></p>
+                <ul>
+<li>All beans in own-lists will be duplicated as well</li>
+<li>All references to shared beans will be copied but not the shared beans themselves</li>
+<li>All references to parent objects (_id fields) will be copied but not the parents themselves
+In most cases this is the desired scenario for copying beans.
+This function uses a trail-array to prevent infinite recursion, if a recursive bean is found
+(i.e. one that already has been processed) the ID of the bean will be returned.
+This should not happen though.</li>
+</ul>
+<p>Note:
+This function does a reflectional database query so it may be slow.</p>
+<p>Note:
+this function actually passes the arguments to a protected function called
+duplicate() that does all the work. This method takes care of creating a clone
+of the bean to avoid the bean getting tainted (triggering saving when storing it).</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to be copied</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$trail </td>
+                                <td><p>for internal usage, pass array()</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$preserveIDs </td>
+                                <td><p>for internal usage</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_exportAll" name="method_exportAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">exportAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">exportAll(array|\RedBeanPHP\OODBBean <span class="argument">$beans</span>, boolean <span class="argument">$parents</span>, array <span class="argument">$filters</span>) : array</pre>
+                <p><em>Exports a collection of beans. Handy for XML/JSON exports with a
+Javascript framework like Dojo or ExtJS.</em></p>
+                <p>What will be exported:</p>
+<ul>
+<li>contents of the bean</li>
+<li>all own bean lists (recursively)</li>
+<li>all shared beans (not THEIR own lists)</li>
+</ul>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array|<a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$beans </td>
+                                <td><p>beans to be exported</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$parents </td>
+                                <td><p>also export parents</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$filters </td>
+                                <td><p>only these types (whitelist)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasOwnList" name="method_hasOwnList" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">hasOwnList()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasOwnList(string <span class="argument">$type</span>, string <span class="argument">$target</span>) : boolean</pre>
+                <p><em>Determines whether the bean has an own list based on
+schema inspection from realtime schema or cache.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>bean type to get list for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$target </td>
+                                <td><p>type of list you want to detect</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasSharedList" name="method_hasSharedList" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">hasSharedList()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasSharedList(string <span class="argument">$type</span>, string <span class="argument">$target</span>) : boolean</pre>
+                <p><em>Determines whether the bea has a shared list based on
+schema inspection from realtime schema or cache.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>bean type to get list for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$target </td>
+                                <td><p>type of list you are looking for</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_duplicate" name="method_duplicate" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">duplicate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">duplicate(\RedBeanPHP\OODBBean <span class="argument">$bean</span>, array <span class="argument">$trail</span>, boolean <span class="argument">$preserveIDs</span>) : \RedBeanPHP\OODBBean</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to be copied</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$trail </td>
+                                <td><p>trail to prevent infinite loops</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$preserveIDs </td>
+                                <td><p>preserve IDs</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_copySharedBeans" name="method_copySharedBeans" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">copySharedBeans()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">copySharedBeans(\RedBeanPHP\OODBBean <span class="argument">$copy</span>, string <span class="argument">$shared</span>, array <span class="argument">$beans</span>) : void</pre>
+                <p><em>Copies the shared beans in a bean, i.e. all the sharedBean-lists.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$copy </td>
+                                <td><p>target bean to copy lists to</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$shared </td>
+                                <td><p>name of the shared list</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$beans </td>
+                                <td><p>array with shared beans to copy</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_copyOwnBeans" name="method_copyOwnBeans" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">copyOwnBeans()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">copyOwnBeans(\RedBeanPHP\OODBBean <span class="argument">$copy</span>, string <span class="argument">$owned</span>, array <span class="argument">$beans</span>, array <span class="argument">$trail</span>, boolean <span class="argument">$preserveIDs</span>) : void</pre>
+                <p><em>Copies the own beans in a bean, i.e. all the ownBean-lists.</em></p>
+                <p>Each bean in the own-list belongs exclusively to its owner so
+we need to invoke the duplicate method again to duplicate each bean here.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$copy </td>
+                                <td><p>target bean to copy lists to</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$owned </td>
+                                <td><p>name of the own list</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$beans </td>
+                                <td><p>array with shared beans to copy</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$trail </td>
+                                <td><p>array with former beans to detect recursion</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$preserveIDs </td>
+                                <td><p>TRUE means preserve IDs, for export only</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createCopy" name="method_createCopy" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">createCopy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createCopy(\RedBeanPHP\OODBBean <span class="argument">$bean</span>) : \RedBeanPHP\OODBBean</pre>
+                <p><em>Creates a copy of bean $bean and copies all primitive properties (not lists)
+and the parents beans to the newly created bean. Also sets the ID of the bean
+to 0.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>bean to copy</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_inTrailOrAdd" name="method_inTrailOrAdd" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">inTrailOrAdd()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">inTrailOrAdd(array <span class="argument">$trail</span>, \RedBeanPHP\OODBBean <span class="argument">$bean</span>) : boolean</pre>
+                <p><em>Generates a key from the bean type and its ID and determines if the bean
+occurs in the trail, if not the bean will be added to the trail.</em></p>
+                <p>Returns TRUE if the bean occurs in the trail and FALSE otherwise.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$trail </td>
+                                <td><p>list of former beans</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.OODBBean.html">\RedBeanPHP\OODBBean</a></td>
+                                <td>$bean </td>
+                                <td><p>currently selected bean</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getListNames" name="method_getListNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">getListNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getListNames(string <span class="argument">$typeName</span>) : array</pre>
+                <p><em>Given the type name of a bean this method returns the canonical names
+of the own-list and the shared-list properties respectively.</em></p>
+                <p>Returns a list with two elements: name of the own-list, and name
+of the shared list.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$typeName </td>
+                                <td><p>bean type name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">orm.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/framework/lib/vendor/orm.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 24th, 2014 at 11:00.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">231</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-303490554"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-303490554" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-923262017"></a>
+                                <a href="../namespaces/RedBeanPHP.html" style="margin-left: 30px; padding-left: 0">RedBeanPHP</a>
+            </div>
+            <div id="namespace-923262017" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1477836523"></a>
+                                <a href="../namespaces/RedBeanPHP.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-1477836523" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Adapter.DBAdapter.html">DBAdapter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1688750015"></a>
+                                <a href="../namespaces/RedBeanPHP.BeanHelper.html" style="margin-left: 30px; padding-left: 0">BeanHelper</a>
+            </div>
+            <div id="namespace-1688750015" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.BeanHelper.SimpleFacadeBeanHelper.html">SimpleFacadeBeanHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1215623504"></a>
+                                <a href="../namespaces/RedBeanPHP.Driver.html" style="margin-left: 30px; padding-left: 0">Driver</a>
+            </div>
+            <div id="namespace-1215623504" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Driver.RPDO.html">RPDO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1622215464"></a>
+                                <a href="../namespaces/RedBeanPHP.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-1622215464" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Logger.RDefault.html">RDefault</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1673721230"></a>
+                                <a href="../namespaces/RedBeanPHP.QueryWriter.html" style="margin-left: 30px; padding-left: 0">QueryWriter</a>
+            </div>
+            <div id="namespace-1673721230" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.AQueryWriter.html">AQueryWriter</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.MySQL.html">MySQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.PostgreSQL.html">PostgreSQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.SQLiteT.html">SQLiteT</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-944367564"></a>
+                                <a href="../namespaces/RedBeanPHP.RedException.html" style="margin-left: 30px; padding-left: 0">RedException</a>
+            </div>
+            <div id="namespace-944367564" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.SQL.html">SQL</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Adapter.html">Adapter</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.BeanHelper.html">BeanHelper</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Driver.html">Driver</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Logger.html">Logger</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Observer.html">Observer</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Plugin.html">Plugin</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.QueryWriter.html">QueryWriter</a></li>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.AssociationManager.html">AssociationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.DuplicationManager.html">DuplicationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Facade.html">Facade</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Finder.html">Finder</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.LabelMaker.html">LabelMaker</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Observable.html">Observable</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODB.html">OODB</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODBBean.html">OODBBean</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.html">RedException</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModel.html">SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModelHelper.html">SimpleModelHelper</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.TagManager.html">TagManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.ToolBox.html">ToolBox</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Action.html">Action</a></li>
+                                                    <li class="class"><a href="../classes/Cache.html">Cache</a></li>
+                                                    <li class="class"><a href="../classes/Config.html">Config</a></li>
+                                                    <li class="class"><a href="../classes/Controller.html">Controller</a></li>
+                                                    <li class="class"><a href="../classes/Demo.html">Demo</a></li>
+                                                    <li class="class"><a href="../classes/Ftp.html">Ftp</a></li>
+                                                    <li class="class"><a href="../classes/Image.html">Image</a></li>
+                                                    <li class="class"><a href="../classes/Kernel.html">Kernel</a></li>
+                                                    <li class="class"><a href="../classes/Lang.html">Lang</a></li>
+                                                    <li class="class"><a href="../classes/Model.html">Model</a></li>
+                                                    <li class="class"><a href="../classes/Mysql.html">Mysql</a></li>
+                                                    <li class="class"><a href="../classes/Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/PHPMailer.html">PHPMailer</a></li>
+                                                    <li class="class"><a href="../classes/phpmailerException.html">phpmailerException</a></li>
+                                                    <li class="class"><a href="../classes/R.html">R</a></li>
+                                                    <li class="class"><a href="../classes/RedBean_SimpleModel.html">RedBean_SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/SMTP.html">SMTP</a></li>
+                                                    <li class="class"><a href="../classes/String.html">String</a></li>
+                                                    <li class="class"><a href="../classes/Upload.html">Upload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/RedBeanPHP.Driver.html">\RedBeanPHP\Driver</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\RedBeanPHP\Driver</small>RPDO</h1>
+                    <p><em>\PDO Driver
+This Driver implements the RedBean Driver API</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_getMysqlEncoding" class="">getMysqlEncoding()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_setUseStringOnlyBinding" class="">setUseStringOnlyBinding()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_connect" class="">connect()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_GetAll" class="">GetAll()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_GetAssocRow" class="">GetAssocRow()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_GetCol" class="">GetCol()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_GetCell" class="">GetCell()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_GetRow" class="">GetRow()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_Execute" class="">Execute()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_GetInsertID" class="">GetInsertID()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_Affected_Rows" class="">Affected_Rows()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_setDebugMode" class="">setDebugMode()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_setLogger" class="">setLogger()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_getLogger" class="">getLogger()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_StartTrans" class="">StartTrans()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_CommitTrans" class="">CommitTrans()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_FailTrans" class="">FailTrans()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_getDatabaseType" class="">getDatabaseType()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_getDatabaseVersion" class="">getDatabaseVersion()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_getPDO" class="">getPDO()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_close" class="">close()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_isConnected" class="">isConnected()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_bindParams" class="">bindParams()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_runQuery" class="">runQuery()</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#method_setEncoding" class="">setEncoding()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_dsn" class="">$dsn</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_debug" class="">$debug</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_logger" class="">$logger</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_pdo" class="">$pdo</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_affectedRows" class="">$affectedRows</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_resultArray" class="">$resultArray</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_connectInfo" class="">$connectInfo</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_isConnected" class="">$isConnected</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_flagUseStringOnlyBinding" class="">$flagUseStringOnlyBinding</a><br />
+                                                                    <a href="../classes/RedBeanPHP.Driver.RPDO.html#property_mysqlEncoding" class="">$mysqlEncoding</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/framework.lib.vendor.orm.html"><div class="path-wrapper">framework/lib/vendor/orm.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\RedBeanPHP\Driver\RPDO</div>
+                            </dd>
+
+                                                                            <dt>Implements</dt>
+                                                        <dd><a href="../classes/RedBeanPHP.Driver.html"><div class="namespace-wrapper">\RedBeanPHP\Driver</div></a></dd>
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                file
+                            </th>
+                            <td>
+                                                                    <p>RedBean/PDO.php</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                desc
+                            </th>
+                            <td>
+                                                                    <p>\PDO Driver</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Gabor de Mooij and the RedBeanPHP Community, Desfrenes</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                license
+                            </th>
+                            <td>
+                                                                    <p>BSD/GPLv2
+(c) copyright Desfrenes &amp; Gabor de Mooij and the RedBeanPHP community
+This source file is subject to the BSD/GPLv2 License that is bundled
+with this source code in the file license.txt.</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_dsn" name="property_dsn" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$dsn</h3>
+                <pre class="signature">$dsn : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_debug" name="property_debug" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$debug</h3>
+                <pre class="signature">$debug : boolean</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_logger" name="property_logger" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$logger</h3>
+                <pre class="signature">$logger : \RedBeanPHP\Logger</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/RedBeanPHP.Logger.html">\RedBeanPHP\Logger</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_pdo" name="property_pdo" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$pdo</h3>
+                <pre class="signature">$pdo : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            var\PDO
+                        </th>
+                        <td>
+                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_affectedRows" name="property_affectedRows" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$affectedRows</h3>
+                <pre class="signature">$affectedRows : integer</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_resultArray" name="property_resultArray" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$resultArray</h3>
+                <pre class="signature">$resultArray : integer</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_connectInfo" name="property_connectInfo" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$connectInfo</h3>
+                <pre class="signature">$connectInfo : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_isConnected" name="property_isConnected" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$isConnected</h3>
+                <pre class="signature">$isConnected : boolean</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_flagUseStringOnlyBinding" name="property_flagUseStringOnlyBinding" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$flagUseStringOnlyBinding</h3>
+                <pre class="signature">$flagUseStringOnlyBinding : boolean</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_mysqlEncoding" name="property_mysqlEncoding" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$mysqlEncoding</h3>
+                <pre class="signature">$mysqlEncoding : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMysqlEncoding" name="method_getMysqlEncoding" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMysqlEncoding()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMysqlEncoding() : string</pre>
+                <p><em>Returns the best possible encoding for MySQL based on version data.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(string|object <span class="argument">$dsn</span>, string <span class="argument">$user</span>, string <span class="argument">$pass</span>)</pre>
+                <p><em>Constructor. You may either specify dsn, user and password or
+just give an existing\PDO connection.</em></p>
+                <p>Examples:
+$driver = new RPDO($dsn, $user, $password);
+$driver = new RPDO($existingConnection);</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|object</td>
+                                <td>$dsn </td>
+                                <td><p>database connection string</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$user </td>
+                                <td><p>optional, usename to sign in</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pass </td>
+                                <td><p>optional, password for connection login</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setUseStringOnlyBinding" name="method_setUseStringOnlyBinding" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setUseStringOnlyBinding()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setUseStringOnlyBinding(boolean <span class="argument">$yesNo</span>) : void</pre>
+                <p><em>Whether to bind all parameters as strings.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$yesNo </td>
+                                <td><p>pass TRUE to bind all parameters as strings.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_connect" name="method_connect" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">connect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">connect() : void</pre>
+                <p><em>Establishes a connection to the database using PHP\PDO
+functionality. If a connection has already been established this
+method will simply return directly. This method also turns on
+UTF8 for the database and\PDO-ERRMODE-EXCEPTION as well as
+\PDO-FETCH-ASSOC.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            throws\PDOException
+                        </th>
+                        <td>
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetAll" name="method_GetAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetAll( <span class="argument">$sql</span>,  <span class="argument">$bindings</span>) : array</pre>
+                <p><em>Runs a query and fetches results as a multi dimensional array.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$bindings </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetAssocRow" name="method_GetAssocRow" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetAssocRow()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetAssocRow( <span class="argument">$sql</span>,  <span class="argument">$bindings</span>) : mixed</pre>
+                <p><em>Runs a query and returns results as an associative array
+indexed by the first column.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$bindings </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetCol" name="method_GetCol" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetCol()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetCol( <span class="argument">$sql</span>,  <span class="argument">$bindings</span>) : array</pre>
+                <p><em>Runs a query and fetches results as a column.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$bindings </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetCell" name="method_GetCell" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetCell()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetCell( <span class="argument">$sql</span>,  <span class="argument">$bindings</span>) : mixed</pre>
+                <p><em>Runs a query and returns results as a single cell.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$bindings </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetRow" name="method_GetRow" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetRow()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetRow( <span class="argument">$sql</span>,  <span class="argument">$bindings</span>) : array</pre>
+                <p><em>Runs a query and returns a flat array containing the values of
+one row.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$bindings </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_Execute" name="method_Execute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">Execute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">Execute( <span class="argument">$sql</span>,  <span class="argument">$bindings</span>) : array</pre>
+                <p><em>Executes SQL code and allows key-value binding.</em></p>
+                <p>This function allows you to provide an array with values to bind
+to query parameters. For instance you can bind values to question
+marks in the query. Each value in the array corresponds to the
+question mark in the query that matches the position of the value in the
+array. You can also bind values using explicit keys, for instance
+array(":key"=>123) will bind the integer 123 to the key :key in the
+SQL. This method has no return value.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$bindings </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Affected Rows</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetInsertID" name="method_GetInsertID" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetInsertID()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetInsertID() : integer</pre>
+                <p><em>Returns the latest insert ID if driver does support this
+feature.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_Affected_Rows" name="method_Affected_Rows" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">Affected_Rows()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">Affected_Rows() : integer</pre>
+                <p><em>Returns the number of rows affected by the most recent query
+if the currently selected driver driver supports this feature.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDebugMode" name="method_setDebugMode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDebugMode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDebugMode( <span class="argument">$tf</span>, \RedBeanPHP\Logger <span class="argument">$logger</span>) : void</pre>
+                <p><em>Toggles debug mode. In debug mode the driver will print all
+SQL to the screen together with some information about the
+results.</em></p>
+                <p>This method has no return value.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$tf </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.Logger.html">\RedBeanPHP\Logger</a></td>
+                                <td>$logger </td>
+                                <td><p>logger instance</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLogger" name="method_setLogger" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLogger()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLogger(\RedBeanPHP\Logger <span class="argument">$logger</span>)</pre>
+                <p><em>Injects Logger object.</em></p>
+                <p>Sets the logger instance you wish to use.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/RedBeanPHP.Logger.html">\RedBeanPHP\Logger</a></td>
+                                <td>$logger </td>
+                                <td><p>the logger instance to be used for logging</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLogger" name="method_getLogger" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLogger()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLogger() : \RedBeanPHP\Logger</pre>
+                <p><em>Gets Logger object.</em></p>
+                <p>Returns the currently active Logger instance.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/RedBeanPHP.Logger.html">\RedBeanPHP\Logger</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_StartTrans" name="method_StartTrans" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">StartTrans()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">StartTrans() : void</pre>
+                <p><em>Commits a transaction.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CommitTrans" name="method_CommitTrans" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CommitTrans()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CommitTrans() : void</pre>
+                <p><em>Starts a transaction.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_FailTrans" name="method_FailTrans" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">FailTrans()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">FailTrans() : void</pre>
+                <p><em>Rolls back a transaction.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper"></span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDatabaseType" name="method_getDatabaseType" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDatabaseType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDatabaseType() : string</pre>
+                <p><em>Returns the name of database driver for\PDO.</em></p>
+                <p>Uses the\PDO attribute DRIVER NAME to obtain the name of the
+\PDO driver.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDatabaseVersion" name="method_getDatabaseVersion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDatabaseVersion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDatabaseVersion() : mixed</pre>
+                <p><em>Returns the version number of the database.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>$version version number of the database</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPDO" name="method_getPDO" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPDO()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPDO()</pre>
+                <p><em>Returns the underlying PHP\PDO instance.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            return\PDO
+                        </th>
+                        <td>
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_close" name="method_close" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">close()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">close() : void</pre>
+                <p><em>Closes database connection by destructing\PDO.</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_isConnected" name="method_isConnected" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">isConnected()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">isConnected() : boolean</pre>
+                <p><em>Returns TRUE if the current\PDO instance is connected.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_bindParams" name="method_bindParams" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">bindParams()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">bindParams(\PDOStatement <span class="argument">$statement</span>, array <span class="argument">$bindings</span>) : void</pre>
+                <p><em>Binds parameters. This method binds parameters to a\PDOStatement for
+Query Execution. This method binds parameters as NULL, INTEGER or STRING
+and supports both named keys and question mark keys.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\PDOStatement</td>
+                                <td>$statement </td>
+                                <td><p>\PDO Statement instance</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>values that need to get bound to the statement</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_runQuery" name="method_runQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">runQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">runQuery(string <span class="argument">$sql</span>, array <span class="argument">$bindings</span>,  <span class="argument">$options</span>) : void</pre>
+                <p><em>This method runs the actual SQL query and binds a list of parameters to the query.</em></p>
+                <p>slots. The result of the query will be stored in the protected property
+$rs (always array). The number of rows affected (result of rowcount, if supported by database)
+is stored in protected property $affectedRows. If the debug flag is set
+this function will send debugging output to screen buffer.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>the SQL string to be send to database server</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bindings </td>
+                                <td><p>the values that need to get bound to the query slots</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$options </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RedBeanPHP\RedException\SQL</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setEncoding" name="method_setEncoding" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">setEncoding()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setEncoding()</pre>
+                <p><em>Try to fix MySQL character encoding problems.</em></p>
+                <p>MySQL &lt; 5.5 does not support proper 4 byte unicode but they
+seem to have added it with version 5.5 under a different label: utf8mb4.
+We try to select the best possible charset based on your version data.</p>
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">orm.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/framework/lib/vendor/orm.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 24th, 2014 at 11:00.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

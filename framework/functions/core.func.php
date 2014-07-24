@@ -1,19 +1,24 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
+/**
+* 系统函数文件 
+* @filename core.func.php
+* @touch date 2014-07-23 16:14:39
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 
 defined('RPF_PATH') or exit();
 
-//get client IP if $num is true return int number else return ip address by string
-//if invalid ip address return unknown
-//note: this function maybe get Agent IP
+/**
+* get client IP if $num is true return int number else return ip address by string
+* <code>
+* $ip = getIp();
+* </code>
+* @param bool $num  一个标记位，如果值为true，则对IP地址使用ip2long进行返回，否则直接返回IP地址字符串
+* @return bool / string
+*/
 function getIp($num = false)
 {
 	if (!isset($_SERVER['REMOTE_ADDR']))
@@ -33,9 +38,20 @@ function getIp($num = false)
 	}
 }
 
-//this function use for setting cookie to client
-//if set cookie success return true else return false
-//default expire time one day
+/**
+* this function use for setting cookie to client
+* <code>
+* setc('cookiename', 'cookievalue', 86400);
+* </code>
+* @param string $name cookie的名称
+* @param string $value cookie的值
+* @param int    $expire cookie的到期时间，单位：秒，默认86400秒
+* @param string $path cookie的路径,默认值/
+* @param string $domain cookie的域名，默认当前URL的域名
+* @param bool $secure 是否HTTPS方式cookie设置,默认false
+* @param bool $httponly 是否http only，默认true
+* @return bool 成功返回true，失败返回false
+*/
 function setc($name, $value, $expire = null, $path = '/', $domain = null, $secure = false, $httponly = true)
 {
 	if (is_null($expire))
@@ -45,9 +61,14 @@ function setc($name, $value, $expire = null, $path = '/', $domain = null, $secur
 	return setcookie($name, $value, time() + $expire, $path, $domain, $secure, $httponly);
 }
 
-//this function use for getting cookie from client
-//if get cookie success return the value of the cookie else return false
-//note: this function will use  htmlspecialchars function
+/**
+* this function use for getting cookie from client
+* <code>
+* echo getc('cookiename');
+* </code>
+* @param string $name cookie的名称
+* @return string/bool 成功返回经过htmlspecialchars函数处理后的cookie值，失败返回false
+*/
 function getc($name)
 {
 	if (!isset($_COOKIE[$name]))
@@ -56,12 +77,15 @@ function getc($name)
 }
 
 /**
- * 功能: 发送邮件的函数
- * 参数说明如下
- * $to 接受邮件的email地址
- * $subject 邮件的标题
- * $body    邮件的内容
- */
+* 发送邮件的函数
+* <code>
+* sendmail('563268276@qq.com', '测试标题', '<h2>hello world</h2>');
+* </code>
+* @param string $to 邮件接受方邮箱地址
+* @param string $subject 邮件标题
+* @param string $body 邮件内容
+* @return bool 成功返回true，失败返回false
+*/
 function sendmail($to, $subject = '', $body = '')
 {
     $mail             = new PHPMailer();
@@ -88,15 +112,28 @@ function sendmail($to, $subject = '', $body = '')
 	return true;
 }
 
-//this function use for deleting cookie from client
-//if delete cookie success return true else return false
+/**
+* this function use for deleting cookie from client
+* <code>
+* delc('cookiename');
+* </code>
+* @param string $name cookie的名称
+* @return bool 成功返回true，失败返回false
+*/
 function delc($name)
 {
 	return setcookie ($name, '', time() - 3600);
 }
 
-//get path if parameter is true return url path else return file real path default true
-//if some errors find return false else return string
+/**
+* get path if parameter is true return url path else return file real path default true
+* <code>
+* echo getpath(APP_PATH, true);
+* </code>
+* @param string $path 路径
+* @param bool   $p 如果是true，返回URL方式的绝对地址，如果是false，返回文件目录方式的绝对地址，默认true
+* @return bool/string if some errors find return false else return string
+*/
 function getpath($path, $p = true)
 {
 	if ($p)
@@ -108,8 +145,15 @@ function getpath($path, $p = true)
 	return str_replace(SITE_URL, str_replace(APP_NAME.'/', '', APP_PATH), $path);
 }
 
-//this function use for remove directories or files
-//note: this function parameter need  the absolute address
+/**
+* this function use for remove directories or files
+* <code>
+* rm(APP_PATH, true);
+* </code>
+* @param string $dir 路径
+* @param bool   $deleteRootToo 如果是true，同时删除当前目录，否则不删除当前目录，默认false
+* @return bool 成功返回true，失败返回false
+*/
 function rm($dir, $deleteRootToo = false)
 {
 	$dir = str_replace("\\", '/', $dir);
@@ -120,10 +164,10 @@ function rm($dir, $deleteRootToo = false)
 }
 
 /**
-  * Recursively delete a directory
-  *
-  * @param string $dir Directory name
-  * @param boolean $deleteRootToo Delete specified top-level directory as well default value false
+* Recursively delete a directory 此函数仅供系统内部调用，如需删除目录或文件，请使用rm函数
+* @param string $dir Directory name
+* @param boolean $deleteRootToo Delete specified top-level directory as well default value false
+* @return bool 成功返回true，失败返回false
 */
 function unlinkRecursive($dir, $deleteRootToo = false)
 {
@@ -142,6 +186,14 @@ function unlinkRecursive($dir, $deleteRootToo = false)
      return true;
 }
 
+/**
+* 发送http头
+* <code>
+* send_http_status(200);
+* </code>
+* @param int $code http的状态码
+* @return void
+*/
 function send_http_status($code)
 {
     static $_status = array(
@@ -165,8 +217,13 @@ function send_http_status($code)
     }
 }
 
-//safe model filter variable from $_REQUEST / $_POST / $_GET / $_COOKIE / $_SERVER
-//default open safe model
+/**
+* 安全模式，过滤相关的全局数组参数和值包括$_REQUEST / $_POST / $_GET / $_COOKIE / $_SERVER, 开启安全模式后，系统自动调用此函数
+* <code>
+* safe();
+* </code>
+* @return void
+*/
 function safe()
 {
 	if (!SAFE_MODEL)
@@ -245,6 +302,14 @@ function safe()
 	}
 }
 
+/**
+* 返回格式化的字节单位值
+* <code>
+* echo echo_memory_usage(2054);
+* </code>
+* @param int $mem_usage 字节数
+* @return string 格式化后字节数
+*/
 function echo_memory_usage($mem_usage)
 {
 	if ($mem_usage < 1024)
@@ -255,7 +320,15 @@ function echo_memory_usage($mem_usage)
 	 return round($mem_usage/1048576,2)." mb";
 }
 
-//check ok return $str else return false
+/**
+* 字符串测试
+* <code>
+* echo get_word('abc');
+* </code>
+* @param string $str 待测试字符串
+* @param bool $chinese 是否允许中文，默认true表示允许
+* @return string/bool 检测通过返回字符串本身，检测不通过，返回false
+*/
 function get_word($str, $chinese = true)
 {
 	if ($chinese)
@@ -274,7 +347,15 @@ function get_word($str, $chinese = true)
 	}
 }
 
-//check ok return $str else return false
+/**
+* 字符串测试是否为链接地址
+* <code>
+* echo get_link('http://www.baidu.com/');
+* </code>
+* @param string $str 待测试字符串
+* @param bool $chinese 是否允许中文，默认true表示允许
+* @return string/bool 检测通过返回字符串本身，检测不通过，返回false
+*/
 function get_link($str, $chinese = true)
 {
 	if ($chinese)
@@ -293,7 +374,14 @@ function get_link($str, $chinese = true)
 	}
 }
 
-//检查验证码
+/**
+* 检测验证码
+* <code>
+* check_code('code');
+* </code>
+* @param string $name 存放用户输入验证码的表单input的name值
+* @return bool 检测通过返回true，检测失败返回false
+*/
 function check_code($name)
 {
 	if (!isset($_SESSION['code']))
@@ -303,6 +391,15 @@ function check_code($name)
 	return (strtolower(trim($_REQUEST[$name])) == $s_code);
 }
 
+/**
+* 判断get或post数据是否都传递
+* <code>
+* check_data(array('un', 'pw'), 'get');
+* </code>
+* @param array $data 需要检测的key名称
+* @param array $type 参数的传输方式，可选值：get或post，默认post
+* @return bool 检测通过返回true，检测失败返回false
+*/
 function check_data($data, $type = 'post')
 {
 	if ('post' == $type)
@@ -325,9 +422,13 @@ function check_data($data, $type = 'post')
 }
 
 /**
-   * 功能: 递归读取目录下所有文件(含目录全路径)自动过滤.和..
-   * 参数: $dir 目录路径 类型: string
-   * 返回: 成功返回目录一维数组，失败返回false
+* 递归读取目录下所有文件(含目录全路径)自动过滤.和..
+* <code>
+* print_r(read_dir(APP_PATH));
+* </code>
+* @param array $dir 需要读取的目录路径
+* @param array $clean 是否清除上次读取，默认true，此参数系统内部调用，无需修改
+* @return bool/array 成功返回目录下所有文件一维数组，失败返回false
 */
 function read_dir($dir, $clean = true)
 {
@@ -361,10 +462,11 @@ function read_dir($dir, $clean = true)
 }
 
 /**
-   * 功能: 脚本退出时候执行
-   * 参数: void
-   * 返回: void
-   * 说明: 对于基于jquery的ajax请求不输出调试信息
+* 脚本退出时候执行,仅供系统调用，不提供对外调用
+* <code>
+* shutdown();
+* </code>
+* @return void
 */
 function shutdown()
 {
@@ -372,9 +474,11 @@ function shutdown()
 }
 
 /**
-   * 功能: 输出调试信息
-   * 参数: void
-   * 返回: void
+* 输出调试信息，仅供系统内部调用，不对外公开调用
+* <code>
+* debuginfo();
+* </code>
+* @return void
 */
 function debuginfo()
 {
@@ -396,9 +500,12 @@ function debuginfo()
 }
 
 /**
-   * 功能: 包含文件，实现同require，只是做了包含文件个数统计
-   * 参数: $file 需要包含的文件 类型: string
-   * 返回: 成功返回同require，失败返回false
+* 文件包含函数
+* <code>
+* import($file);
+* </code>
+* @param string $file 需要的文件路径,是全路径
+* @return 返回值同require函数
 */
 function import($file)
 {
@@ -409,9 +516,12 @@ function import($file)
 }
 
 /**
-   * 功能: 判断是否所单词，含字母/数字/下划线
-   * 参数: $str 需要测试的字符串 类型: string
-   * 返回: 成功返回1，失败返回0
+* 判断是否所单词，含字母/数字/下划线
+* <code>
+* echo isword('abc');
+* </code>
+* @param string $str 需要测试的字符串 类型: string
+* @return bool 成功返回1，失败返回0
 */
 function isword($str)
 {
@@ -419,9 +529,12 @@ function isword($str)
 }
 
 /**
-   * 功能: 递归创建目录
-   * 参数: $dir 需要递归创建的目录 类型: string / array
-   * 返回: 成功返回true，失败返回false
+* 递归创建目录
+* <code>
+* mkdirs(APP_PATH);
+* </code>
+* @param string/array $dir 需要递归创建的目录
+* @return bool 成功返回true，失败返回false
 */
 function mkdirs($dir)
 {
@@ -441,7 +554,11 @@ function mkdirs($dir)
 	return false;
 }
 
-//自动写入token到form表单
+/**
+* 自动写入token到form表单,系统内部函数，不对外公开
+* @param string $content 需要添加token的html字符串
+* @return string 成功返回添加完成token的html字符串
+*/
 function callback($content)
 {
 	$content = str_replace("\r", '', $content);
@@ -471,15 +588,14 @@ function callback($content)
 	return $content;
 }
 
-//if success return url else return false
 /**
- * 功能: 自动根据URL路由模式，生成URL地址
- * 参数说明
- * $act 控制器和操作方法 例如 User/add
- * $param 传递参数的key=>value的键值对，可为空
- * $file  入口文件，不含.php扩展名，默认当前入口文件
- * $domain 网址，默认当前host网址
- */
+* 自动根据URL路由模式，生成URL地址
+* @param string $act 控制器和操作方法 例如 User/add
+* @param array $param 传递参数的key=>value的键值对，可为空 例如 array('un' => 'rain', 'pw' => 123456)
+* @param string $file 入口文件，不含.php扩展名，默认当前入口文件 例如 index
+* @param string $domain 网址，默认当前host网址 例如 SITE_URL
+* @return string/bool 成功返url字符串，失败返回false
+*/
 function U($act, $param = null, $file = null, $domain = null)
 {
 	if (empty($domain))
@@ -545,7 +661,11 @@ function U($act, $param = null, $file = null, $domain = null)
 	return $ret;
 }
 
-//html代码压缩功能
+/**
+* 压缩html代码，仅供系统内部调用
+* @param string $string 待压缩的代码字符串
+* @return string 返回压缩完成的html字符串
+*/
 function compress_html($string) {
     $string = str_replace("\r\n", '', $string);
     $string = str_replace("\n", '', $string);
@@ -564,6 +684,11 @@ function compress_html($string) {
     return preg_replace($pattern, $replace, $string);
 }
 
+/**
+* 创建目录，仅供系统内部调用
+* @param string $dir 需要创建的目录
+* @return bool 成功返回true，失败返回false
+*/
 function mkdir2($dir)
 {
 	if (!is_dir($dir))

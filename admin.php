@@ -1,7 +1,14 @@
 <?php
 /**
-  *  应用入口
+* 应用程序后台入口文件
+* @filename admin.php
+* @touch date 2014-07-23 16:11:07
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
 */
+
 // 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false 默认false
 define('DEBUG',true); //此设置非必须
 

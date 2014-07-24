@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">231</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-562911365"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-562911365" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1348966867"></a>
+                                <a href="../namespaces/RedBeanPHP.html" style="margin-left: 30px; padding-left: 0">RedBeanPHP</a>
+            </div>
+            <div id="namespace-1348966867" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-429250981"></a>
+                                <a href="../namespaces/RedBeanPHP.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-429250981" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Adapter.DBAdapter.html">DBAdapter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-265589770"></a>
+                                <a href="../namespaces/RedBeanPHP.BeanHelper.html" style="margin-left: 30px; padding-left: 0">BeanHelper</a>
+            </div>
+            <div id="namespace-265589770" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.BeanHelper.SimpleFacadeBeanHelper.html">SimpleFacadeBeanHelper</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2136013275"></a>
+                                <a href="../namespaces/RedBeanPHP.Driver.html" style="margin-left: 30px; padding-left: 0">Driver</a>
+            </div>
+            <div id="namespace-2136013275" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Driver.RPDO.html">RPDO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1704199421"></a>
+                                <a href="../namespaces/RedBeanPHP.Logger.html" style="margin-left: 30px; padding-left: 0">Logger</a>
+            </div>
+            <div id="namespace-1704199421" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.Logger.RDefault.html">RDefault</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-703226704"></a>
+                                <a href="../namespaces/RedBeanPHP.QueryWriter.html" style="margin-left: 30px; padding-left: 0">QueryWriter</a>
+            </div>
+            <div id="namespace-703226704" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.AQueryWriter.html">AQueryWriter</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.MySQL.html">MySQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.PostgreSQL.html">PostgreSQL</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.QueryWriter.SQLiteT.html">SQLiteT</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-678349756"></a>
+                                <a href="../namespaces/RedBeanPHP.RedException.html" style="margin-left: 30px; padding-left: 0">RedException</a>
+            </div>
+            <div id="namespace-678349756" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.SQL.html">SQL</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Adapter.html">Adapter</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.BeanHelper.html">BeanHelper</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Driver.html">Driver</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Logger.html">Logger</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Observer.html">Observer</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.Plugin.html">Plugin</a></li>
+                                                    <li class="interface"><a href="../classes/RedBeanPHP.QueryWriter.html">QueryWriter</a></li>
+                                                                                                    <li class="class"><a href="../classes/RedBeanPHP.AssociationManager.html">AssociationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.DuplicationManager.html">DuplicationManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Facade.html">Facade</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Finder.html">Finder</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.LabelMaker.html">LabelMaker</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.Observable.html">Observable</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODB.html">OODB</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.OODBBean.html">OODBBean</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.RedException.html">RedException</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModel.html">SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.SimpleModelHelper.html">SimpleModelHelper</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.TagManager.html">TagManager</a></li>
+                                                    <li class="class"><a href="../classes/RedBeanPHP.ToolBox.html">ToolBox</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Action.html">Action</a></li>
+                                                    <li class="class"><a href="../classes/Cache.html">Cache</a></li>
+                                                    <li class="class"><a href="../classes/Config.html">Config</a></li>
+                                                    <li class="class"><a href="../classes/Controller.html">Controller</a></li>
+                                                    <li class="class"><a href="../classes/Demo.html">Demo</a></li>
+                                                    <li class="class"><a href="../classes/Ftp.html">Ftp</a></li>
+                                                    <li class="class"><a href="../classes/Image.html">Image</a></li>
+                                                    <li class="class"><a href="../classes/Kernel.html">Kernel</a></li>
+                                                    <li class="class"><a href="../classes/Lang.html">Lang</a></li>
+                                                    <li class="class"><a href="../classes/Model.html">Model</a></li>
+                                                    <li class="class"><a href="../classes/Mysql.html">Mysql</a></li>
+                                                    <li class="class"><a href="../classes/Page.html">Page</a></li>
+                                                    <li class="class"><a href="../classes/PHPMailer.html">PHPMailer</a></li>
+                                                    <li class="class"><a href="../classes/phpmailerException.html">phpmailerException</a></li>
+                                                    <li class="class"><a href="../classes/R.html">R</a></li>
+                                                    <li class="class"><a href="../classes/RedBean_SimpleModel.html">RedBean_SimpleModel</a></li>
+                                                    <li class="class"><a href="../classes/Session.html">Session</a></li>
+                                                    <li class="class"><a href="../classes/SMTP.html">SMTP</a></li>
+                                                    <li class="class"><a href="../classes/String.html">String</a></li>
+                                                    <li class="class"><a href="../classes/Upload.html">Upload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small>framework</small>init.php</h1>
+                    <p><em>系统的初始化入口文件</em></p>
+                    
+
+                    
+                    
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Rain PHP Frame(RPF)</div></dd>
+                        
+                        
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr>
+                                <th>
+                                    filename
+                                </th>
+                                <td>
+                                                                            <p>init.php</p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    touch
+                                </th>
+                                <td>
+                                                                            <p>date 2014-07-23 16:15:22</p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    author
+                                </th>
+                                <td>
+                                                                            <p>Rain<a href="mailto:563268276@qq.com">563268276@qq.com</a></p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    copyright
+                                </th>
+                                <td>
+                                                                            <p>2014 <a href="http://www.94cto.com/">http://www.94cto.com/</a></p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    license
+                                </th>
+                                <td>
+                                                                            <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>   LICENSE-2.0</p>
+                                                                    </td>
+                            </tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+                        <div class="row-fluid">
+                <section class="span8 content file">
+                    <h2>Constants</h2>
+                </section>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MEMORY_LIMIT_ON" name="constant_MEMORY_LIMIT_ON" class="anchor"></a>
+            <article id="constant_MEMORY_LIMIT_ON" class="constant">
+                <h3 class="">MEMORY_LIMIT_ON</h3>
+                <pre class="signature">MEMORY_LIMIT_ON</pre>
+                <p><em>MEMORY_LIMIT_ON 是否支持获取内存使用量</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RPF_VERSION" name="constant_RPF_VERSION" class="anchor"></a>
+            <article id="constant_RPF_VERSION" class="constant">
+                <h3 class="">RPF_VERSION</h3>
+                <pre class="signature">RPF_VERSION</pre>
+                <p><em>RPF_VERSION 版本信息</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_URL_COMMON" name="constant_URL_COMMON" class="anchor"></a>
+            <article id="constant_URL_COMMON" class="constant">
+                <h3 class="">URL_COMMON</h3>
+                <pre class="signature">URL_COMMON</pre>
+                <p><em>URL_COMMON URL普通模式</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_URL_PATHINFO" name="constant_URL_PATHINFO" class="anchor"></a>
+            <article id="constant_URL_PATHINFO" class="constant">
+                <h3 class="">URL_PATHINFO</h3>
+                <pre class="signature">URL_PATHINFO</pre>
+                <p><em>URL_PATHINFO URL PATHINFO模式</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_URL_REWRITE" name="constant_URL_REWRITE" class="anchor"></a>
+            <article id="constant_URL_REWRITE" class="constant">
+                <h3 class="">URL_REWRITE</h3>
+                <pre class="signature">URL_REWRITE</pre>
+                <p><em>URL_REWRITE URL REWRITE模式</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_URL_COMPAT" name="constant_URL_COMPAT" class="anchor"></a>
+            <article id="constant_URL_COMPAT" class="constant">
+                <h3 class="">URL_COMPAT</h3>
+                <pre class="signature">URL_COMPAT</pre>
+                <p><em>URL_COMPAT URL兼容模式</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ORM" name="constant_ORM" class="anchor"></a>
+            <article id="constant_ORM" class="constant">
+                <h3 class="">ORM</h3>
+                <pre class="signature">ORM</pre>
+                <p><em>是否开启ORM，默认不开启</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SAFE_MODEL" name="constant_SAFE_MODEL" class="anchor"></a>
+            <article id="constant_SAFE_MODEL" class="constant">
+                <h3 class="">SAFE_MODEL</h3>
+                <pre class="signature">SAFE_MODEL</pre>
+                <p><em>是否开启安全模式SAFE_MODEL，默认开启,true开启，false不开启</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RPF_PATH" name="constant_RPF_PATH" class="anchor"></a>
+            <article id="constant_RPF_PATH" class="constant">
+                <h3 class="">RPF_PATH</h3>
+                <pre class="signature">RPF_PATH</pre>
+                <p><em>RPF_PATH 框架路径，默认使用__DIR__.&#039;/&#039;赋值</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_NAME" name="constant_APP_NAME" class="anchor"></a>
+            <article id="constant_APP_NAME" class="constant">
+                <h3 class="">APP_NAME</h3>
+                <pre class="signature">APP_NAME</pre>
+                <p><em>APP_NAME 应用程序名称，默认Application</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_PATH" name="constant_APP_PATH" class="anchor"></a>
+            <article id="constant_APP_PATH" class="constant">
+                <h3 class="">APP_PATH</h3>
+                <pre class="signature">APP_PATH</pre>
+                <p><em>APP_PATH 应用程序路径，默认dirname($_SERVER[&#039;SCRIPT_FILENAME&#039;]).&#039;/&#039;.APP_NAME.&#039;/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DEBUG" name="constant_DEBUG" class="anchor"></a>
+            <article id="constant_DEBUG" class="constant">
+                <h3 class="">DEBUG</h3>
+                <pre class="signature">DEBUG</pre>
+                <p><em>DEBUG 是否开启debug模式，默认false</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_C_DEMO" name="constant_C_DEMO" class="anchor"></a>
+            <article id="constant_C_DEMO" class="constant">
+                <h3 class="">C_DEMO</h3>
+                <pre class="signature">C_DEMO</pre>
+                <p><em>C_DEMO 是否创建demo，默认true</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_FONTS_PATH" name="constant_FONTS_PATH" class="anchor"></a>
+            <article id="constant_FONTS_PATH" class="constant">
+                <h3 class="">FONTS_PATH</h3>
+                <pre class="signature">FONTS_PATH</pre>
+                <p><em>FONTS_PATH 字体路径，默认RPF_PATH.&#039;fonts/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SYS_CONF" name="constant_SYS_CONF" class="anchor"></a>
+            <article id="constant_SYS_CONF" class="constant">
+                <h3 class="">SYS_CONF</h3>
+                <pre class="signature">SYS_CONF</pre>
+                <p><em>SYS_CONF 系统配置信息路径，默认RPF_PATH.&#039;conf/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SYS_FUNC" name="constant_SYS_FUNC" class="anchor"></a>
+            <article id="constant_SYS_FUNC" class="constant">
+                <h3 class="">SYS_FUNC</h3>
+                <pre class="signature">SYS_FUNC</pre>
+                <p><em>SYS_FUNC 系统函数目录路径，默认RPF_PATH.&#039;functions/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SYS_KERNEL" name="constant_SYS_KERNEL" class="anchor"></a>
+            <article id="constant_SYS_KERNEL" class="constant">
+                <h3 class="">SYS_KERNEL</h3>
+                <pre class="signature">SYS_KERNEL</pre>
+                <p><em>SYS_KERNEL 系统核心代码目录路径，默认RPF_PATH.&#039;kernel/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SYS_LANG" name="constant_SYS_LANG" class="anchor"></a>
+            <article id="constant_SYS_LANG" class="constant">
+                <h3 class="">SYS_LANG</h3>
+                <pre class="signature">SYS_LANG</pre>
+                <p><em>SYS_LANG 系统语言包路径，默认RPF_PATH.&#039;lang/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SYS_LIB" name="constant_SYS_LIB" class="anchor"></a>
+            <article id="constant_SYS_LIB" class="constant">
+                <h3 class="">SYS_LIB</h3>
+                <pre class="signature">SYS_LIB</pre>
+                <p><em>SYS_LIB 系统类库代码路径，默认RPF_PATH.&#039;lib/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SYS_CORE" name="constant_SYS_CORE" class="anchor"></a>
+            <article id="constant_SYS_CORE" class="constant">
+                <h3 class="">SYS_CORE</h3>
+                <pre class="signature">SYS_CORE</pre>
+                <p><em>SYS_CORE 系统核心类库代码,框架自己定义的类库代码路径，默认SYS_LIB.&#039;core/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SYS_VENDOR" name="constant_SYS_VENDOR" class="anchor"></a>
+            <article id="constant_SYS_VENDOR" class="constant">
+                <h3 class="">SYS_VENDOR</h3>
+                <pre class="signature">SYS_VENDOR</pre>
+                <p><em>SYS_VENDOR 系统框架引入的第三方类库代码路径，默认SYS_LIB.&#039;vendor/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_OPEN_TOKEN" name="constant_OPEN_TOKEN" class="anchor"></a>
+            <article id="constant_OPEN_TOKEN" class="constant">
+                <h3 class="">OPEN_TOKEN</h3>
+                <pre class="signature">OPEN_TOKEN</pre>
+                <p><em>OPEN_TOKEN 是否开启token，默认true</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_TOKEN_NAME" name="constant_TOKEN_NAME" class="anchor"></a>
+            <article id="constant_TOKEN_NAME" class="constant">
+                <h3 class="">TOKEN_NAME</h3>
+                <pre class="signature">TOKEN_NAME</pre>
+                <p><em>TOKEN_NAME token名称，即hidden的input的name值</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_CHARSET" name="constant_EMAIL_CHARSET" class="anchor"></a>
+            <article id="constant_EMAIL_CHARSET" class="constant">
+                <h3 class="">EMAIL_CHARSET</h3>
+                <pre class="signature">EMAIL_CHARSET</pre>
+                <p><em>EMAIL_CHARSET 邮件发送编码，默认utf-8</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_DEBUG" name="constant_EMAIL_DEBUG" class="anchor"></a>
+            <article id="constant_EMAIL_DEBUG" class="constant">
+                <h3 class="">EMAIL_DEBUG</h3>
+                <pre class="signature">EMAIL_DEBUG</pre>
+                <p><em>EMAIL_DEBUG 是否开启邮件debug模式，1:errors and messages, 2:messages only, 0:no debug</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_SMTP" name="constant_EMAIL_SMTP" class="anchor"></a>
+            <article id="constant_EMAIL_SMTP" class="constant">
+                <h3 class="">EMAIL_SMTP</h3>
+                <pre class="signature">EMAIL_SMTP</pre>
+                <p><em>EMAIL_SMTP 是否启用SMTP认证,默认true</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_SSL" name="constant_EMAIL_SSL" class="anchor"></a>
+            <article id="constant_EMAIL_SSL" class="constant">
+                <h3 class="">EMAIL_SSL</h3>
+                <pre class="signature">EMAIL_SSL</pre>
+                <p><em>EMAIL_SSL 是否启用安全协议证书,默认false</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_HOST" name="constant_EMAIL_HOST" class="anchor"></a>
+            <article id="constant_EMAIL_HOST" class="constant">
+                <h3 class="">EMAIL_HOST</h3>
+                <pre class="signature">EMAIL_HOST</pre>
+                <p><em>EMAIL_HOST 提供SMTP服务的服务器地址,默认smtp.qq.com</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_PORT" name="constant_EMAIL_PORT" class="anchor"></a>
+            <article id="constant_EMAIL_PORT" class="constant">
+                <h3 class="">EMAIL_PORT</h3>
+                <pre class="signature">EMAIL_PORT</pre>
+                <p><em>EMAIL_PORT smtp服务器端口,默认25</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_USER" name="constant_EMAIL_USER" class="anchor"></a>
+            <article id="constant_EMAIL_USER" class="constant">
+                <h3 class="">EMAIL_USER</h3>
+                <pre class="signature">EMAIL_USER</pre>
+                <p><em>EMAIL_USER smtp服务器登录用户名,默认xxxx@qq.com</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_PWD" name="constant_EMAIL_PWD" class="anchor"></a>
+            <article id="constant_EMAIL_PWD" class="constant">
+                <h3 class="">EMAIL_PWD</h3>
+                <pre class="signature">EMAIL_PWD</pre>
+                <p><em>EMAIL_PWD smtp服务器登录密码,默认xxxx</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_EMAIL_NAME" name="constant_EMAIL_NAME" class="anchor"></a>
+            <article id="constant_EMAIL_NAME" class="constant">
+                <h3 class="">EMAIL_NAME</h3>
+                <pre class="signature">EMAIL_NAME</pre>
+                <p><em>EMAIL_NAME 显示的发送者名称,默认admin</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_COMMON_PATH" name="constant_COMMON_PATH" class="anchor"></a>
+            <article id="constant_COMMON_PATH" class="constant">
+                <h3 class="">COMMON_PATH</h3>
+                <pre class="signature">COMMON_PATH</pre>
+                <p><em>COMMON_PATH 应用公共目录,默认APP_PATH.&#039;common/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_CONF" name="constant_APP_CONF" class="anchor"></a>
+            <article id="constant_APP_CONF" class="constant">
+                <h3 class="">APP_CONF</h3>
+                <pre class="signature">APP_CONF</pre>
+                <p><em>APP_CONF 应用配置目录,默认COMMON_PATH.&#039;conf/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_LANG" name="constant_APP_LANG" class="anchor"></a>
+            <article id="constant_APP_LANG" class="constant">
+                <h3 class="">APP_LANG</h3>
+                <pre class="signature">APP_LANG</pre>
+                <p><em>APP_LANG 应用配置目录,默认COMMON_PATH.&#039;lang/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_FUNC" name="constant_APP_FUNC" class="anchor"></a>
+            <article id="constant_APP_FUNC" class="constant">
+                <h3 class="">APP_FUNC</h3>
+                <pre class="signature">APP_FUNC</pre>
+                <p><em>APP_FUNC 应用函数目录,默认COMMON_PATH.&#039;func/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_HTML_PATH" name="constant_HTML_PATH" class="anchor"></a>
+            <article id="constant_HTML_PATH" class="constant">
+                <h3 class="">HTML_PATH</h3>
+                <pre class="signature">HTML_PATH</pre>
+                <p><em>HTML_PATH 应用静态目录,默认APP_PATH.&#039;html/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_RUNTIME_PATH" name="constant_RUNTIME_PATH" class="anchor"></a>
+            <article id="constant_RUNTIME_PATH" class="constant">
+                <h3 class="">RUNTIME_PATH</h3>
+                <pre class="signature">RUNTIME_PATH</pre>
+                <p><em>RUNTIME_PATH 系统运行时目录,默认APP_PATH.&#039;runtime/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_LOG_PATH" name="constant_LOG_PATH" class="anchor"></a>
+            <article id="constant_LOG_PATH" class="constant">
+                <h3 class="">LOG_PATH</h3>
+                <pre class="signature">LOG_PATH</pre>
+                <p><em>LOG_PATH 应用日志目录,默认RUNTIME_PATH.&#039;logs/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_TEMP_PATH" name="constant_TEMP_PATH" class="anchor"></a>
+            <article id="constant_TEMP_PATH" class="constant">
+                <h3 class="">TEMP_PATH</h3>
+                <pre class="signature">TEMP_PATH</pre>
+                <p><em>TEMP_PATH 应用缓存目录,默认RUNTIME_PATH.&#039;temp/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DATA_PATH" name="constant_DATA_PATH" class="anchor"></a>
+            <article id="constant_DATA_PATH" class="constant">
+                <h3 class="">DATA_PATH</h3>
+                <pre class="signature">DATA_PATH</pre>
+                <p><em>DATA_PATH 应用数据目录,默认RUNTIME_PATH.&#039;data/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CACHE_PATH" name="constant_CACHE_PATH" class="anchor"></a>
+            <article id="constant_CACHE_PATH" class="constant">
+                <h3 class="">CACHE_PATH</h3>
+                <pre class="signature">CACHE_PATH</pre>
+                <p><em>CACHE_PATH 应用模板缓存目录,默认RUNTIME_PATH.&#039;cache/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CONF_EXT" name="constant_CONF_EXT" class="anchor"></a>
+            <article id="constant_CONF_EXT" class="constant">
+                <h3 class="">CONF_EXT</h3>
+                <pre class="signature">CONF_EXT</pre>
+                <p><em>CONF_EXT 配置文件后缀,默认.conf.php</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CLS_EXT" name="constant_CLS_EXT" class="anchor"></a>
+            <article id="constant_CLS_EXT" class="constant">
+                <h3 class="">CLS_EXT</h3>
+                <pre class="signature">CLS_EXT</pre>
+                <p><em>CLS_EXT 类库的扩展名,默认.class.php</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CLS_M_EXT" name="constant_CLS_M_EXT" class="anchor"></a>
+            <article id="constant_CLS_M_EXT" class="constant">
+                <h3 class="">CLS_M_EXT</h3>
+                <pre class="signature">CLS_M_EXT</pre>
+                <p><em>CLS_M_EXT model类库的扩展名,默认.model.class.php</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CLS_C_EXT" name="constant_CLS_C_EXT" class="anchor"></a>
+            <article id="constant_CLS_C_EXT" class="constant">
+                <h3 class="">CLS_C_EXT</h3>
+                <pre class="signature">CLS_C_EXT</pre>
+                <p><em>CLS_C_EXT controller类库的扩展名,默认.controller.class.php</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_CLS_A_EXT" name="constant_CLS_A_EXT" class="anchor"></a>
+            <article id="constant_CLS_A_EXT" class="constant">
+                <h3 class="">CLS_A_EXT</h3>
+                <pre class="signature">CLS_A_EXT</pre>
+                <p><em>CLS_A_EXT action类库的扩展名,默认.action.class.php</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_FUNC_EXT" name="constant_FUNC_EXT" class="anchor"></a>
+            <article id="constant_FUNC_EXT" class="constant">
+                <h3 class="">FUNC_EXT</h3>
+                <pre class="signature">FUNC_EXT</pre>
+                <p><em>FUNC_EXT 函数定义文件的扩展名,默认.func.php</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_M" name="constant_APP_M" class="anchor"></a>
+            <article id="constant_APP_M" class="constant">
+                <h3 class="">APP_M</h3>
+                <pre class="signature">APP_M</pre>
+                <p><em>APP_M 应用model目录,默认APP_PATH.&#039;model/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_V" name="constant_APP_V" class="anchor"></a>
+            <article id="constant_APP_V" class="constant">
+                <h3 class="">APP_V</h3>
+                <pre class="signature">APP_V</pre>
+                <p><em>APP_V 应用template目录,默认APP_PATH.&#039;template/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_C" name="constant_APP_C" class="anchor"></a>
+            <article id="constant_APP_C" class="constant">
+                <h3 class="">APP_C</h3>
+                <pre class="signature">APP_C</pre>
+                <p><em>APP_C 应用controller目录,默认APP_PATH.&#039;controller/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_A" name="constant_APP_A" class="anchor"></a>
+            <article id="constant_APP_A" class="constant">
+                <h3 class="">APP_A</h3>
+                <pre class="signature">APP_A</pre>
+                <p><em>APP_A 应用action目录,默认APP_PATH.&#039;action/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_P" name="constant_APP_P" class="anchor"></a>
+            <article id="constant_APP_P" class="constant">
+                <h3 class="">APP_P</h3>
+                <pre class="signature">APP_P</pre>
+                <p><em>APP_P 应用公共文件如js/css/image等存放目录,默认APP_PATH.&#039;public/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_APP_F" name="constant_APP_F" class="anchor"></a>
+            <article id="constant_APP_F" class="constant">
+                <h3 class="">APP_F</h3>
+                <pre class="signature">APP_F</pre>
+                <p><em>APP_F 应用上传文件存放目录，可以根据需要创建images/files等文件夹,默认APP_PATH.&#039;uploads/&#039;</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_MAGIC_QUOTES_GPC" name="constant_MAGIC_QUOTES_GPC" class="anchor"></a>
+            <article id="constant_MAGIC_QUOTES_GPC" class="constant">
+                <h3 class="">MAGIC_QUOTES_GPC</h3>
+                <pre class="signature">MAGIC_QUOTES_GPC</pre>
+                <p><em>MAGIC_QUOTES_GPC GPC是否开启的判断常量，true开启，false，关闭</em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_SITE_URL" name="constant_SITE_URL" class="anchor"></a>
+            <article id="constant_SITE_URL" class="constant">
+                <h3 class="">SITE_URL</h3>
+                <pre class="signature">SITE_URL</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">framework/init.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                            <p>Rain PHP Frame(RPF)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/framework/init.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/RedBeanPHP.html">\RedBeanPHP</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on July 24th, 2014 at 11:00.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,56 +1,103 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
+/**
+* 系统配置文件
+* @filename main.conf.php
+* @touch date 2014-07-23 16:13:43
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 
 defined('RPF_PATH') or exit();
 
-//系统默认的配置文件，如果需要覆盖，请在对应的应用程序的配置目录APP_CONF下进行改写，请勿修改此文件
 return array(
-			//URL模式可选值:URL_COMMON/URL_PATHINFO/URL_REWRITE/URL_COMPAT
-			/* Demo
-			 * URL_COMPAT   like this: http://localhost/index.php?s=index/Index/index/un/rain/pw/123456
-			 * URL_COMMON   like this: http://localhost/index.php?app=index&con=Index&act=index&un=rain&pw=123456
-			 * URL_PATHINFO like this: http://localhost/index.php/index/Index/index/un/rain/pw/123456
-			 * URL_REWRITE  like this: http://localhost/index/Index/index/un/rain/pw/123456
+			/**
+			 *  URL_MODEL :  URL模式可选值:URL_COMMON / URL_PATHINFO / URL_REWRITE / URL_COMPAT，默认使用兼容模式,即URL_COMPAT
+			 *  URL_COMPAT   like this: http://localhost/index.php?s=index/Index/index/un/rain/pw/123456
+			 *  URL_COMMON   like this: http://localhost/index.php?app=index&con=Index&act=index&un=rain&pw=123456
+			 *  URL_PATHINFO like this: http://localhost/index.php/index/Index/index/un/rain/pw/123456
+			 *  URL_REWRITE  like this: http://localhost/index/Index/index/un/rain/pw/123456
 			 */
-			'URL_MODEL' => URL_COMPAT,       // URL模式，默认使用兼容模式
-			'LANG' => 'zh',                  // 默认的语言包选择中文
-			'M_NAME' => 'Model',             // 默认的model class的名称后缀
-			'V_NAME' => '.html',             // 默认的view template的文件扩展名
-			'C_NAME' => 'Controller',        // 默认的controller class的名称后缀
-			'A_NAME' => 'Action',            // 默认的action class的名称后缀
+			'URL_MODEL' => URL_COMPAT,
+			/**
+			 *  LANG : 可选值为en或zh，默认的语言包选择中文
+			 */
+			'LANG' => 'zh',
+			/**
+			 *  M_NAME : model class的名称后缀,默认值Model
+			 */
+			'M_NAME' => 'Model',
+			/**
+			 *  V_NAME : 默认的view template的文件扩展名,默认值.html
+			 */
+			'V_NAME' => '.html',
+			/**
+			 *  C_NAME : 默认的controller class的名称后缀,默认值Controller
+			 */
+			'C_NAME' => 'Controller',
+			/**
+			 *  A_NAME : 默认的action class的名称后缀,默认值Action
+			 */
+			'A_NAME' => 'Action',
 
-			//session 相关的配置
-			'S_NAME' => null, //session名称
-			'S_ID'   => null, //session的ID
-			'S_EXPIRE' => 180, //session的有效期，单位：分钟，默认180分钟
-			//end
+			/**
+			 *  S_NAME : session名称,默认是：null，系统使用默认session名称
+			 */
+			'S_NAME' => null,
+			/**
+			 *  S_ID : session的ID,默认是：null，系统使用默认session的ID
+			 */
+			'S_ID'   => null,
+			/**
+			 *  S_EXPIRE : session的有效期，单位：分钟，默认180分钟
+			 */
+			'S_EXPIRE' => 180,
 
-			//数据库的配置信息开始
-			'DB_DSN' => 'mysql:host=127.0.0.1;dbname=test;charset=utf8',            //数据库PDO方式DSN配置
-			'DB_UN' => 'root',                                                      //数据库链接用户名
-			'DB_PW' => 'rain717',                                                   //数据库链接密码
-			'DB_PRE' => 'tb_',                                                      //数据库表前缀
-			//end
+			/**
+			 *  DB_DSN : 数据库PDO方式DSN配置，默认:mysql:host=127.0.0.1;dbname=test;charset=utf8
+			 */
+			'DB_DSN' => 'mysql:host=127.0.0.1;dbname=test;charset=utf8',
+			/**
+			 *  DB_UN : 数据库链接用户名，默认:root
+			 */
+			'DB_UN' => 'root',
+			/**
+			 *  DB_PW : 数据库链接密码，默认:rain717
+			 */
+			'DB_PW' => 'rain717',
+			/**
+			 *  DB_PRE : 数据库表前缀，默认:tb_
+			 */
+			'DB_PRE' => 'tb_',
 
-			'MEM_HOST' => '127.0.0.1',   //memcache的配置主机IP
-			'MEM_PORT' => '11211',       //memcache的配置端口
-			'MEM_TIMEOUT' => '1',        //memcache的配置超时时间
+			/**
+			 *  MEM_HOST : memcache的配置主机IP，默认:127.0.0.1
+			 */
+			'MEM_HOST' => '127.0.0.1',
+			/**
+			 *  MEM_PORT : memcache的配置端口，默认:11211
+			 */
+			'MEM_PORT' => '11211',
+			/**
+			 *  MEM_TIMEOUT : memcache的配置超时时间，默认:1
+			 */
+			'MEM_TIMEOUT' => '1',
 
-			//对于未开启memcache扩展的，虽然设置DB_CACHE_TYPE为m，但是程序仍然选择file cache
-			//如果DB_CACHE_TYPE的值为false，则不采用缓存机制
+			/**
+			 *  DB_CACHE_TYPE : 可选值m或者f，如果DB_CACHE_TYPE的值为false，则不采用缓存机制,对于未开启memcache扩展的，虽然设置DB_CACHE_TYPE为m，但是程序仍然选择file cache，默认:m
+			 */
 			'DB_CACHE_TYPE' => 'm',       //数据库查询的缓存类型，默认m代表memcache，f代表文件缓存
-			//对于后台的任何数据库操作不用缓存机制,都是实时生效
+			/**
+			 *  DB_CACHE_EXPIRE : 数据库查询的缓存时间,单位：秒，对于后台的任何数据库操作不用缓存机制,都是实时生效，默认:7200
+			 */
 			'DB_CACHE_EXPIRE' => '7200',  //数据库查询的缓存时间，默认缓存7200秒即2小时
-
-			'ADMIN_APP_NAME' => 'Admin',  //后台管理模块的APP_NAME
-
-			'SESSION_SAVE_TYPE' => 'm',  //m值表示保存在memcache，f值表示session是文件保存方式
+			/**
+			 *  ADMIN_APP_NAME : 后台管理模块的APP_NAME，默认:Admin
+			 */
+			'ADMIN_APP_NAME' => 'Admin',
+			/**
+			 *  SESSION_SAVE_TYPE : session的保存方式，m值表示保存在memcache，f值表示session是文件保存方式，默认:m
+			 */
+			'SESSION_SAVE_TYPE' => 'm',
 );

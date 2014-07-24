@@ -1,24 +1,52 @@
 <?php
-// +----------------------------------------------------------------------
-// | RPF  [Rain PHP Framework ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2014 http://www.94cto.com All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Rain <563268276@qq.com>
-// +----------------------------------------------------------------------
+/**
+* 文件上传类库 
+* @filename Upload.class.php
+* @touch date 2014-07-24 10:51:28
+* @author Rain<563268276@qq.com>
+* @copyright 2014 http://www.94cto.com/
+* @license http://www.apache.org/licenses/LICENSE-2.0   LICENSE-2.0
+* @package Rain PHP Frame(RPF)
+*/
 
 defined('RPF_PATH') or exit();
 
+/**
+* 文件上传类库，Upload
+*/
 class Upload 
 {
+	/**
+	* 文件上传存储位置，默认APP_F
+	*/
 	private $path = APP_F;
+	
+	/**
+	* 文件类型，默认images
+	*/
 	private $type = 'images';
+
+	/**
+	* 允许上传的文件的扩展名,默认array('jpg', 'gif', 'png')
+	*/
 	private $ext = array('jpg', 'gif', 'png');
+
+	/**
+	* 上传的文件的input表单的name值，默认file
+	*/
 	private $name = 'file';
+
+	/**
+	* 上传的文件的路径
+	*/
 	private $file_path = null;
 
+	/**
+	* 上传文件的构造方法
+	* @param $type string 上传文件类型，默认images代表图片
+	* @param $extArr array 上传文件扩展名的数组，默认array('jpg', 'gif', 'png')
+	* @return void
+	*/
 	public function __construct($type = 'images', $extArr = array('jpg', 'gif', 'png'))
 	{
 		$dir = $this->path.$type.'/'.date('Ymd').'/';
@@ -29,6 +57,11 @@ class Upload
 		$this->file_path = $dir;
 	}
 
+	/**
+	* 上传文件的构造方法
+	* @param $name string 上传的文件的input表单的名称
+	* @return string 返回json格式的字符串
+	*/
 	public function upload($name = 'file')
 	{
 		$this->name = $name;
