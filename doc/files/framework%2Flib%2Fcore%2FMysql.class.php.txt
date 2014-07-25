@@ -124,7 +124,7 @@ class Mysql
 		if (!is_null($this->pdo))
 			return $this->pdo;
 		try {
-			$this->pdo = new PDO($this->conf['dsn'], $this->conf['un'], $this->conf['pw'], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_EMULATE_PREPARES => false));
+			$this->pdo = new PDO($this->conf['dsn'], $this->conf['un'], $this->conf['pw'], array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', PDO::ATTR_EMULATE_PREPARES => false));
 		} catch (PDOException $e) {
 			if (DEBUG)
 				echo $e->getMessage(); 

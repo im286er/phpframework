@@ -35,12 +35,28 @@ class Demo
 					dirname($page_file),
 		);
 		mkdirs($dirArr);
+
+		$model_content = <<<EOT
+<?php
+/**
+*  自动生成的代码
+*  @author: None
+*/
+class TestModel extends Model
+{
+	public function create()
+	{
+		\$this->tb('user')->add(array('un' => 'rain', 'pw' => '123456'));
+	}
+}
+EOT;
+
 		$con_content = <<<EOT
 <?php
 /**
- *  自动生成的代码
- *  author: None
- **/
+*  自动生成的代码
+*  @author: None
+*/
 class $con_name extends Controller
 {
 	//执行相关的初始化操作
@@ -54,9 +70,9 @@ EOT;
 		$act_content = <<<EOT
 <?php
 /**
- *  自动生成的代码
- *  author: None
- **/
+*  自动生成的代码
+*  @author: None
+*/
 class $act_name extends Action
 {
 	//执行相关的初始化操作
@@ -335,8 +351,11 @@ EOT;
 	</body>
 </html>
 EOT;
+$model_file = APP_M.'Test'.CLS_M_EXT;
 $page_content = str_replace('VERSION', RPF_VERSION, $page_content);
 
+		if (!is_file($model_file))
+			file_put_contents($model_file, $model_content);
 
 		if (!is_file($con_file))
 			file_put_contents($con_file, $con_content);
