@@ -232,7 +232,7 @@ class Kernel
 
 		if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != $_SERVER['PHP_SELF'])
 		{
-			$tmpArr = array_values(array_filter(explode('/', str_replace('=', '/', str_replace('&', '/', trim($_SERVER['REQUEST_URI']))))));
+			$tmpArr = array_values(array_filter(explode('/', str_replace('?', '/',  str_replace('=', '/', str_replace('&', '/', trim($_SERVER['REQUEST_URI'])))))));
 			if (count($tmpArr) < 3)
 			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
 
@@ -402,7 +402,7 @@ class Kernel
 
 		if (isset($_SERVER['PATH_INFO']))
 		{
-			$tmpArr = array_values(array_filter(explode('/', str_replace('=', '/', str_replace('&', '/', trim($_SERVER['PATH_INFO']))))));
+			$tmpArr = array_values(array_filter(explode('/',str_replace('?', '/',  str_replace('=', '/', str_replace('&', '/', trim($_SERVER['PATH_INFO'])))))));
 			if (count($tmpArr) < 3)
 			  die(self::$_lang['_SYS_LANG_URL_PARAMETER_ERROR']);
 
